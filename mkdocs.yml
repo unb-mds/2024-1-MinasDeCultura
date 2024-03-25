@@ -1,0 +1,4 @@
+site_name: Squad 07
+theme:
+  #name: dracula
+  name: material
