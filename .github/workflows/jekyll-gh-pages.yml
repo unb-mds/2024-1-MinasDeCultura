@@ -1,7 +1,7 @@
 name: Deploy Documentation Page
 on:
   push:
-    branches: ["docs"]
+    branches: ["main"]
 
   workflow_dispatch:
 
