@@ -2,6 +2,15 @@
 
 O padrão de escrita de mensagens de commit deve seguir uma estrutura específica parar facilitar a geração de changelogs automatizados, melhorar a comunicação entre desenvolvedores e ajudar a mander o histórico do repositório organizado. Esse padrão está alinhado com o semver (semantic versioning), descrevendo recursos (features), correções (fixes) e alterações (changes) efetuadas nos commits.
 
+# Exemplo de Commit
+```
+feat(usuario): criação da tela de login
+- criação da tela
+- validação do e-mail
+- validação da senha
+Closes #123
+```
+
 # Formato da mensagem do commit
 
 Cada mensagem de commit deve apresentar um cabeçalho, um corpo e um rodapé. 
@@ -50,16 +59,6 @@ O corpo é a parte da mensagem de commit que fornece detalhes adicionais sobre a
 ## RODAPÉ
 
 O rodapé também é uma parte opcional da mensagem de commit que pode ser usado para fornecer informações adicionais sobre as alterações feitas no código.O Rodapé do commit pode ser usado para incluir informações como números de ticket de suporte, links para relatórios de bugs ou outros recursos relacionados
-
-# EXEMPLO DE COMMIT 
-```
-feat(usuario): criação da tela de login
-- criação da tela
-- validação do e-mail
-- validação da senha
-Closes #123
-```
-
 
 
 
