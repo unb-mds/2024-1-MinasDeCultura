@@ -1,4 +1,4 @@
-# 2024-1-Squad07
+# Início
 
 ## Projeto de Análise de Licitações Culturais
 
@@ -14,16 +14,14 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, tipo de evento, valor, entre outros, facilitando a busca por informações específicas.
 - **Notificações:** Implementação de um sistema de notificações para informar os usuários sobre novas dispensas de licitações adicionadas ao sistema, mantendo-os atualizados sobre as últimas informações disponíveis.
 
-
 ## Tecnologias Utilizadas
 
-- **Linguagem de Programação:** (A definir)
-- **Framework Web:** (A definir)
+- **Linguagem de Programação:** _[Python](https://www.python.org/)_, _[JavaScript](https://www.javascript.com/)_:
+
+- **Framework Web:** _[Next.js](https://nextjs.org/)_
 - **Banco de Dados:** (A definir)
-- **Ferramenta de Coleta de Dados:** Querido Diário API
-- **Ferramentas Adicionais:** HTML, CSS, JavaScript, Regex, CRUD
-
-
+- **Ferramenta de Coleta de Dados:** _[Scrapy](https://scrapy.org/)_
+- **Ferramentas Adicionais:** _[Docker](https://www.docker.com/)_, _[Node.js](https://nodejs.org/en)_, _[Selenium](https://www.selenium.dev/)_ _[Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)_, _[Selenium](https://www.selenium.dev/)_, _[Prisma](https://www.prisma.io/)_
 
 ## Desenvolvedores
 
@@ -75,4 +73,3 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
         </td>
 </table>
 </center>
-
