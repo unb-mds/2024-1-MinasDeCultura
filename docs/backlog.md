@@ -31,3 +31,9 @@
 | RNF09  | O sistema deve ser compatível com diferentes navegadores e sistemas operacionais                   | US7|
 | RNF10  | O sistema deve ser robusto e escalável para lidar com um grande volume de usuários e dados         | US9, US13, US14, US15, US16, US17|
 | RNF11  | A interface do sistema deve ser responsiva, adaptando-se a diferentes tamanhos de tela             | US7|
+
+## Histórico de versão
+
+| Versão |    Data    |                    Descrição                    |     Autor      |
+|:------:|:----------:|:-----------------------------------------------:|:--------------:|
+|  2.0   | 02/04/2024 | Adicionando histórico de versão                 | Gabriel Scheidt|

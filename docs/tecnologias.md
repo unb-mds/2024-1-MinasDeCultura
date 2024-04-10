@@ -56,3 +56,9 @@ Uma parte importante da nossa aplicação é aonde vamos publicar. Como não tem
 - **Banco de Dados:** Postgres ou MongoDB (a depende do caso de uso).
 - **Ferramenta de Coleta de Dados:** Framework Scrapy com auxilio das bibliotecas Beautiful Soup e Selenium.
 - **Tecnologias Adicionais:** Docker, Express, FastAPI, Prisma, Nodemailer, React e Tailwind.
+
+## Histórico de versão
+
+| Versão |    Data    |                    Descrição                    |     Autor      |
+|:------:|:----------:|:-----------------------------------------------:|:--------------:|
+|  2.0   | 02/04/2024 | Adicionando histórico de versão                 | Gabriel Scheidt|
