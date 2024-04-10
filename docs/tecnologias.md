@@ -61,4 +61,4 @@ Uma parte importante da nossa aplicação é aonde vamos publicar. Como não tem
 
 | Versão |    Data    |                    Descrição                    |     Autor      |
 |:------:|:----------:|:-----------------------------------------------:|:--------------:|
-|  2.0   | 02/04/2024 | Adicionando histórico de versão                 | Gabriel Scheidt|
+|  1.0   | 02/04/2024 | Adicionando histórico de versão                 | Gabriel Scheidt|

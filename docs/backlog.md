@@ -1,3 +1,25 @@
+# Histórias de usuário
+| ID  | Eu, como        | Quero / Preciso / Devo / Gostaria de                                | Para                                                                                 | Must/Could |
+|-----|-------------|--------------------------------------|-------------------------------------------------------------------------------------------|------------|
+| US1 | Usuário     | Logar na plataforma                  | Manter os cadastros salvos                                                                | Could      |
+| US2 | Usuário     | Filtrar entretenimento               | Ter uma ideia dos gastos de entretenimento                                                | Could       |
+| US3 | Usuário     | Ter um dashboard informativo        | Facilitar a consulta e visualização dos dados de cada mês                                 | Must       |
+| US4 | Usuário     | Receber notícias                     | Manter-se atualizado                                                                      | Could      |
+| US5 | Usuário     | Filtrar por município e data        | Ter informações específicas de interesse                                                  | Must       |
+| US6 | Usuário     | Selecionar modo noturno              | Aumentar acessibilidade                                                                   | Must       |
+| US7 | Usuário     | Acessar via celular                  | Disponibilidade em várias plataformas                                                     | Must       |
+| US8 | Usuário     | Modo alto contraste                  | Aumentar acessibilidade                                                                   | Must      |
+| US9 | Servidor    | Disponibilidade 24 horas             | Estar sempre disponível                                                                   | Must       |
+| US10| Usuário     | Acessar histórico de buscas          | Revisar pesquisas anteriores                                                              | Could      |
+| US11| Usuário     | Receber recomendações de pesquisa   | Facilitar acesso a conteúdo                                                               | Could      |
+| US12| Usuário     | Baixar conteúdo do dashboard        | Acesso offline                                                                            | Must     |
+| US13| Gestor      | Acesso a planilhas de dados          | Tomar decisões assertivas                                                                 | Must       |
+| US14| Usuário     | Consultar gastos com eventos culturais| Entender o apoio do governo à cultura na região                                           | Must       |
+| US15| Usuário     | Acessar dados históricos de investimento| Analisar tendências e elaborar recomendações                                             | Must     |
+| US16| Usuário     | Entender projetos financiados pelo estado| Elaborar propostas alinhadas com as prioridades do governo                               | Must      |
+| US17| Usuário     | Saber como solicitar apoio financeiro| Desenvolver e apresentar projetos para um público mais amplo                                | Could      |
+
+
 # Requisitos
 
 ## Requisitos Funcionais
@@ -36,4 +58,5 @@
 
 | Versão |    Data    |                    Descrição                    |     Autor      |
 |:------:|:----------:|:-----------------------------------------------:|:--------------:|
-|  2.0   | 02/04/2024 | Adicionando histórico de versão                 | Gabriel Scheidt|
+|  1.0   | 02/04/2024 | Adicionando história de usuários                | Gabriel Scheidt|
+|  1.0   | 02/04/2024 | Adicionando histórico de versão                 | Gabriel Scheidt|
