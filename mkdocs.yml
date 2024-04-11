@@ -1,4 +1,47 @@
 site_name: Squad 07
+extra_css:
+  - assets/stylesheets/extra.css
+
 theme:
-  #name: dracula
+  favicon: assets/images/favicon.png
+  logo: assets/images/favicon.png
   name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  palette: 
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+      primary: red
+      accent: purple
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: red
+      accent: lime
+  markdown_extensions:
+    - pymdownx.highlight:
+        anchor_linenums:true
+    - pymdownx.inlinehilite
+    - pydownx.snippets
+    - admonition
+    - pymdownx.arithmatex:
+        generic: true
+    - footnotes
+    - pymdownx.details
+    - pymdownx.superfences
+    - pymdownx.mark
+    - attr_list
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg

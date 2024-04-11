@@ -1,4 +1,5 @@
 # Histórias de usuário
+
 | ID  | Eu, como        | Quero / Preciso / Devo / Gostaria de                                | Para                                                                                 | Must/Could |
 |-----|-------------|--------------------------------------|-------------------------------------------------------------------------------------------|------------|
 | US1 | Usuário     | Logar na plataforma                  | Manter os cadastros salvos                                                                | Could      |
@@ -18,7 +19,6 @@
 | US15| Usuário     | Acessar dados históricos de investimento| Analisar tendências e elaborar recomendações                                             | Must     |
 | US16| Usuário     | Entender projetos financiados pelo estado| Elaborar propostas alinhadas com as prioridades do governo                               | Must      |
 | US17| Usuário     | Saber como solicitar apoio financeiro| Desenvolver e apresentar projetos para um público mais amplo                                | Could      |
-
 
 # Requisitos
 
