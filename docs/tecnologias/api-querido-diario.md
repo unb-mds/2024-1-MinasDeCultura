@@ -37,7 +37,7 @@
 
 ### Exemplos de requisição
 
-`GET: [https://queridodiario.ok.org.br/api/cities](https://queridodiario.ok.org.br/api/cities?city_name=Ariquemes)`
+`GET:https://queridodiario.ok.org.br/api/cities?city_name=Ariquemes`
 
 **Response**
 
@@ -64,7 +64,7 @@
 }
 ```
 
-`GET: [https://queridodiario.ok.org.br/api/cities?city_name=Ariquemes](https://queridodiario.ok.org.br/api/cities?city_name=Ariquemes)`
+`GET: https://queridodiario.ok.org.br/api/cities?city_name=Ariquemes`
 
 **Response**
 
@@ -126,7 +126,7 @@
 
 Para exemplificar uma consulta por um termo na API do Querido Diário, primeiro vamos fazer uma busca simples, apenas um termo e uma cidade.
 
-`GET:[https://queridodiario.ok.org.br/api/gazettes?territory_ids=3507753&&querystring=Cultura](https://queridodiario.ok.org.br/api/gazettes?territory_ids=3507753&&querystring=Cultura)`
+`GET: https://queridodiario.ok.org.br/api/gazettes?territory_ids=3507753&&querystring=Cultura`
 
 ### Como foi construído essa requisição?
 
@@ -326,3 +326,6 @@ No geral a API é de fácil entendimento, desde que o desenvolvedor ou quem irá
 | Versão |    Data    |                        Descrição                         |      Autor      |
 | :----: | :--------: | :------------------------------------------------------: | :-------------: |
 |  1.0   | 14/04/2024 | Resumo com exemplo da API do Querido Diário para o Squad | Rafael Carvalho |
+| Versão |    Data    |                        Descrição                         |      Autor      |
+| :----: | :--------: | :------------------------------------------------------: | :-------------: |
+|  1.1   | 17/04/2024 |        Correção dos End-Points do Querido Diário         | Rafael Carvalho |
