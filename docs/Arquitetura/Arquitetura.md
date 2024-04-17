@@ -1,6 +1,5 @@
 #Arquitetura
-Apresentamos a versão inicial da nossa arquitetura, combinando tecnologias chave com as funcionalidades essenciais do nosso serviço. Com um design intuitivo  e baseado na própria arquitetura do Querido Diário.
-
+Apresentamos a versão inicial da nossa arquitetura, combinando tecnologias chave com as funcionalidades essenciais do nosso serviço. Com um design intuitivo e baseado na própria arquitetura do Querido Diário.
 
 <iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVKVdk0Cw=/?moveToViewport=-1282,-998,3354,1540&embedId=3332397580" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
 
@@ -386,10 +385,10 @@ No end-point `/api/gazettes` temos diversas outras possibilidades de query strin
 - offset → integer
 - sort_by → string (relevance, descending_date, ascending_date)
 
-No geral a API é de fácil entendimento, desde que o desenvolvedor ou quem irá construir as requisições tenha um conhecimento breve em requisições HTTP. Caso tenha alguma dúvida, basta responder a [issue](https://github.com/unb-mds/2024-1-Squad07/issues/16) referente a esta página.
+No geral a API é de fácil entendimento, desde que o desenvolvedor ou quem irá construir as requisições tenha um conhecimento breve em requisições HTTP. Caso tenha alguma dúvida, basta responder a [issue](https://github.com/unb-mds/2024-1-MinasDeCultura/issues/16) referente a esta página.
 
-
-| Versão |    Data    |                    Descrição                    |     Autor      |
-|:------:|:----------:|:-----------------------------------------------:|:--------------:|
-|  2.0   | 17/04/2024 | Crição do esboço de arquitetura                 | Gabriel Scheidt|
-|  1.0   | 14/04/2024 | Crição do esboço de arquitetura                 | Gabriel Scheidt|
+| Versão |    Data    |                                    Descrição                                     |      Autor      |
+| :----: | :--------: | :------------------------------------------------------------------------------: | :-------------: |
+|  2.1   | 17/04/2024 | Exemplificação de uso da API do Querido Diário e Atualização da issue de suporte | Rafael Carvalho |
+|  2.0   | 17/04/2024 |                         Crição do esboço de arquitetura                          | Gabriel Scheidt |
+|  1.0   | 14/04/2024 |                         Crição do esboço de arquitetura                          | Gabriel Scheidt |
