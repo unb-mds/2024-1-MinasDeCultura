@@ -391,5 +391,5 @@ No geral a API é de fácil entendimento, desde que o desenvolvedor ou quem irá
 
 | Versão |    Data    |                    Descrição                    |     Autor      |
 |:------:|:----------:|:-----------------------------------------------:|:--------------:|
-|  1.0   | 1/04/2024 | Crição do esboço de arquitetura                 | Gabriel Scheidt|
-|  1.0   | 1/04/2024 | Crição do esboço de arquitetura                 | Gabriel Scheidt|
+|  2.0   | 17/04/2024 | Crição do esboço de arquitetura                 | Gabriel Scheidt|
+|  1.0   | 14/04/2024 | Crição do esboço de arquitetura                 | Gabriel Scheidt|
