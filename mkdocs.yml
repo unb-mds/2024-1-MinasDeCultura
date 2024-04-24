@@ -1,10 +1,10 @@
-site_name: Squad 07
+site_name: MINAS DE CULTURA
 extra_css:
   - assets/stylesheets/extra.css
 
 theme:
   favicon: assets/images/favicon.png
-  logo: assets/images/favicon.png
+  logo: assets/images/logo_branca.png
   name: material
   features:
     - navigation.tabs
