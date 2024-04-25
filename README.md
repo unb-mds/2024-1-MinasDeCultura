@@ -27,11 +27,14 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 ## 💻 Tecnologias
 
-- **Linguagem de Programação:** (A definir)
-- **Framework Web:** (A definir)
-- **Banco de Dados:** (A definir)
-- **Ferramenta de Coleta de Dados:** Querido Diário API
-- **Ferramentas Adicionais:** HTML, CSS, JavaScript, Regex, CRUD
+- *Linguagem de Programação:* ![Python](https://img.shields.io/badge/Python-white?style=for-the-badge&logo=Python&logoColor=blue)
+- *Ferramenta de Coleta de Dados:* ![Scrapy](https://img.shields.io/badge/Scrapy-pink?style=for-the-badge&logo=scrapy)
+- *Framework Web:* ![Next](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js)
+- *Banco de Dados:* ![Static Badge](https://img.shields.io/badge/PostgreSQL-brown?style=for-the-badge&logo=PostgreSQL)
+- *Ferramentas Adicionais:* ![HTML](https://img.shields.io/badge/HTML-blue?style=for-the-badge&logo=html5)
+  ![CSS](https://img.shields.io/badge/CSS-GREEN?style=for-the-badge&logo=css3)
+  ![JavaScript](https://img.shields.io/badge/JavaScript-purple?style=for-the-badge&logo=javascript)
+  ![Regex](https://img.shields.io/badge/Regex-red?style=for-the-badge)
 
 ## 📚 Documentação
  A documentação do projeto está disponível [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
