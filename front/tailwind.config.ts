@@ -17,6 +17,7 @@ const config: Config = {
         'primary-gray':'#EBECEE',
         'primary-white':'#FFFFFF',
         'primary-red':'#ED1C24'
+        'primary-yellow':'#FFC06B'
       }
 
     },
