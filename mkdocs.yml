@@ -16,10 +16,10 @@ theme:
     - content.tabs.link
     - content.code.annotation
     - content.code.copy
-  palette: 
+  palette:
     - scheme: default
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
       primary: red
       accent: purple
@@ -30,8 +30,7 @@ theme:
       primary: red
       accent: lime
   markdown_extensions:
-    - pymdownx.highlight:
-        anchor_linenums:true
+    - pymdownx.highlight: anchor_linenums:true
     - pymdownx.inlinehilite
     - pydownx.snippets
     - admonition
@@ -45,3 +44,5 @@ theme:
     - pymdownx.emoji:
         emoji_index: !!python/name:materialx.emoji.twemoji
         emoji_generator: !!python/name:materialx.emoji.to_svg
+plugins:
+  - mermaid2
