@@ -1,14 +1,14 @@
-import Logo from '@/assets/Logo.png';
+import Logobranca from '@/assets/logobranca.png';
 import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-yellow p-40">
+    <footer className="bg-primary-red p-40">
       <div style={{ display: 'flex', alignItems: 'flex-start' }}>
         <Image
-          src={Logo}
-          alt='Logo'
-          style={{ marginTop: '-150px', marginLeft: '-100px' }}
+          src={Logobranca}
+          alt='logobranca'
+          style={{ marginTop: '-10%', marginLeft: '-5%' }}
           
           />
       </div>
