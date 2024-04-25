@@ -1,3 +1,11 @@
+## Protótipo de utilização da API do Querido Diário
+
+Para fins de testes, desenvolvemos um protótipo de utilização da API do Querido Diário. Tínhamos dúvidas sobre como fazer as requisições e receber os dados, então optamos por criar um formulário. Nesse formulário, o usuário pode inserir um município (limitado aos municípios de Minas Gerais), um termo de busca e um intervalo de datas. Em seguida, o sistema realiza uma solicitação à API do Querido Diário com os parâmetros fornecidos.
+
+Os dados retornados pela API são então renderizados na tela, possibilitando ao usuário visualizar todas as respostas obtidas. Essa abordagem nos permite testar a integração com a API e entender como os dados são estruturados, facilitando o desenvolvimento de futuras funcionalidades.
+
+![Protótipo](image.png)
+
 ## Como testar o protótipo?
 
 Inicialmente, é preciso ter instalado em sua máquina o git e o node.js. Tendo os dois instalados, basta seguis o passo a passo abaixo:
@@ -37,3 +45,5 @@ npm i
 ```bash
 npm run dev
 ```
+
+Após seguir esses passos, o servidor de desenvolvimento estará em execução e você poderá acessar o protótipo em seu navegador através do endereço fornecido pelo servidor. Certifique-se de testar todas as funcionalidades conforme necessário.
