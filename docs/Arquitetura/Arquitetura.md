@@ -3,15 +3,15 @@ Apresentamos a versão inicial da nossa arquitetura, combinando tecnologias chav
 
 <iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVKVdk0Cw=/?moveToViewport=-1282,-998,3354,1540&embedId=3332397580" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
 
-# Tecnologias
+# 💻 Tecnologias
 
 Dado o objetivo principal do projeto, criar uma plataforma online de análise e armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal no estado de Minas Gerais, é indispensável a seleção apropriada das tecnologias para o projeto. As tecnologias abaixo foram estudas para cada caso de uso, desde uso geral até usos específicos.
 
-# Funcionalidades Previstas
+# ⚙️ Funcionalidades Previstas
 
 Analisando os requisitos do projeto podemos identificar algumas funcionalidades, e com base nelas buscamos as tecnologias mais apropriada para cada situação.
 
-## Coleta de Dados
+## 📁 Coleta de Dados
 
 A parte da coleta de dados é uma das mais importantes do projeto, e baseado na API do querido diário, encontramos algumas tecnologias que podem nos ajudar durante o processo de desenvolvimento e de produção, sendo elas:
 
@@ -21,7 +21,7 @@ A parte da coleta de dados é uma das mais importantes do projeto, e baseado na 
 - _[Selenium](https://www.selenium.dev/)_: Biblioteca Python para interagir com o browser. Permite fazer buscas que necessitam de interação com a interface.
 - _[FastAPI](https://fastapi.tiangolo.com/)_: Biblioteca Python para criar servidor e receber requisições HTTP para enviar os dados dos escavadores.
 
-## Análise e Armazenamento
+## 📊 Análise e Armazenamento
 
 A análise dos dados podem ser feitas tanto de forma iterativas, na interface web, quanto do lado do servidor, e para isso temos duas abordagens diferentes:
 
@@ -35,12 +35,12 @@ Para análise dos dados do lado do **cliente**, há diversas bibliotecas para o 
 
 No armazenamento temos duas opções muito atrativas, o _[MongoDB](https://www.mongodb.com/pt-br)_ e o _[Postgres](https://www.postgresql.org/)_. Ambos são ótimos para armazenar os dados, mas para cada parte da aplicação precisamos decidir se um modelo relacional, otimizado para buscas complexas e inserção é melhor que um modelo não-relacional, com liberdade de estrutura e organização por documentos.
 
-## Visualização de Dados
+## 🗃 Visualização de Dados
 
 Quando se trata de visualização, estamos tratando da nossa interface Web, que sem dúvidas um ótimo framework para resolver este problema é o _[Next.js](https://nextjs.org/)_. Ele permite fazer renderização do lado do servidor, trabalhar com rotas de uma forma descomplicada, estrutura de pastas dinâmicas e diversas outras features.
 Como o _[Next.js](https://nextjs.org/)_ é um framework construído por cima do _[React](https://react.dev/)_, podemos utilizar muitas bibliotecas para plotagem dos dados, dentre elas se destacam: _[React-Charts](https://react-charts.tanstack.com/)_ e a _[Apexcharts](https://react-charts.tanstack.com/)_. Fica a critério do time em tempo de desenvolvimento decidir quais são as mais adequadas para cada situação.
 
-## API Intermediária
+## 🖥 API Intermediária
 
 Uma das idéias é fazer um sistema de notificação para avisar aos inscritos da plataforma sobre novas licitações com gastos culturais do estado de Minas Gerais, também queremos salvas algumas licitações no nosso banco de dados, e para fazer todo esse trabalho uma ótima ferramenta é o _[Node.js](https://nodejs.org/en)_, dado que nós estaremos trabalhando com _[Next.js](https://nextjs.org/)_, trabalhar com a mesma linguagem tanto do lado do servidor quanto do lado do cliente otimiza os estudos e o tempo de desenvolvimento do time. Para fazer essa API, podemos utilizar algumas bibliotecas, sendo elas:
 
@@ -50,7 +50,7 @@ Uma das idéias é fazer um sistema de notificação para avisar aos inscritos d
 
 Vale resaltar que ambos, Node.js e o React.js podem ser escritos por cima das linguagens _[Javascript](https://www.javascript.com/)_ e _[Typescript](https://www.typescriptlang.org/)_. Portanto vai depender da escolha do time em tempo de desenvolvimento qual será a mais aquada para cada serviço.
 
-## Infraestrutura
+## 🛠 Infraestrutura
 
 Uma parte importante da nossa aplicação é aonde vamos publicar. Como não temos uma plataforma definitiva, é crucial desenvolver todo o ecossistema em microsserviços. Com o _[Docker](https://www.docker.com/)_ podemos desenvolver a aplicação em um ambiente controlado, onde determinamos de ponta a ponta os recursos que vão ser utilizados, bibliotecas que vão ser instaladas e configuração de rede para a comunicação dos microsserviços.
 
@@ -66,7 +66,7 @@ Uma parte importante da nossa aplicação é aonde vamos publicar. Como não tem
 
 > 🌐 End Point Raiz da API **https://queridodiario.ok.org.br/api/**
 
-## Recomendação de Estudo para o Squad
+## 🗝 Recomendação de Estudo para o Squad
 
 ### Rest e HTTP API's
 
@@ -81,7 +81,7 @@ Uma parte importante da nossa aplicação é aonde vamos publicar. Como não tem
 
 - [Query String](https://en.wikipedia.org/wiki/Query_string)
 
-## Cidades
+## 📌 Cidades
 
 `GET: /cities/`
 
@@ -184,7 +184,7 @@ Uma parte importante da nossa aplicação é aonde vamos publicar. Como não tem
 }
 ```
 
-## Buscar por Termo em uma Cidade
+## 📍 Buscar por Termo em uma Cidade
 
 ### Exemplo que requisição
 
@@ -324,7 +324,7 @@ Os dados obtidos em cada elemento do array são auto-explicativos, o mais import
 
 ```
 
-## Uma busca mais complexa
+## 📍 Uma busca mais complexa
 
 Com a API do Querido Diário podemos fazer buscas mais complexas, na [documentação da API](https://queridodiario.ok.org.br/api/docs#/) podemos encontrar outros end-points para fazer requisições mais completas ou de maneiras diferentes. Não só isso, mas também para consultar parâmetros que podem ser utilizados na API.
 
@@ -360,7 +360,7 @@ Podemos ver que a URL tem bem mais queries, mas não se preocupem, apenas adicio
 
 A resposta dada pela requisição contém dois objetos, `total_gazettes` e o array `gazettes`. O **total_gazettes** contém a quantidade de respostas da busca dada pela API, e o array propriamente dito, possui as resposta das buscas com os filtros aplicados. Os objetos do array tem a mesma estrutura do exemplo mais simples, a única coisa que mudou é a filtragem dos dados.
 
-## Opções de filtragem
+## 🖇 Opções de filtragem
 
 ### Outros end-points
 
@@ -386,6 +386,8 @@ No end-point `/api/gazettes` temos diversas outras possibilidades de query strin
 - sort_by → string (relevance, descending_date, ascending_date)
 
 No geral a API é de fácil entendimento, desde que o desenvolvedor ou quem irá construir as requisições tenha um conhecimento breve em requisições HTTP. Caso tenha alguma dúvida, basta responder a [issue](https://github.com/unb-mds/2024-1-MinasDeCultura/issues/16) referente a esta página.
+
+## 📁 Histórico de versão
 
 | Versão |    Data    |                                    Descrição                                     |      Autor      |
 | :----: | :--------: | :------------------------------------------------------------------------------: | :-------------: |

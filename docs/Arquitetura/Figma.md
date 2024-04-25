@@ -24,6 +24,8 @@ Com as bases sólidas estabelecidas, iniciamos o processo de prototipagem da tel
 
 ![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
 
+## 📁 Histórico de versão
+
 | Versão |    Data    |            Descrição            |     Autor     |
 | :----: | :--------: | :-----------------------------: | :-----------: |
 |  1.0   | 24/04/2024 | Crição da documentação do Figma | Isaac Batista |
