@@ -13,6 +13,8 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
     - [💻 Tecnologias](#-tecnologias)
     - [📚 Documentação](#-documentação)
     - [👥 Desenvolvedores](#-desenvolvedores)
+    - [🗒 Story Map](#-story-map)
+    - [🛠 Arquitetura](#-arquitetura)
 
 ## ⚙️ Funcionalidades Previstas
 
@@ -32,8 +34,13 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - **Ferramentas Adicionais:** HTML, CSS, JavaScript, Regex, CRUD
 
 ## 📚 Documentação
- A documentação do projeto pode ser encontrada clicando [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
+ A documentação do projeto está disponível [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
 
+## 🗒 Story Map
+O Story Map do projeto está disponível [aqui](https://miro.com/app/board/uXjVKYtRMq0=/?moveToWidget=3458764584482040000&cot=10)
+
+## 🛠 Arquitetura
+A arquitetura do projeto está disponível [aqui](https://miro.com/app/board/uXjVKVdk0Cw=/)
 
 ## 👥 Desenvolvedores
 
