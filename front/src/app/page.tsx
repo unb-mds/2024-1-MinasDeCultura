@@ -22,7 +22,7 @@ export default function Home() {
               />
               <input
                 type="text"
-                placeholder="Local"
+                placeholder="Assunto"
                 className="flex-1 px-4 py-2 "
               />
               <div className="border-b border-black absolute left-0 right-0 bottom-0"></div>
@@ -31,13 +31,13 @@ export default function Home() {
             <li className="relative flex items-center">
               <Image
                 src={local}
-                alt="local"
+                alt="Local"
                 width={24}
                 height={24}
               />
               <input
                 type="text"
-                placeholder="Data"
+                placeholder="Local"
                 className="flex-1 px-4 py-2 "
               />
               <div className="border-b border-black absolute left-0 right-0 bottom-0"></div>
@@ -52,7 +52,7 @@ export default function Home() {
               />
               <input
                 type="text"
-                placeholder="Outro campo"
+                placeholder="Data"
                 className="flex-1 px-4 py-2"
               />
               <div className="border-b border-black absolute left-0 right-0 bottom-0"></div>
@@ -71,7 +71,9 @@ export default function Home() {
           </ul>
         </div>
       </div>
-      <div className="w-[1382px] h-[485px] bg-primary-white border rounded-lg mt-8"></div>
+      <div className="w-[1382px] h-[485px] bg-primary-white border rounded-lg mt-8">
+
+      </div>
     </main>
   );
 }
