@@ -6,7 +6,15 @@ Este é um projeto desenvolvido como parte da disciplina de Métodos de Desenvol
 
 Através desta aplicação, buscamos oferecer uma maneira mais transparente e acessível para que o público em geral possa consultar os gastos governamentais em eventos culturais, shows, teatros e outras atividades culturais.
 
-## Funcionalidades Previstas
+## 📝 Sumário
+- [Minas de Cultura](#projeto-de-análise-de-licitações-culturais)
+    - [📝 Sumário](#-sumário)
+    - [⚙️ Funcionalidades](#%EF%B8%8F-funcionalidades-previstas)
+    - [💻 Tecnologias](#-tecnologias)
+    - [📚 Documentação](#-documentação)
+    - [👥 Desenvolvedores](#-desenvolvedores)
+
+## ⚙️ Funcionalidades Previstas
 
 - **Coleta de Dados:** Implementação de um mecanismo para coletar dados sobre as dispensas de licitações culturais da API do "Querido Diário".
 - **Análise e Armazenamento:** Desenvolvimento de algoritmos para analisar os dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
@@ -15,7 +23,7 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - **Notificações:** Implementação de um sistema de notificações para informar os usuários sobre novas dispensas de licitações adicionadas ao sistema, mantendo-os atualizados sobre as últimas informações disponíveis.
 
 
-## Tecnologias Utilizadas
+## 💻 Tecnologias
 
 - **Linguagem de Programação:** (A definir)
 - **Framework Web:** (A definir)
@@ -23,9 +31,11 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - **Ferramenta de Coleta de Dados:** Querido Diário API
 - **Ferramentas Adicionais:** HTML, CSS, JavaScript, Regex, CRUD
 
+## 📚 Documentação
+ A documentação do projeto pode ser encontrada clicando [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
 
 
-## Desenvolvedores
+## 👥 Desenvolvedores
 
 <center>
 <table style="margin-left: auto; margin-right: auto;">
