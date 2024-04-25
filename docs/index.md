@@ -6,7 +6,7 @@ Este é um projeto desenvolvido como parte da disciplina de Métodos de Desenvol
 
 Através desta aplicação, buscamos oferecer uma maneira mais transparente e acessível para que o público em geral possa consultar os gastos governamentais em eventos culturais, shows, teatros e outras atividades culturais.
 
-## Funcionalidades Previstas
+## ⚙️ Funcionalidades Previstas
 
 - **Coleta de Dados:** Implementação de um mecanismo para coletar dados sobre as dispensas de licitações culturais da API do "Querido Diário".
 - **Análise e Armazenamento:** Desenvolvimento de algoritmos para analisar os dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
@@ -14,7 +14,7 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, tipo de evento, valor, entre outros, facilitando a busca por informações específicas.
 - **Notificações:** Implementação de um sistema de notificações para informar os usuários sobre novas dispensas de licitações adicionadas ao sistema, mantendo-os atualizados sobre as últimas informações disponíveis.
 
-## Tecnologias Utilizadas
+## 💻 Tecnologias Utilizadas
 
 - **Linguagem de Programação:** _[Python](https://www.python.org/)_, _[JavaScript](https://www.javascript.com/)_:
 
@@ -23,7 +23,7 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - **Ferramenta de Coleta de Dados:** _[Scrapy](https://scrapy.org/)_
 - **Ferramentas Adicionais:** _[Docker](https://www.docker.com/)_, _[Node.js](https://nodejs.org/en)_, _[Selenium](https://www.selenium.dev/)_ _[Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)_, _[Selenium](https://www.selenium.dev/)_, _[Prisma](https://www.prisma.io/)_
 
-## Desenvolvedores
+## 👥 Desenvolvedores
 
 <center>
 <table style="margin-left: auto; margin-right: auto;">
@@ -74,7 +74,7 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 </table>
 </center>
 
-## Histórico de versão
+## 📁 Histórico de versão
 
 | Versão |    Data    |                    Descrição                    |     Autor      |
 |:------:|:----------:|:-----------------------------------------------:|:--------------:|
