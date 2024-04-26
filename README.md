@@ -1,4 +1,5 @@
 # 2024-1-Minas de cultura
+![Logo](https://github.com/unb-mds/2024-1-MinasDeCultura/blob/main/docs/assets/images/logo_vermelha.png?raw=true)
 
 ## Projeto de Análise de Licitações Culturais
 
