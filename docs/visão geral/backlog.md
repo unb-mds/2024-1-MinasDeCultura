@@ -60,3 +60,4 @@
 |:------:|:----------:|:-----------------------------------------------:|:--------------:|
 |  1.0   | 02/04/2024 | Adicionando história de usuários                | Gabriel Scheidt|
 |  1.0   | 02/04/2024 | Adicionando histórico de versão                 | Gabriel Scheidt|
+|  1.2   | 25/04/2024 |                     Adicionando emojis nos tópicos                       | Isaac Batista |

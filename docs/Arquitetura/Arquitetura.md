@@ -78,6 +78,7 @@ Uma parte importante da nossa aplicação é aonde vamos publicar. Como não tem
 | Versão |    Data    |                                    Descrição                                     |      Autor      |
 | :----: | :--------: | :------------------------------------------------------------------------------: | :-------------: |
 |  3.0   | 25/04/2024 |                     Reestruturando Documento de Arquitetura                      | Rafael Carvalho |
+|  2.2   | 25/04/2024 |                     Adicionando emojis nos tópicos                       | Isaac Batista |
 |  2.1   | 17/04/2024 | Exemplificação de uso da API do Querido Diário e Atualização da issue de suporte | Rafael Carvalho |
 |  2.0   | 17/04/2024 |                         Crição do esboço de arquitetura                          | Gabriel Scheidt |
 |  1.0   | 14/04/2024 |                         Crição do esboço de arquitetura                          | Gabriel Scheidt |
