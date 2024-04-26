@@ -11,6 +11,7 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
     - [📝 Sumário](#-sumário)
     - [⚙️ Funcionalidades](#%EF%B8%8F-funcionalidades-previstas)
     - [💻 Tecnologias](#-tecnologias)
+    - [🤖 Prototipação e Identidade Visual](prototipação-e-identidade-visual)
     - [📚 Documentação](#-documentação)
     - [👥 Desenvolvedores](#-desenvolvedores)
     - [🗒 Story Map](#-story-map)
@@ -44,6 +45,14 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 <a href="https://www.w3schools.com/css/" target="_blank"><img src="https://img.shields.io/badge/CSS-GREEN?style=for-the-badge&logo=css3" alt="CSS"></a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img src="https://img.shields.io/badge/JavaScript-purple?style=for-the-badge&logo=javascript" alt="JavaScript"></a>
 <a href="https://docs.python.org/pt-br/3/library/re.html" target="_blank"><img src="https://img.shields.io/badge/Regex-red?style=for-the-badge" alt="Regex"></a>
+
+## 🤖 Prototipação e Identidade Visual
+
+- *Desenvolvimento da Identidade Visual:* Investimos tempo no desenvolvimento de uma identidade visual consistente para o projeto, incluindo seleção de cores, tipografia e uma logo autêntica baseada na bandeira. Essa identidade visual reflete nossa visão e valores, e está integrada em toda a interface do usuário e materiais de design.
+
+- *Protótipo da Home:* 
+  
+  ![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
 
 ## 📚 Documentação
  A documentação do projeto está disponível [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
