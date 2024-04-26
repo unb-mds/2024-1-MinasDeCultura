@@ -14,6 +14,18 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, tipo de evento, valor, entre outros, facilitando a busca por informações específicas.
 - **Notificações:** Implementação de um sistema de notificações para informar os usuários sobre novas dispensas de licitações adicionadas ao sistema, mantendo-os atualizados sobre as últimas informações disponíveis.
 
+## 🤖 Prototipação e Identidade Visual
+
+- **Figma:** Utilizamos o Figma como nossa ferramenta principal para o design de interface do usuário e criação de wireframes. Todos os nossos designs estão disponíveis no Figma para colaboração e revisão.
+  
+  ![Figma](https://www.figma.com/file/SS7Dy8wDCBCx39PuUI2cW7/Minas-de-cultura?type=design&node-id=23%3A2&mode=design&t=HL5tKdicVJJahwnQ-1)
+
+- **Desenvolvimento da Identidade Visual:** Investimos tempo no desenvolvimento de uma identidade visual consistente para o projeto, incluindo seleção de cores, tipografia e uma logo autêntica baseada na bandeira. Essa identidade visual reflete nossa visão e valores, e está integrada em toda a interface do usuário e materiais de design.[Clique aqui para visualizar o detalhamento desta etapa no Figma](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/Arquitetura/Figma.md)
+
+- **Protótipo da Home:** 
+  
+  ![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
+
 ## 💻 Tecnologias Utilizadas
 
 - **Linguagem de Programação:** _[Python](https://www.python.org/)_, _[JavaScript](https://www.javascript.com/)_:
@@ -79,3 +91,4 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 | Versão |    Data    |                    Descrição                    |     Autor      |
 |:------:|:----------:|:-----------------------------------------------:|:--------------:|
 |  1.0   | 11/04/2024 | Adicionando histórico de versão                 | Gabriel Scheidt|
+|  1.1   | 26/04/2024 | adicionando prototipação e identidade visual    | Manuella Valadares|

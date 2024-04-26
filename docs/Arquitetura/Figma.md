@@ -29,3 +29,4 @@ Com as bases sólidas estabelecidas, iniciamos o processo de prototipagem da tel
 | Versão |    Data    |            Descrição            |     Autor     |
 | :----: | :--------: | :-----------------------------: | :-----------: |
 |  1.0   | 24/04/2024 | Crição da documentação do Figma | Isaac Batista |
+|  1.1   | 26/04/2024 | Atualização com a nova Home | Manuella Valadares |
