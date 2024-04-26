@@ -1,4 +1,4 @@
-# 2024-1-Squad07
+# 2024-1-Minas de cultura
 
 ## Projeto de Análise de Licitações Culturais
 
