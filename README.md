@@ -27,14 +27,23 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 ## 💻 Tecnologias
 
-- *Linguagem de Programação:* ![Python](https://img.shields.io/badge/Python-white?style=for-the-badge&logo=Python&logoColor=blue)
-- *Ferramenta de Coleta de Dados:* ![Scrapy](https://img.shields.io/badge/Scrapy-pink?style=for-the-badge&logo=scrapy)
-- *Framework Web:* ![Next](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js)
-- *Banco de Dados:* ![Static Badge](https://img.shields.io/badge/PostgreSQL-brown?style=for-the-badge&logo=PostgreSQL)
-- *Ferramentas Adicionais:* ![HTML](https://img.shields.io/badge/HTML-blue?style=for-the-badge&logo=html5)
-  ![CSS](https://img.shields.io/badge/CSS-GREEN?style=for-the-badge&logo=css3)
-  ![JavaScript](https://img.shields.io/badge/JavaScript-purple?style=for-the-badge&logo=javascript)
-  ![Regex](https://img.shields.io/badge/Regex-red?style=for-the-badge)
+- *Linguagem de Programação:*
+<a href="https://www.python.org/" target="_blank"><img src="https://img.shields.io/badge/Python-white?style=for-the-badge&logo=Python&logoColor=blue" alt="Python"></a>
+
+- *Ferramenta de Coleta de Dados:*
+<a href="https://scrapy.org/" target="_blank"><img src="https://img.shields.io/badge/Scrapy-pink?style=for-the-badge&logo=scrapy" alt="Scrapy"></a>
+
+- *Framework Web:*
+<a href="https://nextjs.org/" target="_blank"><img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js" alt="Next JS"></a>
+
+- *Banco de Dados:* 
+<a href="https://www.postgresql.org/" target="_blank"><img src="https://img.shields.io/badge/PostgreSQL-brown?style=for-the-badge&logo=PostgreSQL" alt="PostgreSQL"></a>
+
+- *Ferramentas Adicionais:* 
+<a href="https://www.w3schools.com/html/" target="_blank"><img src="https://img.shields.io/badge/HTML-blue?style=for-the-badge&logo=html5" alt="HTML"></a>
+<a href="https://www.w3schools.com/css/" target="_blank"><img src="https://img.shields.io/badge/CSS-GREEN?style=for-the-badge&logo=css3" alt="CSS"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img src="https://img.shields.io/badge/JavaScript-purple?style=for-the-badge&logo=javascript" alt="JavaScript"></a>
+<a href="https://docs.python.org/pt-br/3/library/re.html" target="_blank"><img src="https://img.shields.io/badge/Regex-red?style=for-the-badge" alt="Regex"></a>
 
 ## 📚 Documentação
  A documentação do projeto está disponível [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
