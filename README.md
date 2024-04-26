@@ -53,6 +53,9 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
   
   ![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
 
+## 🤖 Prototipação web scraping 
+Passo a passo de como usar o scrapy está [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/Como%20executar/Tutorial_scrapy/)
+
 ## 📚 Documentação
  A documentação do projeto está disponível [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
 
