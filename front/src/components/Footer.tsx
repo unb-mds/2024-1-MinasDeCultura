@@ -8,7 +8,7 @@ const Footer = () => {
         <Image
           src={Logobranca}
           alt='logobranca'
-          style={{ marginTop: '-10%', marginLeft: '-5%' }}
+          style={{ marginTop: '-9%', marginLeft: '-5%' }}
           
           />
       </div>

@@ -3,15 +3,14 @@ import Logo from '@/assets/Logo.png';
 
 export function Header() {
     return (
-        <div className="flex justify-center items-center  bg-primary-gray">
-            <header className="flex w-[1280px] h-22 bg-primary-white relative px-[120px] mx-auto items-center justify-between rounded-xl">
-                <div className="max-w-[348px]">
+            <header className="flex w-full h-22 bg-primary-white relative px-44 mx-auto items-center justify-between rounded-xl">
+                <div>
                     <Image
                         src={Logo}
                         alt='Logo'
                     />
                 </div>
-                <ul className="flex gap-[40px] font-sans 2xl">
+                <ul className="flex gap-10 font-sans 2xl">
                     <li>
                         <button>
                             <span>
@@ -35,6 +34,5 @@ export function Header() {
                     </li>                       
                 </ul>
             </header>
-        </div>
     )
 }
