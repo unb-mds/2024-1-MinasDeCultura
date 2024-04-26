@@ -16,11 +16,9 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 ## 🤖 Prototipação e Identidade Visual
 
-- **Figma:** Utilizamos o Figma como nossa ferramenta principal para o design de interface do usuário e criação de wireframes. Todos os nossos designs estão disponíveis no Figma para colaboração e revisão.
-  
-  ![Figma](https://www.figma.com/file/SS7Dy8wDCBCx39PuUI2cW7/Minas-de-cultura?type=design&node-id=23%3A2&mode=design&t=HL5tKdicVJJahwnQ-1)
+- **Figma:** Utilizamos o Figma como nossa ferramenta principal para o design de interface do usuário e criação de wireframes. Todos os nossos designs estão disponíveis no Figma para colaboração e revisão. _[Figma](https://www.figma.com/file/SS7Dy8wDCBCx39PuUI2cW7/Minas-de-cultura?type=design&node-id=23%3A2&mode=design&t=HL5tKdicVJJahwnQ-1)_
 
-- **Desenvolvimento da Identidade Visual:** Investimos tempo no desenvolvimento de uma identidade visual consistente para o projeto, incluindo seleção de cores, tipografia e uma logo autêntica baseada na bandeira. Essa identidade visual reflete nossa visão e valores, e está integrada em toda a interface do usuário e materiais de design.[Clique aqui para visualizar o detalhamento desta etapa no Figma](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/Arquitetura/Figma.md)
+- **Desenvolvimento da Identidade Visual:** Investimos tempo no desenvolvimento de uma identidade visual consistente para o projeto, incluindo seleção de cores, tipografia e uma logo autêntica baseada na bandeira. Essa identidade visual reflete nossa visão e valores, e está integrada em toda a interface do usuário e materiais de design.[Clique aqui para visualizar o detalhamento desta etapa](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/Arquitetura/Figma.md)
 
 - **Protótipo da Home:** 
   
