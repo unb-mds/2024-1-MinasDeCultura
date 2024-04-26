@@ -6,7 +6,17 @@ Este é um projeto desenvolvido como parte da disciplina de Métodos de Desenvol
 
 Através desta aplicação, buscamos oferecer uma maneira mais transparente e acessível para que o público em geral possa consultar os gastos governamentais em eventos culturais, shows, teatros e outras atividades culturais.
 
-## Funcionalidades Previstas
+## 📝 Sumário
+- [Minas de Cultura](#projeto-de-análise-de-licitações-culturais)
+    - [📝 Sumário](#-sumário)
+    - [⚙️ Funcionalidades](#%EF%B8%8F-funcionalidades-previstas)
+    - [💻 Tecnologias](#-tecnologias)
+    - [📚 Documentação](#-documentação)
+    - [👥 Desenvolvedores](#-desenvolvedores)
+    - [🗒 Story Map](#-story-map)
+    - [🛠 Arquitetura](#-arquitetura)
+
+## ⚙️ Funcionalidades Previstas
 
 - **Coleta de Dados:** Implementação de um mecanismo para coletar dados sobre as dispensas de licitações culturais da API do "Querido Diário".
 - **Análise e Armazenamento:** Desenvolvimento de algoritmos para analisar os dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
@@ -15,17 +25,27 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - **Notificações:** Implementação de um sistema de notificações para informar os usuários sobre novas dispensas de licitações adicionadas ao sistema, mantendo-os atualizados sobre as últimas informações disponíveis.
 
 
-## Tecnologias Utilizadas
+## 💻 Tecnologias
 
-- **Linguagem de Programação:** (A definir)
-- **Framework Web:** (A definir)
-- **Banco de Dados:** (A definir)
-- **Ferramenta de Coleta de Dados:** Querido Diário API
-- **Ferramentas Adicionais:** HTML, CSS, JavaScript, Regex, CRUD
+- *Linguagem de Programação:* ![Python](https://img.shields.io/badge/Python-white?style=for-the-badge&logo=Python&logoColor=blue)
+- *Ferramenta de Coleta de Dados:* ![Scrapy](https://img.shields.io/badge/Scrapy-pink?style=for-the-badge&logo=scrapy)
+- *Framework Web:* ![Next](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js)
+- *Banco de Dados:* ![Static Badge](https://img.shields.io/badge/PostgreSQL-brown?style=for-the-badge&logo=PostgreSQL)
+- *Ferramentas Adicionais:* ![HTML](https://img.shields.io/badge/HTML-blue?style=for-the-badge&logo=html5)
+  ![CSS](https://img.shields.io/badge/CSS-GREEN?style=for-the-badge&logo=css3)
+  ![JavaScript](https://img.shields.io/badge/JavaScript-purple?style=for-the-badge&logo=javascript)
+  ![Regex](https://img.shields.io/badge/Regex-red?style=for-the-badge)
 
+## 📚 Documentação
+ A documentação do projeto está disponível [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
 
+## 🗒 Story Map
+O Story Map do projeto está disponível [aqui](https://miro.com/app/board/uXjVKYtRMq0=/?moveToWidget=3458764584482040000&cot=10)
 
-## Desenvolvedores
+## 🛠 Arquitetura
+A arquitetura do projeto está disponível [aqui](https://miro.com/app/board/uXjVKVdk0Cw=/)
+
+## 👥 Desenvolvedores
 
 <center>
 <table style="margin-left: auto; margin-right: auto;">
