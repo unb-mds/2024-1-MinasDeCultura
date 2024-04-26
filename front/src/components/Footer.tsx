@@ -4,11 +4,11 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-primary-red p-40">
-      <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-        <Image
+      <div>
+        <Image 
           src={Logobranca}
           alt='logobranca'
-          style={{ marginTop: '-9%', marginLeft: '-5%' }}
+          style={{ marginTop: '-7%', marginLeft: '-5%' }}
           
           />
       </div>
