@@ -51,21 +51,21 @@ export default function Home() {
           A Secretaria de Cultura e Turismo do Estado de Minas Gerais:
         </h1>
         <div className="flex md:flex-row flex-col py-6 gap-6 justify-items-center">
-          <div className="w-full h-44 bg-primary-white rounded-2xl text-center p-8 ">
+          <div className="w-full h-auto bg-primary-white rounded-2xl text-center p-8 ">
             <h1 className="text-4xl  "> Deve preservar</h1>
             <h2 className="text-2xl"> o patrimônio cultural do estado de Minas gerais</h2>
           </div>
-          <div className="w-full h-44 bg-primary-white rounded-2xl text-center p-8 ">
+          <div className="w-full h-auto bg-primary-white rounded-2xl text-center p-8 ">
             <h1 className="text-4xl "> Deve promover</h1>
             <h2 className="text-2xl"> a acessibilidade e inclusão social à cultura</h2>
           </div>
-          <div className="w-full h-44 bg-primary-white rounded-2xl text-center p-8 ">
+          <div className="w-full h-auto bg-primary-white rounded-2xl text-center p-8">
             <h1 className="text-4xl "> Deve fomentar</h1>
             <h2 className="text-2xl"> a produção artística da população</h2>
           </div>
         </div> 
       </div>
-      <div className="container w-full h-[424px] bg-primary-white rounded-lg ">
+      <div className="container w-full h-auto bg-primary-white rounded-lg ">
         
       </div>
       <Busca/>
