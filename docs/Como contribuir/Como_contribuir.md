@@ -60,6 +60,9 @@ O corpo é a parte da mensagem de commit que fornece detalhes adicionais sobre a
 
 O rodapé também é uma parte opcional da mensagem de commit que pode ser usado para fornecer informações adicionais sobre as alterações feitas no código.O Rodapé do commit pode ser usado para incluir informações como números de ticket de suporte, links para relatórios de bugs ou outros recursos relacionados
 
+
+## 📁 Histórico de versão
 | Versão |    Data    |                    Descrição                    |     Autor    |
 |:------:|:----------:|:-----------------------------------------------:|:------------:|
 |  1.0   | 11/04/2024 | Adicionando histórico de versão                 | Marcos Vieira|
+|  1.2   | 25/04/2024 |                     Adicionando emojis nos tópicos        | Isaac Batista |

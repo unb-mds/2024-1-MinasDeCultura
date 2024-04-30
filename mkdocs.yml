@@ -1,11 +1,14 @@
-site_name: Squad 07
+site_name: MINAS DE CULTURA
 extra_css:
   - assets/stylesheets/extra.css
 
 theme:
   favicon: assets/images/favicon.png
-  logo: assets/images/favicon.png
+  logo: assets/images/logo_branca.png
   name: material
+  repo_url: 'https://github.com/unb-mds/2024-1-MinasDeCultura'
+  repo_name: '2024-1-MinasDeCultura'
+
   features:
     - navigation.tabs
     - navigation.sections
@@ -16,10 +19,10 @@ theme:
     - content.tabs.link
     - content.code.annotation
     - content.code.copy
-  palette: 
+  palette:
     - scheme: default
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
       primary: red
       accent: purple
@@ -30,8 +33,7 @@ theme:
       primary: red
       accent: lime
   markdown_extensions:
-    - pymdownx.highlight:
-        anchor_linenums:true
+    - pymdownx.highlight: anchor_linenums:true
     - pymdownx.inlinehilite
     - pydownx.snippets
     - admonition
@@ -45,3 +47,5 @@ theme:
     - pymdownx.emoji:
         emoji_index: !!python/name:materialx.emoji.twemoji
         emoji_generator: !!python/name:materialx.emoji.to_svg
+plugins:
+  - mermaid2
