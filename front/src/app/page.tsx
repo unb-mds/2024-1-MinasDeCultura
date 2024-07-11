@@ -1,5 +1,10 @@
+"use client";
+
 import { Search, MapPin, CalendarClock, MoveRight } from "lucide-react";
 import Busca from "@/components/Busca"
+import dynamic from 'next/dynamic';
+
+const Grafico = dynamic(() => import('@/components/Grafico'), { ssr: false });
 
 export default function Home() {
   return (
@@ -66,8 +71,8 @@ export default function Home() {
         </div> 
       </div>
       <div className="container w-full h-auto bg-primary-white rounded-lg ">
-        
       </div>
+      <Grafico/>
       <Busca/>
     </main>
   );
