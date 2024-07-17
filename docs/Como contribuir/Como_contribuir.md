@@ -65,3 +65,4 @@ O rodapé também é uma parte opcional da mensagem de commit que pode ser usado
 | Versão |    Data    |                    Descrição                    |     Autor    |
 |:------:|:----------:|:-----------------------------------------------:|:------------:|
 |  1.0   | 11/04/2024 | Adicionando histórico de versão                 | Marcos Vieira|
+|  1.2   | 25/04/2024 |                     Adicionando emojis nos tópicos        | Isaac Batista |

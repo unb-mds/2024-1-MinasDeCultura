@@ -88,5 +88,6 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 | Versão |    Data    |                    Descrição                    |     Autor      |
 |:------:|:----------:|:-----------------------------------------------:|:--------------:|
-|  1.0   | 11/04/2024 | Adicionando histórico de versão                 | Gabriel Scheidt|
-|  1.1   | 26/04/2024 | adicionando prototipação e identidade visual    | Manuella Valadares|
+|  1.0   | 11/04/2024 |           Adicionando histórico de versão       | Gabriel Scheidt|
+|  1.1   | 25/04/2024 |           Adicionando emojis nos tópicos        | Isaac Batista  |
+|  1.2   | 26/04/2024 | Adicionando prototipação e identidade visual    | Manuella Valadares|

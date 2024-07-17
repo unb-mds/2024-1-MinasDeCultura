@@ -6,6 +6,9 @@ theme:
   favicon: assets/images/favicon.png
   logo: assets/images/logo_branca.png
   name: material
+  repo_url: 'https://github.com/unb-mds/2024-1-MinasDeCultura'
+  repo_name: '2024-1-MinasDeCultura'
+
   features:
     - navigation.tabs
     - navigation.sections

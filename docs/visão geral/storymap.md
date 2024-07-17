@@ -7,3 +7,4 @@
 | Versão |    Data    |                    Descrição                    |     Autor      |
 |:------:|:----------:|:-----------------------------------------------:|:--------------:|
 |  1.0   | 02/04/2024 | Adicionando histórico de versão                 | Gabriel Scheidt|
+|  1.1   | 25/04/2024 |                     Adicionando emojis nos tópicos                       | Isaac Batista |

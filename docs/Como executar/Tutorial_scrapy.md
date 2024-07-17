@@ -64,10 +64,18 @@ cd webscrapy/minas_de_cultura_scrapy
 
 Execução do crawler:
 ```
-scrapy crawl prototipo_spider
+scrapy crawl prototipo_spider -o resultado.json
 ```
 
-## Passo 7: Desativação do Ambiente Virtual
+passando os parâmetros no final o resultado será armazenado como json em um arquivo nomeado resultado.
+
+## Passo 7: Resultado da busca
+Para vizualizar o resultado basta dar o comando:
+```
+cat resultado.json
+```
+
+## Passo 8: Desativação do Ambiente Virtual
 
 Quando terminar, desative o ambiente virtual:
 ```
