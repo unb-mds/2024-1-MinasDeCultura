@@ -3,6 +3,8 @@
 import { Search, MapPin, CalendarClock, MoveRight } from "lucide-react";
 import Busca from "@/components/Busca"
 import dynamic from 'next/dynamic';
+import Slider from "@/components/Slider"
+
 
 const Grafico = dynamic(() => import('@/components/Grafico'), { ssr: false });
 
@@ -23,7 +25,6 @@ export default function Home() {
             />
             <div className="border-b border-black absolute left-0 right-0 bottom-0"></div>
           </li>
-
           <li className="relative flex items-center">
             <MapPin className="w-6 h-6" color="#ED1C24" />
             <input
@@ -52,6 +53,7 @@ export default function Home() {
         </ul>
       </div>
       <div className="container font-sans">
+      <Slider/>
         <h1 className=" text-4xl text-center">
           A Secretaria de Cultura e Turismo do Estado de Minas Gerais:
         </h1>
