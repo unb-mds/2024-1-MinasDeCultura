@@ -1,3 +1,18 @@
 [
-
-]
+    {
+      "unidade_adm": "Secretaria de Governo",
+      "mes": "Janeiro",
+      "ano": 2024,
+      "valor_empenhado": 33333.23,
+      "valor_liquidado": 1046229.29,
+      "valor_pago": 870089.97
+    },
+    {
+      "unidade_adm": "Secretaria de Governo",
+      "mes": "Fevereiro",
+      "ano": 2024,
+      "valor_empenhado": 12345.23,
+      "valor_liquidado": 1046229.29,
+      "valor_pago": 870089.97
+    }
+  ]
