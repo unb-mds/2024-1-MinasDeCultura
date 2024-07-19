@@ -16,8 +16,7 @@ const client = new Client({
     console.log('Conectando ao Postgre');
 
     // lendo o JSON
-    const data = JSON.parse(fs.readFileSync('../webscrapy/resultado.json', 'utf-8'));
-
+    const data = JSON.parse(fs.readFileSync('../webscrapy/minas_de_cultura_scrapy/resultado.json', 'utf-8'));
     // loop de inserção no banco de dados
     for (const item of data) {
       
