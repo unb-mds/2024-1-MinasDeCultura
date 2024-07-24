@@ -50,18 +50,27 @@ class JuizDeForaSpider(scrapy.Spider):
                 if table:
                     data = []
                     headers = table[0]
+                    keywords = {
+                        "FUNALFA": "Fundação Cultural Alfredo Ferreira Lage",
+                        "SETUR": "Secretaria de Turismo",
+                        "FUMAPE": "Fundo Municipal de Apoio a Pequena Empresa",
+                        "FUMTUR": "Fundo Municipal de Turismo",
+                        "FMC": "Fundo Municipal de Cultura",
+                        "MAPRO": "Manutenção de Programas"
+                    }
                     for row in table[1:]:
-                        if "FUNALFA" in row[0]:
-                            entry = {
-                                "Sigla": "FUNALFA",
-                                "Unidade administrativa": "Fundação Cultural Alfredo Ferreira Lage",
-                                "Valor empenhado": row[2],
-                                "Valor liquidado": row[3],
-                                "Valor pago": row[4],
-                                "ano": self.ano,
-                                "mes": self.mes
-                            }
-                            data.append(entry)
+                        for keyword, full_name in keywords.items():
+                            if keyword in row[0]:
+                                entry = {
+                                    "Sigla": keyword,
+                                    "Unidade administrativa": full_name,
+                                    "Valor empenhado": row[2],
+                                    "Valor liquidado": row[3],
+                                    "Valor pago": row[4],
+                                    "ano": self.ano,
+                                    "mes": self.mes
+                                }
+                                data.append(entry)
                     
                     # Save data as JSON
                     json_path = 'despesas.json'
