@@ -63,8 +63,9 @@ cd webscrapy/minas_de_cultura_scrapy
 ```
 
 Execução do crawler:
+Os valores de ano foram definidos para funcionar entre 2020 até 2024 e os meses se iniciam sendo 01 até o 12.
 ```
-scrapy crawl prototipo_spider -o resultado.json
+scrapy crawl prototipo_spider -a ao=xx -a mes=xx
 ```
 
 passando os parâmetros no final o resultado será armazenado como json em um arquivo nomeado resultado.
