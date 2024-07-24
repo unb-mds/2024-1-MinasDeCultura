@@ -10,7 +10,7 @@ class JuizDeForaSpider(scrapy.Spider):
         super(JuizDeForaSpider, self).__init__(*args, **kwargs)
         if ano is None or mes is None:
             raise ValueError("Ano e mês devem ser fornecidos")
-        if not (20 <= int(ano) <= 24):
+        if not (22 <= int(ano) <= 24):
             raise ValueError("Ano deve estar entre 20 e 24")
         if not (1 <= int(mes) <= 12):
             raise ValueError("Mês deve estar entre 1 e 12")

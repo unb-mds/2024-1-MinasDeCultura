@@ -63,7 +63,7 @@ cd webscrapy/minas_de_cultura_scrapy
 ```
 
 Execução do crawler:
-Os valores de ano foram definidos para funcionar entre 2020 até 2024 e os meses se iniciam sendo 01 até o 12.
+Os valores de ano foram definidos para funcionar entre 2022 até 2024 e os meses se iniciam sendo 01 até o 12.
 ```
 scrapy crawl prototipo_spider -a ao=xx -a mes=xx
 ```
