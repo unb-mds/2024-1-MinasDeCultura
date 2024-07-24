@@ -53,7 +53,7 @@ class JuizDeForaSpider(scrapy.Spider):
                     keywords = {
                         "FUNALFA": "Fundação Cultural Alfredo Ferreira Lage",
                         "SETUR": "Secretaria de Turismo",
-                        "FUMAPE": "Fundo Municipal de Apoio a Pequena Empresa",
+                        "FUMAPE": "Fundo Municipal de Apoio ao Esporte",
                         "FUMTUR": "Fundo Municipal de Turismo",
                         "FMC": "Fundo Municipal de Cultura",
                         "MAPRO": "Manutenção de Programas"
