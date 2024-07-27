@@ -1,45 +1,54 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import Logo from '@/assets/Logo.png';
+import Logo from '@/assets/logo_vermelha.png';
 import Link from 'next/link';
+import { Menu, X } from "lucide-react";
 
 export function Header() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleNavbar = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <header className="flex w-full h-22 bg-primary-white relative px-44 mx-auto items-center justify-between rounded-xl">
-            <div>
-                <Image
-                    src={Logo}
-                    alt='Logo'
-                />
+        <header className="flex flex-col items-center bg-primary-white w-full relative">
+            <div className="py-1 flex w-full h-22 gap-20 px-5 sm:px-10 lg:px-20 xl:px-44 mx-auto items-center justify-between">
+                <div className="flex flex-row items-center justify-center gap-4">
+                    <button
+                        className="md:hidden inline-flex items-center justify-center p-2 rounded-md"
+                        onClick={toggleNavbar}
+                    >
+                        {isOpen ? <X /> : <Menu />}
+                    </button>
+                    <Link href="/" className="flex flex-row items-center justify-center gap-4">
+                        <Image className="size-14 lg:size-20" src={Logo} alt='Logo' />
+                        <h1 className="text-center text-2xl text-neutral-700 sm:text-3xl font-DMsans">
+                            <strong>Minas</strong>deCultura
+                        </h1>
+                    </Link>
+                </div>
+                <div className="hidden md:flex items-center text-lg lg:text-xl space-x-4 font-DMsans">
+                    <Link className="text-neutral-700 rounded-lg p-2" href="/">HOME</Link>
+                    <Link className="text-neutral-700 rounded-lg p-2" href="/Sobre">SOBRE</Link>
+                    <Link className="text-neutral-700 rounded-lg p-2" href="/Pesquisa">PESQUISA FILTRADA</Link>
+                </div>
             </div>
-            <ul className="flex gap-10 font-sans 2xl">
-                <li>
+            <div className={`w-full md:hidden bg-primary-white shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="flex flex-col items-start space-y-1 py-2 px-8 sm:px-10">
                     <Link href="/">
-                        <button>
-                            <span>
-                                HOME
-                            </span>
-                        </button>
+                        <button className="text-lg block w-full text-center py-2 font-DMsans">HOME</button>
                     </Link>
-                </li>
-                <li>
                     <Link href="/Sobre">
-                        <button>
-                            <span>
-                                SOBRE
-                            </span>
-                        </button>
+                        <button className="text-lg block w-full text-center py-2 font-DMsans">SOBRE</button>
                     </Link>
-                </li>
-                <li>
-                <Link href="/Pesquisa">
-                        <button>
-                            <span>
-                                PESQUISA FILTRADA
-                            </span>
-                        </button>
+                    <Link href="/Pesquisa">
+                        <button className="text-lg block w-full text-center py-2 font-DMsans">PESQUISA FILTRADA</button>
                     </Link>
-                </li>                       
-            </ul>
+                </div>
+            </div>
         </header>
-    )
+    );
 }

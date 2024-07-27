@@ -3,8 +3,8 @@ import { Search, MapPin, CalendarClock, MoveRight } from "lucide-react";
 const Filtro = () => {
     return (
         <div className="container bg-primary-white border rounded-lg flex flex-col items-center justify-center lg:p-12 p-8">
-            <h1 className="font-sans text-4xl text-center mb-[50px]">
-                Realize sua pesquisa filtrando os resultados desejados:
+            <h1 className="text-neutral-700 font-DMsans text-lg lg:text-4xl xl:text-5xl text-center mb-[50px]">
+                Pesquise por cidade periodo e tema
             </h1>
             <ul className="flex lg:flex-row w-full justify-center flex-col gap-4">
                 <li className="relative flex items-center">
