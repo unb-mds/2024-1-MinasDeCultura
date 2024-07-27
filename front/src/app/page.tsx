@@ -34,8 +34,8 @@ export default function Home() {
       </div>
       <div className="container w-full h-auto bg-primary-white rounded-lg ">
       </div>
-      {/*<Grafico/>
-      <Busca/>*/}
+      <Grafico/>
+      <Busca/>
     </main>
   );
 }

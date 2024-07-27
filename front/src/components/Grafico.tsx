@@ -52,6 +52,36 @@ const Grafico: React.FC = () => {
         legend: {
             show: false,
         },
+        responsive:[
+            {
+                breakpoint: 1025,
+                options:{
+                    chart:{
+                        height: 424,
+                        width: 800,
+                    }
+                }
+            },
+            {
+                breakpoint: 640,
+                options:{
+                    chart:{
+                        height: 200,
+                        width: 310,
+                    }
+                }
+            },
+            {
+                breakpoint: 769,
+                options:{
+                    chart:{
+                        height: 424,
+                        width: 700
+                    }
+                }
+            }
+            
+        ]
     };
 
     const series = [{
@@ -66,8 +96,10 @@ const Grafico: React.FC = () => {
                     options={options}
                     series={series}
                     type='bar'
-                    width={1550}
+                    width={1200}
                     height={424}
+                
+                    
                 />
             )}
         </>
