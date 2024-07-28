@@ -1,0 +1,24 @@
+services:
+  frontend:
+    image: node:20.12.2
+    working_dir: /app
+    volumes:
+      - ./front:/app
+    ports:
+      - "3000:3000"
+    command: "npm run dev"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+
+volumes:
+  frontdata:
+  backenddata:
