@@ -1,7 +1,7 @@
 const { Client } = require('pg');
 const fs = require('fs');
 
-// Config de conexao do postgre
+// Config de conexão do PostgreSQL
 const client = new Client({
   host: 'localhost',
   port: 5432,
@@ -10,30 +10,51 @@ const client = new Client({
   database: 'test_db',
 });
 
+function formatValue(value) {
+  if (typeof value !== 'string') {
+    value = value.toString();
+  }
+  // Remove os pontos
+  let formattedValue = value.replace(/\./g, '');
+  // Substitui a vírgula por ponto
+  formattedValue = formattedValue.replace(',', '.');
+  return formattedValue;
+}
+
 (async () => {
   try {
     await client.connect();
     console.log('Conectando ao Postgre');
 
-    // lendo o JSON
+    // Lendo o JSON
     const data = JSON.parse(fs.readFileSync('../webscrapy/minas_de_cultura_scrapy/resultado.json', 'utf-8'));
-    // loop de inserção no banco de dados
+
+    // Loop de inserção no banco de dados
     for (const item of data) {
       
-      const { unidade_adm, mes, ano, valor_empenhado, valor_liquidado, valor_pago} = item;
+      const { 
+        "Sigla": sigla,
+        "Unidade administrativa": unidade_adm,
+        "Valor empenhado": valor_empenhado,
+        "Valor liquidado": valor_liquidado,
+        "Valor pago": valor_pago,
+        "ano": ano,
+        "mes": mes 
+      } = item;
     
       const query = `
-          INSERT INTO licitacoes (unidade_adm, mes, ano, valor_empenhado, valor_liquidado, valor_pago)
-          VALUES ($1, $2, $3, $4, $5, $6)
+          INSERT INTO licitacoes (sigla, unidade_adm, valor_empenhado, valor_liquidado, valor_pago, ano, mes)
+          VALUES ($1, $2, $3, $4, $5, $6, $7)
           ON CONFLICT (unidade_adm, mes, ano) DO NOTHING;
       `;
       const values = [
+        sigla ? sigla.toString() : null,
         unidade_adm ? unidade_adm.toString().substring(0, 255) : null,
-        mes ? mes.toString().substring(0, 255) : null,
+        valor_empenhado ? parseFloat(formatValue(valor_empenhado)) : null,
+        valor_liquidado ? parseFloat(formatValue(valor_liquidado)) : null,
+        valor_pago ? parseFloat(formatValue(valor_pago)) : null,
         ano ? parseInt(ano) : null,
-        valor_empenhado ? parseFloat(valor_empenhado) : null,
-        valor_liquidado ? parseFloat(valor_liquidado) : null,
-        valor_pago ? parseFloat(valor_pago) : null
+        mes ? mes.toString().substring(0, 255) : null
       ];
 
       await client.query(query, values);
