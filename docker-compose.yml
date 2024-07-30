@@ -1,6 +1,8 @@
 services:
   frontend:
-    image: node:20.12.2
+    build:
+      context: .
+      dockerfile: front.Dockerfile
     working_dir: /app
     volumes:
       - ./front:/app
