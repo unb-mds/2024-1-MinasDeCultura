@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Logo from '@/assets/logo_vermelha.png';
+import Logo from '../assets/logo_vermelha.png';
 import Link from 'next/link';
 import { Menu, X } from "lucide-react";
 

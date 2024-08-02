@@ -1,5 +1,5 @@
 import {MoveRight } from "lucide-react";
-import Lupa1 from "@/assets/lupa1.png"
+import Lupa1 from "../assets/lupa1.png"
 import Image from "next/image";
 
 const Busca = () => {
