@@ -1,14 +1,13 @@
 services:
   frontend:
     build:
-      context: .
-      dockerfile: front.Dockerfile
-    working_dir: /app
+      context: ./front
+      dockerfile: Dockerfile
     volumes:
-      - ./front:/app
+      - ./front:/frontend
+      - /frontend/node_modules
     ports:
       - "3000:3000"
-    command: "npm run dev"
     depends_on:
       - backend
 
@@ -17,10 +16,6 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     volumes:
-      - ./backend:/app
+      - ./backend:/backend
     ports:
       - "8000:8000"
-
-volumes:
-  frontdata:
-  backenddata:
