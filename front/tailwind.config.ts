@@ -18,7 +18,7 @@ const config: Config = {
         'primary-white':'#FFFFFF',
         'primary-red':'#ED1C24',
         'primary-yellow':'#FFC06B',
-        'neutral-700':'#3C3C3C',
+        'neutral-700':'#3c3c3c',
         'azul-busca':'#222037'
       }
 
