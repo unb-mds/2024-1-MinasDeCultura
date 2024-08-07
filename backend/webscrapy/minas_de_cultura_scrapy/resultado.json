@@ -1,0 +1,56 @@
+[
+    {
+        "Sigla": "SETUR",
+        "Unidade administrativa": "Secretaria de Turismo",
+        "Valor empenhado": "2.612.700,86",
+        "Valor liquidado": "1.413.233,97",
+        "Valor pago": "1.349.498,54",
+        "ano": "24",
+        "mes": "02"
+    },
+    {
+        "Sigla": "FUMAPE",
+        "Unidade administrativa": "Fundo Municipal de Apoio ao Esporte",
+        "Valor empenhado": "0,00",
+        "Valor liquidado": "0,00",
+        "Valor pago": "0,00",
+        "ano": "24",
+        "mes": "02"
+    },
+    {
+        "Sigla": "FUMTUR",
+        "Unidade administrativa": "Fundo Municipal de Turismo",
+        "Valor empenhado": "30.000,00",
+        "Valor liquidado": "30.000,00",
+        "Valor pago": "30.000,00",
+        "ano": "24",
+        "mes": "02"
+    },
+    {
+        "Sigla": "FMC",
+        "Unidade administrativa": "Fundo Municipal de Cultura",
+        "Valor empenhado": "89.521,70",
+        "Valor liquidado": "0,00",
+        "Valor pago": "0,00",
+        "ano": "23",
+        "mes": "02"
+    },
+    {
+        "Sigla": "FUNALFA",
+        "Unidade administrativa": "Fundação Cultural Alfredo Ferreira Lage",
+        "Valor empenhado": "13.507.645,73",
+        "Valor liquidado": "4.727.824,39",
+        "Valor pago": "4.628.777,29",
+        "ano": "24",
+        "mes": "02"
+    },
+    {
+        "Sigla": "MAPRO",
+        "Unidade administrativa": "Manutenção de Programas",
+        "Valor empenhado": "3.432.458,72",
+        "Valor liquidado": "958.048,45",
+        "Valor pago": "758.235,30",
+        "ano": "24",
+        "mes": "02"
+    }
+]

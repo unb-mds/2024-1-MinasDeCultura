@@ -1,0 +1,15 @@
+# Use a imagem oficial do Python 3.10
+FROM python:3.10
+
+# Defina o diretório de trabalho
+WORKDIR /backend
+
+# Copie o arquivo de requisitos
+COPY requirements.txt .
+
+# Instale as dependências
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copie o restante do código da aplicação
+COPY . .
+

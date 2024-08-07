@@ -63,8 +63,9 @@ cd webscrapy/minas_de_cultura_scrapy
 ```
 
 Execução do crawler:
+Os valores de ano foram definidos para funcionar entre 2022 até 2024 e os meses se iniciam sendo 01 até o 12.
 ```
-scrapy crawl prototipo_spider -o resultado.json
+scrapy crawl juiz_de_fora -a ano=xx -a mes=xx
 ```
 
 passando os parâmetros no final o resultado será armazenado como json em um arquivo nomeado resultado.
@@ -72,7 +73,7 @@ passando os parâmetros no final o resultado será armazenado como json em um ar
 ## Passo 7: Resultado da busca
 Para vizualizar o resultado basta dar o comando:
 ```
-cat resultado.json
+cat despesas.json
 ```
 
 ## Passo 8: Desativação do Ambiente Virtual
