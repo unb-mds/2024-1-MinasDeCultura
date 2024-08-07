@@ -1,12 +1,15 @@
 services:
   frontend:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
     image: node:20.12.2
     working_dir: /app
     volumes:
-      - ./front:/app
+      - ./front:/frontend
+      - /frontend/node_modules
     ports:
       - "3000:3000"
-    command: "npm run dev"
     depends_on:
       - backend
 
@@ -15,7 +18,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     volumes:
-      - ./backend:/app
+      - ./backend:/backend
     ports:
       - "8000:8000"
 
@@ -39,7 +42,3 @@ services:
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
       - "5050:80"
-
-volumes:
-  frontdata:
-  backenddata:

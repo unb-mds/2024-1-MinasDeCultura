@@ -5,16 +5,17 @@ FROM node:21.7
 WORKDIR /frontend
 
 # Copie os arquivos de dependências
-COPY front/package*.json ./
+COPY package*.json ./
 
 # Instale as dependências
 RUN npm install
 
 # Copie o código da aplicação
-COPY front/ .
+COPY . .
 
 # Exponha a porta que o frontend usará
 EXPOSE 3000
 
 # Comando para iniciar a aplicação
 CMD ["npm", "run", "dev"]
+
