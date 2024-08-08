@@ -16,3 +16,19 @@ jest.mock('next/image', () => {
   };
 });
 
+jest.mock('swiper/react', () => ({
+  Swiper: ({ children }) => <div>{children}</div>,
+  SwiperSlide: ({ children }) => <div>{children}</div>,
+}));
+
+jest.mock('swiper/modules', () => ({
+  Navigation: {},
+  Pagination: {},
+  Autoplay: {},
+}));
+
+jest.mock('swiper/css', () => {});
+jest.mock('swiper/css/navigation', () => {});
+jest.mock('swiper/css/pagination', () => {});
+jest.mock('swiper/css/autoplay', () => {});
+
