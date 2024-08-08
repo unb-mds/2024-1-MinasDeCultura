@@ -1,5 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
+
 jest.mock('@/assets/logo_vermelha.png', () => 'test-file-stub');
 jest.mock('next/image', () => {
   return ({ src, alt }) => {
@@ -7,3 +8,11 @@ jest.mock('next/image', () => {
     return <img src={src} alt={alt} />;
   };
 });
+
+jest.mock('@/assets/imggit.png', () => 'test-file-stub');
+jest.mock('next/image', () => {
+  return ({ src, alt }) => {
+    return <img src={src} alt={alt} />;
+  };
+});
+
