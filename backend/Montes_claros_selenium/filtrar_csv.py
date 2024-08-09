@@ -84,8 +84,13 @@ def salvar_dados_json(dados, diretorio, ano, mes):
             "Valor liquidado": "Null",
             "Valor pago": "Null",
             "ano": ano[-2:],
-            "mes": mes
+            "mes": mes,
+            "cidade": "Montes Claros"
         }]
+    else:
+        # Adiciona a cidade "Montes Claros" a cada item
+        for item in dados:
+            item["cidade"] = "Montes Claros"
 
     dados_existentes.extend(dados)
 
