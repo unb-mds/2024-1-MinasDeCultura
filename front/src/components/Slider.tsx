@@ -1,9 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'; 
 
 
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
 
 const data = [
@@ -16,10 +18,11 @@ const Slider = () => {
     return(
         <div className="flex justify-center items-center mb-16 bg-primary-gray">
                 <Swiper
+                modules={[Navigation, Pagination, Autoplay]}
                 slidesPerView={1}
-                navigation={ true }/*arrumar o navigation tá com B.O*/ 
+                navigation={ true }
                 pagination={{ clickable: true }}
-                autoplay={{ delay: 1000 }}
+                autoplay={{ delay: 5000 }}
                 loop={true}
                 >
                 {data.map((item) => (
