@@ -64,19 +64,19 @@ class JuizDeForaSpider(scrapy.Spider):
                         "FUMAPE": "Fundo Municipal de Apoio ao Esporte",
                         "FUMTUR": "Fundo Municipal de Turismo",
                         "FMC": "Fundo Municipal de Cultura",
-                        "MAPRO": "Manutenção de Programas"
+                        "MAPRO": "Fundação Museu Mariano Procópio"
                     }
                     for row in table[1:]:
                         for keyword, full_name in keywords.items():
                             if keyword in row[0]:
                                 entry = {
-                                    "Sigla": keyword,
                                     "Unidade administrativa": full_name,
                                     "Valor empenhado": row[2],
                                     "Valor liquidado": row[3],
                                     "Valor pago": row[4],
                                     "ano": ano,
-                                    "mes": mes
+                                    "mes": mes,
+                                    "cidade": "Juiz de Fora"
                                 }
                                 data.append(entry)
                     
