@@ -4,7 +4,7 @@ services:
       context: ./front
       dockerfile: Dockerfile
     image: node:20.12.2
-    working_dir: /app
+    working_dir: /frontend
     volumes:
       - ./front:/frontend
       - /frontend/node_modules
