@@ -29,7 +29,7 @@ cd frontend
 ### Instalar dependências
 
 ```bash
-npm i
+sudo npm i
 ```
 
 ### Para iniciar os testes devemos escrevar no terminal
