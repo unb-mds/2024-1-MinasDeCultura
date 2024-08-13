@@ -34,7 +34,7 @@ const Slider: React.FC = () => {
                 slidesPerView={1}
                 navigation={true}
                 pagination={{ clickable: true }}
-                autoplay={{ delay: 1000 }}
+                autoplay={{ delay: 5000 }}
                 loop={true}
             >
                 {data.map((item, index) => (

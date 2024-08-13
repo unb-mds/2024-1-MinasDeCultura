@@ -25,20 +25,20 @@ const Footer = () => {
                 </Link>
             </li>                   
         </ul>       
-                  <a href="https://github.com/unb-mds/2024-1-MinasDeCultura" target="_blank" rel="noopener noreferrer">
-                  <Image className="lg:-mt-14 -mt-4"
-                  src={ImgGit}
-                  alt='imggit'
-                  style={{marginLeft:'96%'}}
-                  />
-                  </a>
-                  <div className="w-full h-px bg-white mt-20 hidden sm:flex"></div>
-                  <div className="flex justify-end">
-                   <p className="text-white mt-10 hidden sm:flex">© 2024. All Rights Reserved.</p>
-                  </div>
+        <a href="https://github.com/unb-mds/2024-1-MinasDeCultura" target="_blank" rel="noopener noreferrer">
+          <Image className="lg:-mt-14 -mt-4"
+            src={ImgGit}
+            alt='imggit'
+            style={{marginLeft:'96%'}}
+          />
+        </a>
+        <div className="w-full h-px bg-white mt-20 hidden sm:flex"></div>
+        <div className="flex justify-end">
+          <p className="text-white mt-10 hidden sm:flex">© 2024. All Rights Reserved.</p>
+        </div>
                 
     </footer>
   )
 }
 
-export default Footer
+export default Footer;
