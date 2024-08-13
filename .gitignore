@@ -1,3 +1,4 @@
 node_modules
 venv
-backend/novas_noticias.json
+db-scripts/node_modules
+
