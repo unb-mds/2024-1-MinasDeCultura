@@ -49,10 +49,13 @@ const Filtro = () => {
   };
 
   const handleEndDateChange = (date: Date | null) => {
-    if (date && startDate && date >= startDate) {
+    if (date && startDate && date < startDate) {
+      setEndDate(startDate);
+    } else {
       setEndDate(date);
     }
   };
+  
 
   const handleSearchClick = () => {
     const startMonth = startDate ? startDate.getMonth() + 1 : null;
