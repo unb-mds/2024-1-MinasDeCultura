@@ -17,15 +17,12 @@ const Informacoes = () => {
                     <h1 className="text-center 2xl:text-start text-neutral-700 text-base md:text-3xl 2xl:text-[40px] font-DMsans font-bold sm:mb-10 leading-8 md:leading-10">
                         Projeto de Análise de Licitações Culturais
                     </h1>   
-                    <p className="text-neutral-700 text-sm md:text-2xl 2xl:text-2xl font-DMsans font-regular text-justify leading-10">
+                    <p className="sm:mx-20 text-neutral-700 text-sm md:text-2xl 2xl:text-2xl font-DMsans font-regular text-justify leading-10">
                         Este é um projeto desenvolvido como parte da disciplina de <b>Métodos de Desenvolvimento de Software</b> (MDS) da 
                         Universidade de Brasília (UnB). O objetivo principal deste projeto é criar uma plataforma online para análise e 
                         armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal, utilizando a 
                         plataforma e a API do Querido Diário.
                     </p>
-                    <a href="https://unb-mds.github.io/2024-1-MinasDeCultura/" className="text-base text-neutral-700 lg:text-2xl font-DMsans font-regular block mt-4">
-                        Github: https://unb-mds.github.io/2024-1-MinasDeCultura/
-                    </a>
                 </div>
             </div>
         </div>    
