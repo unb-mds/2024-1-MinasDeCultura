@@ -1,4 +1,5 @@
-"use client";//Precisa colocar o use client aqui e na página principal também
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { ApexOptions } from 'apexcharts';
@@ -7,23 +8,19 @@ const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Grafico: React.FC = () => {
     const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
-
-    const options: ApexOptions = {
+    const [chartOptions, setChartOptions] = useState<ApexOptions>({
         chart: {
             type: 'bar',
             height: 500,
             background: '#ffffff',
+            foreColor: '#000000',
         },
         plotOptions: {
             bar: {
                 horizontal: false,
                 distributed: true,
                 barHeight: '100%',
-                colors:{
+                colors: {
                     ranges: [{
                         from: 0,
                         to: 500000,
@@ -35,28 +32,33 @@ const Grafico: React.FC = () => {
         xaxis: {
             categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
             type: 'category',
+            labels: {
+                style: {
+                    colors: '#000000'
+                }
+            }
         },
         yaxis: {
             title: {
                 text: 'Valor',
+                style: {
+                    color: '#000000'
+                }
+            },
+            labels: {
+                style: {
+                    colors: '#000000'
+                }
             }
         },
-        /*tooltip: {
-            y: {
-                formatter: (val: number) => `${val} M`
-            }
-        },
-        dataLabels: {
-            formatter: (val: number) => `${val.toFixed(2)} M`
-        },*/
         legend: {
             show: false,
         },
-        responsive:[
+        responsive: [
             {
                 breakpoint: 1025,
-                options:{
-                    chart:{
+                options: {
+                    chart: {
                         height: 424,
                         width: 800,
                     }
@@ -64,8 +66,8 @@ const Grafico: React.FC = () => {
             },
             {
                 breakpoint: 640,
-                options:{
-                    chart:{
+                options: {
+                    chart: {
                         height: 200,
                         width: 310,
                     }
@@ -73,33 +75,85 @@ const Grafico: React.FC = () => {
             },
             {
                 breakpoint: 769,
-                options:{
-                    chart:{
+                options: {
+                    chart: {
                         height: 424,
                         width: 700
                     }
                 }
             }
-            
-        ]
-    };
+        ],
+        theme: {
+            mode: 'light', // Modo padrão inicial
+            palette: 'palette1',
+        },
+    });
 
     const series = [{
         name: 'Valor gasto',
         data: [20000, 300000, 65000, 100000, 200000, 200000, 20000, 30000, 20000, 75000, 300000, 200000]
     }];
 
+    useEffect(() => {
+        setIsClient(true);
+
+        const root = document.documentElement;
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === "class") {
+                    const isDarkMode = root.classList.contains('dark');
+                    setChartOptions((prevOptions) => ({
+                        ...prevOptions,
+                        chart: {
+                            ...prevOptions.chart,
+                            background: isDarkMode ? 'neutral-900' : '#ffffff',
+                            foreColor: isDarkMode ? '#e5e7eb' : '#000000',
+                        },
+                        xaxis: {
+                            ...prevOptions.xaxis,
+                            labels: {
+                                style: {
+                                    colors: isDarkMode ? '#e5e7eb' : '#000000'
+                                }
+                            }
+                        },
+                        yaxis: {
+                            ...prevOptions.yaxis,
+                            labels: {
+                                style: {
+                                    colors: isDarkMode ? '#e5e7eb' : '#000000'
+                                }
+                            },
+                            title: {
+                                style: {
+                                    color: isDarkMode ? '#e5e7eb' : '#000000'
+                                }
+                            }
+                        },
+                        theme: {
+                            mode: isDarkMode ? 'dark' : 'light',
+                        }
+                    }));
+                }
+            });
+        });
+
+        observer.observe(root, { attributes: true });
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
+
     return (
         <>
             {isClient && (
                 <ApexCharts
-                    options={options}
+                    options={chartOptions}
                     series={series}
                     type='bar'
                     width={1200}
                     height={424}
-                
-                    
                 />
             )}
         </>

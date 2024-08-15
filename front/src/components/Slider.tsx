@@ -29,7 +29,7 @@ const Slider: React.FC = () => {
     }, []);
 
     return (
-        <div className="flex justify-center items-center mb-16 bg-primary-gray">
+        <div className="flex justify-center items-center mb-16 bg-primary-gray dark:bg-neutral-800">
             <Swiper
                 slidesPerView={1}
                 navigation={true}
@@ -45,7 +45,7 @@ const Slider: React.FC = () => {
                                 alt="Slider"
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute bottom-0 w-full p-4 bg-primary-gray bg-opacity-30 text-white font-sans text-4xl">
+                            <div className="absolute bottom-0 w-full p-4 bg-primary-gray dark:bg-neutral-800 bg-opacity-30 dark:bg-opacity-70 text-white font-sans text-4xl">
                                 <p className="text-center">{item.title}</p>
                             </div>
                         </a>
