@@ -4,11 +4,15 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from '@/assets/logo_vermelha.png';
 import Link from 'next/link';
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, Contrast, PersonStanding, Text, AArrowUp } from "lucide-react";
 
 export function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
+    const [highContrast, setHighContrast] = useState(false);
+    const [fontSize, setFontSize] = useState('text-base');
+    const [accessibilityMenuOpen, setAccessibilityMenuOpen] = useState(false);
+    const [keepMenuOpen, setKeepMenuOpen] = useState(false);
 
     useEffect(() => {
         if (darkMode) {
@@ -18,8 +22,40 @@ export function Header() {
         }
     }, [darkMode]);
 
+    useEffect(() => {
+        if (highContrast) {
+            document.documentElement.classList.add('high-contrast');
+        } else {
+            document.documentElement.classList.remove('high-contrast');
+        }
+    }, [highContrast]);
+
     const toggleNavbar = () => {
         setIsOpen(!isOpen);
+    };
+
+    const increaseFontSize = () => {
+        setFontSize('text-lg');
+    };
+
+    const resetFontSize = () => {
+        setFontSize('text-base');
+    };
+
+    const handleMouseEnter = () => {
+        setAccessibilityMenuOpen(true);
+        setKeepMenuOpen(true);
+    };
+
+    const handleMouseLeave = () => {
+        if (!keepMenuOpen) {
+            setAccessibilityMenuOpen(false);
+        }
+    };
+
+    const closeMenu = () => {
+        setAccessibilityMenuOpen(false);
+        setKeepMenuOpen(false);
     };
 
     return (
@@ -45,14 +81,56 @@ export function Header() {
                     <Link className="text-neutral-700 dark:text-neutral-300 rounded-lg p-2" href="/Sobre">SOBRE</Link>
                     <Link className="text-neutral-700 dark:text-neutral-300 rounded-lg p-2" href="/Pesquisa">PESQUISA FILTRADA</Link>
                 </nav>
-                <button
-                    onClick={() => setDarkMode(!darkMode)}
-                    className="p-2 rounded-lg bg-gray-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
-                    aria-label={darkMode ? 'Ativar modo claro' : 'Ativar modo escuro'}
-                >
-                    {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-                </button>
+
+                <div className="relative">
+                    <button
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        className="p-2 rounded-lg bg-gray-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
+                        aria-label="Acessibilidade"
+                    >
+                        <PersonStanding className="w-6 h-6" />
+                    </button>
+
+                    {accessibilityMenuOpen && (
+                        <div 
+                            onMouseEnter={handleMouseEnter} 
+                            onMouseLeave={closeMenu}
+                            className="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-700 shadow-lg rounded-lg z-10"
+                        >
+                            <button
+                                onClick={() => { setDarkMode(!darkMode); closeMenu(); }}
+                                className="w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-300"
+                            >
+                                {darkMode ? <Sun className="w-5 h-5 mr-2" /> : <Moon className="w-5 h-5 mr-2" />}
+                                {darkMode ? 'Modo Claro' : 'Modo Escuro'}
+                            </button>
+                            <button
+                                onClick={() => { setHighContrast(!highContrast); closeMenu(); }}
+                                className="w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-300"
+                            >
+                                <Contrast className="w-5 h-5 mr-2" />
+                                {highContrast ? 'Contraste Normal' : 'Alto Contraste'}
+                            </button>
+                            <button
+                                onClick={() => { increaseFontSize(); closeMenu(); }}
+                                className="w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-300"
+                            >
+                                <AArrowUp className="w-5 h-5 mr-2" />
+                                Aumentar Fonte
+                            </button>
+                            <button
+                                onClick={() => { resetFontSize(); closeMenu(); }}
+                                className="w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-300"
+                            >
+                                <Text className="w-5 h-5 mr-2" />
+                                Fonte Original
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
+
             <nav className={`mobile-menu w-full md:hidden bg-primary-white dark:bg-neutral-900 shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
                 <div className="flex flex-col items-start space-y-1 py-2 px-8 sm:px-10">
                     <Link href="/">
