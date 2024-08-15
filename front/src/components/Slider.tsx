@@ -1,7 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'; 
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 import React, { useState, useEffect } from 'react';
 
 interface NewsItem {
@@ -32,6 +34,7 @@ const Slider: React.FC = () => {
         <div className="flex justify-center items-center mb-16 bg-primary-gray">
             <Swiper
                 slidesPerView={1}
+                modules={[Navigation, Pagination, Autoplay]}
                 navigation={true}
                 pagination={{ clickable: true }}
                 autoplay={{ delay: 5000 }}
@@ -43,9 +46,9 @@ const Slider: React.FC = () => {
                             <img
                                 src={`${site}${item.image_url}`}
                                 alt="Slider"
-                                className="w-full h-full object-cover"
+                                className="w-full object-cover h-96"
                             />
-                            <div className="absolute bottom-0 w-full p-4 bg-primary-gray bg-opacity-30 text-white font-sans text-4xl">
+                            <div className="absolute bottom-0 w-full p-4 bg-black bg-opacity-30 text-white font-sans lg:text-4xl md:text-xl text-sm">
                                 <p className="text-center">{item.title}</p>
                             </div>
                         </a>
