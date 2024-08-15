@@ -16,7 +16,6 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
     - [⚙️ Funcionalidades](#%EF%B8%8F-funcionalidades-previstas)
     - [💻 Tecnologias](#-tecnologias)
     - [🤖 Prototipação e Identidade Visual](#-prototipação-e-identidade-visual)
-    - [Protótipo de utilização da API do Querido Diário](#-Protótipo-de-utilização-da-API-do-Querido-Diário)
     - [Como testar o protótipo?](#-Como-testar-o-protótipo?)
     - [👥 Desenvolvedores](#-desenvolvedores)
     - [🗒 Story Map](#-story-map)
@@ -24,12 +23,10 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 ## ⚙️ Funcionalidades Previstas
 
-- **Coleta de Dados:** Implementação de um mecanismo para coletar dados sobre as dispensas de licitações culturais da API do "Querido Diário".
-- **Análise e Armazenamento:** Desenvolvimento de algoritmos para analisar os dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
+- **Coleta de Dados:** Implementação de um raspadores utilizando as ferramentas scrapy e selenium.
+- **Análise e Armazenamento:** Desenvolvimento de algoritmos para organizar dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
 - **Visualização de Dados:** Criação de interfaces intuitivas para que os usuários possam visualizar os dados de forma clara e compreensível, através de gráficos, tabelas e outros elementos visuais.
-- **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, tipo de evento, valor, entre outros, facilitando a busca por informações específicas.
-- **Notificações:** Implementação de um sistema de notificações para informar os usuários sobre novas dispensas de licitações adicionadas ao sistema, mantendo-os atualizados sobre as últimas informações disponíveis.
-
+- **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, unidade adminitrativa, valor, entre outros, facilitando a busca por informações específicas.
 
 ## 💻 Tecnologias
 
@@ -51,15 +48,15 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img src="https://img.shields.io/badge/JavaScript-purple?style=for-the-badge&logo=javascript" alt="JavaScript"></a>
 <a href="https://docs.python.org/pt-br/3/library/re.html" target="_blank"><img src="https://img.shields.io/badge/Regex-red?style=for-the-badge" alt="Regex"></a>
 
-## 🤖 Prototipação e Identidade Visual
+## 🤖 Identidade Visual
 
 - *Desenvolvimento da Identidade Visual:* Investimos tempo no desenvolvimento de uma identidade visual consistente para o projeto, incluindo seleção de cores, tipografia e uma logo autêntica baseada na bandeira. Essa identidade visual reflete nossa visão e valores, e está integrada em toda a interface do usuário e materiais de design.
 
-- *Protótipo da Home:* 
+- *PHome:* 
   
   ![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
 
-## 🤖 Prototipação web scraping 
+## 🤖 Web scraping 
 Passo a passo de como usar o scrapy está [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/Como%20executar/Tutorial_scrapy/)
 
 ## 📚 Documentação
