@@ -1,6 +1,6 @@
-### ATA DE REUNIÃO - PROGRESSO DOS TRABALHOS E ORGANIZAÇÃO PARA FUTURAS METAS
+### ATA DE REUNIÃO 6
 
-**Data:** 28/06/2024  
+**Data:** 05/07/2024  
 **Hora de Início:** 09:00  
 **Hora de Término:** 10:00  
 **Plataforma:** Discord  
@@ -15,7 +15,6 @@
 #### 2. Considerações Iniciais da Reunião
 
 A reunião iniciou às 9:00 via Discord.  
-Rafael Carvalho não faz mais parte do grupo.
 
 #### 3. Pautas da Reunião
 
@@ -30,11 +29,11 @@ Resolvemos criar um Docker para facilitar o processo de rodar o nosso serviço n
 
 #### Encaminhamentos:
 
-| Atividade                           | Responsáveis                  | Prazo      |
-|-------------------------------------|-------------------------------|------------|
-| Finalização do Figma                | Todos os Membros              | 05/07/2024 |
-| Desenvolvimento do Backend           | Isaac Batista   | 12/07/2024 |
-| Implementação do Docker              | William Bernado | 12/07/2024 |
+| Atividade                           | Responsáveis                  | 
+|-------------------------------------|-------------------------------|
+| Finalização do Figma                | Todos os Membros              | 
+| Desenvolvimento do Backend           | Isaac Batista   | 
+| Implementação do Docker              | William Bernado | 
 
 #### 4. Considerações Finais
 
