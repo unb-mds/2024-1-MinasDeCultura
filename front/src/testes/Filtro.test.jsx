@@ -1,51 +1,64 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Filtro from '../components/Filtro';
 
-describe('Filtro', () => {
-  test('renders the Filtro component', () => {
+describe('Filtro Component', () => {
+
+  test('renders Filtro component', () => {
     render(<Filtro />);
-
-    // Check if the heading is rendered
-    const headingElement = screen.getByText(/Pesquise por cidade periodo e tema/i);
-    expect(headingElement).toBeInTheDocument();
-
-    // Check if the inputs are rendered
-    const assuntoInput = screen.getByPlaceholderText(/Assunto/i);
-    const localInput = screen.getByPlaceholderText(/Local/i);
-    const dataInput = screen.getByPlaceholderText(/Data/i);
-    expect(assuntoInput).toBeInTheDocument();
-    expect(localInput).toBeInTheDocument();
-    expect(dataInput).toBeInTheDocument();
-
-    // Check if the button is rendered
-    const buttonElement = screen.getByRole('button', { name: /Buscar/i });
-    expect(buttonElement).toBeInTheDocument();
+    
+    // Check if the title is rendered
+    expect(screen.getByText(/Pesquise por cidade, período e tema/i)).toBeInTheDocument();
+  
+    // Check if all input fields are rendered
+    expect(screen.getByPlaceholderText(/Assunto/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Local/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Data Inicial/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Data final/i)).toBeInTheDocument();
   });
 
-  test('inputs and button function correctly', () => {
+  test('handles subject and location input changes', () => {
     render(<Filtro />);
 
-    // Get the inputs and button
-    const assuntoInput = screen.getByPlaceholderText(/Assunto/i);
-    const localInput = screen.getByPlaceholderText(/Local/i);
-    const dataInput = screen.getByPlaceholderText(/Data/i);
-    const buttonElement = screen.getByRole('button', { name: /Buscar/i });
+    const subjectInput = screen.getByPlaceholderText(/Assunto/i);
+    const locationInput = screen.getByPlaceholderText(/Local/i);
 
-    // Simulate user typing in inputs
-    fireEvent.change(assuntoInput, { target: { value: 'Educação' } });
-    fireEvent.change(localInput, { target: { value: 'Belo Horizonte' } });
-    fireEvent.change(dataInput, { target: { value: '2024-08-01' } });
+    fireEvent.change(subjectInput, { target: { value: 'Educação' } });
+    fireEvent.change(locationInput, { target: { value: 'Belo Horizonte' } });
 
-    // Check if the input values are updated
-    expect(assuntoInput.value).toBe('Educação');
-    expect(localInput.value).toBe('Belo Horizonte');
-    expect(dataInput.value).toBe('2024-08-01');
-
-    // Simulate button click
-    fireEvent.click(buttonElement);
-
-    // You can add more assertions here to check what happens when the button is clicked
+    expect(subjectInput).toHaveValue('Educação');
+    expect(locationInput).toHaveValue('Belo Horizonte');
   });
+
+  test('handles start and end date selection', () => {
+    render(<Filtro />);
+    
+    const startDatePicker = screen.getByPlaceholderText(/Data Inicial/i);
+    const endDatePicker = screen.getByPlaceholderText(/Data final/i);
+  
+    // Select a start date
+    act(() => {
+      fireEvent.change(startDatePicker, { target: { value: '01 / 2024' } });
+    });
+  
+    // Select an end date that is before the start date
+    act(() => {
+      fireEvent.change(endDatePicker, { target: { value: '12 / 2023' } });
+    });
+  
+    // The start date should remain the same, and the end date should reflect the user selection
+    expect(startDatePicker).toHaveValue('01 / 2024');
+    expect(endDatePicker).toHaveValue('12 / 2023');
+  });
+  
+
+  test('handles search button click', () => {
+    render(<Filtro />);
+    
+    const searchButton = screen.getByText(/Buscar/i);
+    
+    fireEvent.click(searchButton);
+  });
+
+
 });

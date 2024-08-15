@@ -1,14 +1,15 @@
 services:
   frontend:
     build:
-      context: .
-      dockerfile: front.Dockerfile
-    working_dir: /app
+      context: ./front
+      dockerfile: Dockerfile
+    image: node:20.12.2
+    working_dir: /frontend
     volumes:
-      - ./front:/app
+      - ./front:/frontend
+      - /frontend/node_modules
     ports:
       - "3000:3000"
-    command: "npm run dev"
     depends_on:
       - backend
 
@@ -17,10 +18,27 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     volumes:
-      - ./backend:/app
+      - ./backend:/backend
     ports:
       - "8000:8000"
 
-volumes:
-  frontdata:
-  backenddata:
+  postgres:
+    container_name: minasdecultura-db
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: test_db
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"

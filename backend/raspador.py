@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import os
 
 # URL da página de notícias
 url = 'https://www.secult.mg.gov.br/'
@@ -40,7 +41,7 @@ else:
     for item in news_items:
         link = item.find('a', itemprop='url')['href']
         img_url = item.find('img')['src']
-        title = item.find('span', itemprop='name').text
+        title = item.find('span', itemprop='name').text.strip()
 
         # Armazenando os dados extraídos em um dicionário
         novas_noticias.append({
@@ -49,8 +50,18 @@ else:
             'title': title
         })
 
+    # Definindo o caminho do diretório baseado na localização do script
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+    diretorio_destino = os.path.join(diretorio_atual, '../front/public/data/')
+    
+    # Criando o diretório se não existir
+    os.makedirs(diretorio_destino, exist_ok=True)
+    
+    # Definindo o caminho completo para o arquivo JSON
+    arquivo_json = os.path.join(diretorio_destino, 'novas_noticias.json')
+
     # Salvando os dados em um arquivo JSON
-    with open('novas_noticias.json', 'w', encoding='utf-8') as f:
+    with open(arquivo_json, 'w', encoding='utf-8') as f:
         json.dump(novas_noticias, f, ensure_ascii=False, indent=4)
 
-    print("Dados das notícias extraídos e salvos em 'news_data.json'.")
+    print(f"Dados das notícias extraídos e salvos em '{arquivo_json}'.")
