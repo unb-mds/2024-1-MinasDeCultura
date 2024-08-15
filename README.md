@@ -5,7 +5,8 @@
 
 ## Projeto de Análise de Licitações Culturais
 
-Este é um projeto desenvolvido como parte da disciplina de Métodos de Desenvolvimento de Software (MDS) da Universidade de Brasília (UnB). O objetivo principal deste projeto é criar uma plataforma online para análise e armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal, utilizando a plataforma e a API do Querido Diário.
+Este projeto foi desenvolvido como parte da disciplina de Métodos de Desenvolvimento de Software (MDS) na Universidade de Brasília (UnB). O objetivo central é criar uma plataforma online para análise e armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal. A equipe de desenvolvimento elaborou raspadores personalizados para coletar esses dados, enfrentando o desafio de identificar cidades cujos dados estejam disponíveis e sejam adequados para uso. Utilizamos duas principais tecnologias de raspagem: Scrapy, para dados mais acessíveis e estruturados, e Selenium, para buscas em sites mais complexos que exigem maior interação.
+
 
 Através desta aplicação, buscamos oferecer uma maneira mais transparente e acessível para que o público em geral possa consultar os gastos governamentais em eventos culturais, shows, teatros e outras atividades culturais.
 
@@ -85,12 +86,6 @@ A arquitetura do projeto está disponível [aqui](https://miro.com/app/board/uXj
             <a href="https://github.com/isaacbatista26">
                 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/118384776?v=4" width="150px;"/>
                 <h5 class="text-center">Isaac Batista</h5>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/rafaelcarvalhoj">
-                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/105162671?v=4" width="150px;"/>
-                <h5 class="text-center">Rafael Carvalho</h5>
             </a>
         </td>
         </td>
