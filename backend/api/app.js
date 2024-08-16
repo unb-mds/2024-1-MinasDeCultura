@@ -3,21 +3,26 @@ const pool = require('./db');
 const app = express();
 
 app.get('/licitacoes', async (req, res) => {
-    const { inicio, fim } = req.query;
+    const { inicio, fim, cidade } = req.query;
 
-    if (!inicio || !fim) {
-        return res.status(400).json({ error: "Data inicial e data final são obrigatórias" });
+    if (!inicio || !fim || !cidade) {
+        return res.status(400).json({ error: "Data inicial, data final e cidade são obrigatórias" });
     }
-
+    if (inicio > fim) {
+        return res.status(400).json({ error: "A data inicial deve ser maior que a data final" });
+    }
     const inicioComparacao = parseInt(inicio);
     const fimComparacao = parseInt(fim);
 
     try {
-        const result = await pool.query(`
+        const query = `
             SELECT * FROM licitacoes WHERE 
             (CAST(ano AS INTEGER) * 100 + CAST(mes AS INTEGER)) BETWEEN $1 AND $2
-        `, [inicioComparacao, fimComparacao]);
-
+            AND cidade = $3
+        `;
+        
+        const result = await pool.query(query, [inicioComparacao, fimComparacao, cidade]);
+        
         if (result.rows.length > 0) {
             res.json(result.rows);
         } else {
