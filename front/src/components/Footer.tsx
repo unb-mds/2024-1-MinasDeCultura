@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ImgGit from '@/assets/imggit.png';
+import unblogo from '@/assets/unblogo.png';
 import Link from 'next/link';
 
 const Footer = () => {
@@ -25,14 +26,20 @@ const Footer = () => {
                 </Link>
             </li>                   
         </ul>
-        <div className="flex justify-end">       
+        <div className="flex justify-end gap-6">
+          <Image className="hidden md:flex w-12 h-12 lg:-mt-9 lg:mb-10 -mt-4"
+              src={unblogo}
+              alt='unblogo'
+          />       
           <a href="https://github.com/unb-mds/2024-1-MinasDeCultura" target="_blank" rel="noopener noreferrer">
             <Image className="lg:-mt-12 lg:mb-10 -mt-4"
               src={ImgGit}
               alt='imggit'
-              
             />
           </a>
+        </div>
+        <div className="hidden lg:flex justify-end ">       
+            
         </div>
         <div className="w-full h-px bg-white hidden sm:flex"></div>
         <div className="flex justify-end">
