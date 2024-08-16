@@ -10,37 +10,22 @@ export function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
     const [highContrast, setHighContrast] = useState(false);
-    const [fontSize, setFontSize] = useState('text-base');
+    const [fontSize, setFontSize] = useState('');
     const [accessibilityMenuOpen, setAccessibilityMenuOpen] = useState(false);
     const [keepMenuOpen, setKeepMenuOpen] = useState(false);
 
     useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    }, [darkMode]);
+        document.documentElement.classList.toggle('dark', darkMode);
+        document.documentElement.classList.toggle('high-contrast', highContrast);
+        document.documentElement.classList.toggle('font-lg', fontSize === 'text-lg');
+        document.documentElement.classList.toggle('font-original', fontSize === 'text-base');
+    }, [darkMode, highContrast, fontSize]);
 
-    useEffect(() => {
-        if (highContrast) {
-            document.documentElement.classList.add('high-contrast');
-        } else {
-            document.documentElement.classList.remove('high-contrast');
-        }
-    }, [highContrast]);
+    const toggleNavbar = () => setIsOpen(!isOpen);
 
-    const toggleNavbar = () => {
-        setIsOpen(!isOpen);
-    };
+    const increaseFontSize = () => setFontSize('text-lg');
 
-    const increaseFontSize = () => {
-        setFontSize('text-lg');
-    };
-
-    const resetFontSize = () => {
-        setFontSize('text-base');
-    };
+    const resetFontSize = () => setFontSize('text-base');
 
     const handleMouseEnter = () => {
         setAccessibilityMenuOpen(true);
