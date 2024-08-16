@@ -23,9 +23,6 @@ const Informacoes = () => {
                         armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal, utilizando a 
                         plataforma e a API do Querido Diário.
                     </p>
-                    <a href="https://unb-mds.github.io/2024-1-MinasDeCultura/" className="text-base text-neutral-700 dark:text-neutral-300 lg:text-2xl font-DMsans font-regular block mt-4">
-                        Github: https://unb-mds.github.io/2024-1-MinasDeCultura/
-                    </a>
                 </div>
             </div>
         </div>    
