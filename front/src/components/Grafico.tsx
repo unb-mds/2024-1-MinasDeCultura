@@ -8,6 +8,7 @@ const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Grafico: React.FC = () => {
     const [isClient, setIsClient] = useState(false);
+    const isHighContrastMode = document.documentElement.classList.contains('high-contrast');
     const [chartOptions, setChartOptions] = useState<ApexOptions>({
         chart: {
             type: 'bar',
@@ -102,18 +103,19 @@ const Grafico: React.FC = () => {
             mutations.forEach((mutation) => {
                 if (mutation.attributeName === "class") {
                     const isDarkMode = root.classList.contains('dark');
+                    const isHighContrastMode = root.classList.contains('high-contrast'); // Verifica o modo de alto contraste
                     setChartOptions((prevOptions) => ({
                         ...prevOptions,
                         chart: {
                             ...prevOptions.chart,
-                            background: isDarkMode ? 'neutral-900' : '#ffffff',
-                            foreColor: isDarkMode ? '#e5e7eb' : '#000000',
+                            background: isHighContrastMode ? '#000000' : isDarkMode ? '#1f1f1f' : '#ffffff',
+                            foreColor: isHighContrastMode ? '#FFFFFF' : isDarkMode ? '#e5e7eb' : '#000000',
                         },
                         xaxis: {
                             ...prevOptions.xaxis,
                             labels: {
                                 style: {
-                                    colors: isDarkMode ? '#e5e7eb' : '#000000'
+                                    colors: isHighContrastMode ? '#FFFFFF' : isDarkMode ? '#e5e7eb' : '#000000'
                                 }
                             }
                         },
@@ -121,7 +123,7 @@ const Grafico: React.FC = () => {
                             ...prevOptions.yaxis,
                             labels: {
                                 style: {
-                                    colors: isDarkMode ? '#e5e7eb' : '#000000'
+                                    colors: isHighContrastMode ? '#FFFFFF' : isDarkMode ? '#e5e7eb' : '#000000'
                                 }
                             },
                             title: {

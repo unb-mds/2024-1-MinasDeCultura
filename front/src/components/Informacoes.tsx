@@ -14,7 +14,7 @@ const Informacoes = () => {
             </div>
             <div className="2xl:w-3/5 lg:p-4 2xl:order-2 order-1 flex flex-col">
                 <div className="w-full">
-                    <h1 className="text-center 2xl:text-start text-neutral-700 dark:text-neutral-300 text-base md:text-3xl 2xl:text-[40px] font-DMsans font-bold sm:mb-10 leading-8 md:leading-10">
+                    <h1 className="text-center 2xl:text-start text-neutral-700 dark:text-neutral-300 high-contrast:text-hc-text text-base md:text-3xl 2xl:text-[40px] font-DMsans font-bold sm:mb-10 leading-8 md:leading-10">
                         Projeto de Análise de Licitações Culturais
                     </h1>   
                     <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-2xl 2xl:text-2xl font-DMsans font-regular text-justify leading-10">

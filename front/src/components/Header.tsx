@@ -59,7 +59,7 @@ export function Header() {
     };
 
     return (
-        <header className="flex flex-col items-center bg-primary-white dark:bg-neutral-800 w-full relative">
+        <header className="flex flex-col items-center bg-primary-white dark:bg-neutral-800 high-contrast:bg-hc-background w-full relative">
             <div className="py-1 flex w-full h-22 gap-20 px-5 sm:px-10 lg:px-20 xl:px-44 mx-auto items-center justify-between">
                 <div className="flex flex-row items-center justify-center gap-4">
                     <button
@@ -67,11 +67,11 @@ export function Header() {
                         className="md:hidden inline-flex items-center justify-center p-2 rounded-md"
                         onClick={toggleNavbar}
                     >
-                        {isOpen ? <X className="text-neutral-700 dark:text-neutral-300" /> : <Menu className="text-neutral-700 dark:text-neutral-300" />}
+                        {isOpen ? <X className="text-neutral-700 dark:text-neutral-300 high-contrast:text-hc-text" /> : <Menu className="text-neutral-700 dark:text-neutral-300 high-contrast:text-hc-text" />}
                     </button>
                     <Link href="/" className="flex flex-row items-center justify-center gap-4">
                         <Image className="size-14 lg:size-20" src={Logo} alt='Logo' />
-                        <h1 className="text-center text-2xl text-neutral-700 dark:text-neutral-300 sm:text-3xl font-DMsans">
+                        <h1 className="text-center text-2xl text-neutral-700 dark:text-neutral-300 high-contrast:text-hc-text sm:text-3xl font-DMsans">
                             <strong>Minas</strong>deCultura
                         </h1>
                     </Link>
