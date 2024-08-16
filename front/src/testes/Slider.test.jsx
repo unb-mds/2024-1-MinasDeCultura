@@ -1,19 +1,64 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Slider from '../components/Slider';
-import '@testing-library/jest-dom/extend-expect';
+import fetchMock from 'jest-fetch-mock';
 
-describe('Slider Component', () => {
-  test('deve renderizar o Slider com as imagens e textos corretos', () => {
-    render(<Slider />);
+fetchMock.enableMocks();
+
+beforeEach(() => {
+  fetchMock.resetMocks();
+});
+
+test('renders slider with fetched data', async () => {
+  fetchMock.mockResponseOnce(JSON.stringify([
+    {
+      link: '/noticia1',
+      image_url: '/image1.jpg',
+      title: 'Notícia 1'
+    },
+    {
+      link: '/noticia2',
+      image_url: '/image2.jpg',
+      title: 'Notícia 2'
+    },
+    {
+      link: '/noticia3',
+      image_url: '/image3.jpg',
+      title: 'Notícia 3'
+    },
+    {
+      link: '/noticia4',
+      image_url: '/image4.jpg',
+      title: 'Notícia 4'
+    },
+    {
+      link: '/noticia5',
+      image_url: '/image5.jpg',
+      title: 'Notícia 5'
+    },
+    {
+      link: '/noticia6',
+      image_url: '/image6.jpg',
+      title: 'Notícia 6'
+    }
     
-    // Verifica se as imagens estão sendo renderizadas
-    const images = screen.getAllByRole('img', { name: /Slider/i });
-    expect(images).toHaveLength(3);
+  ]));
 
-    /* Arrumar aqui para quando os textos forem recebidos em JSON
-    expect(screen.getByText('Como o mágico faz mágica?')).toBeInTheDocument();
-    expect(screen.getByText('Rebolo de ladinho pros cria')).toBeInTheDocument();
-    expect(screen.getByText('E isso ai')).toBeInTheDocument();*/
-  });
+  render(<Slider />);
+
+  const imgElements = await screen.findAllByAltText('Slider');
+  
+  expect(imgElements[0]).toHaveAttribute('src', 'https://www.secult.mg.gov.br/image1.jpg');
+  expect(imgElements[1]).toHaveAttribute('src', 'https://www.secult.mg.gov.br/image2.jpg');
+  expect(imgElements[2]).toHaveAttribute('src', 'https://www.secult.mg.gov.br/image3.jpg');
+  expect(imgElements[3]).toHaveAttribute('src', 'https://www.secult.mg.gov.br/image4.jpg');
+  expect(imgElements[4]).toHaveAttribute('src', 'https://www.secult.mg.gov.br/image5.jpg');
+  expect(imgElements[5]).toHaveAttribute('src', 'https://www.secult.mg.gov.br/image6.jpg');
+
+  const linkElements = screen.getAllByRole('link');
+  expect(linkElements[0]).toHaveAttribute('href', 'https://www.secult.mg.gov.br/noticia1');
+  expect(linkElements[1]).toHaveAttribute('href', 'https://www.secult.mg.gov.br/noticia2');
+  expect(linkElements[2]).toHaveAttribute('href', 'https://www.secult.mg.gov.br/noticia3');
+  expect(linkElements[3]).toHaveAttribute('href', 'https://www.secult.mg.gov.br/noticia4');
+  expect(linkElements[4]).toHaveAttribute('href', 'https://www.secult.mg.gov.br/noticia5');
+  expect(linkElements[5]).toHaveAttribute('href', 'https://www.secult.mg.gov.br/noticia6');
 });

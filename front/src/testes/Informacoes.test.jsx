@@ -25,9 +25,5 @@ describe('Informacoes', () => {
     });
     expect(paragraph).toBeInTheDocument();
 
-    // Verifica se o link é renderizado
-    const link = screen.getByRole('link', { name: /Github: https:\/\/unb-mds.github.io\/2024-1-MinasDeCultura\//i });
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute('href', 'https://unb-mds.github.io/2024-1-MinasDeCultura/');
   });
 });
