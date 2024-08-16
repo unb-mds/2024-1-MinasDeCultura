@@ -1,15 +1,20 @@
-# Use a imagem oficial do Python 3.10
-FROM python:3.10
+# Use a imagem oficial do Node.js como base
+FROM node:20.12.2
 
 # Defina o diretório de trabalho
 WORKDIR /backend
 
-# Copie o arquivo de requisitos
-COPY requirements.txt .
+# Copie os arquivos de dependências do Node.js
+COPY package*.json ./
 
-# Instale as dependências
-RUN pip install --no-cache-dir -r requirements.txt
+# Instale as dependências do Node.js
+RUN npm install
 
 # Copie o restante do código da aplicação
 COPY . .
 
+# Exponha a porta que o backend usará
+EXPOSE 5000
+
+# Comando para iniciar a aplicação
+CMD ["npm", "run", "dev"]

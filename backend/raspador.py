@@ -50,9 +50,15 @@ else:
             'title': title
         })
 
-    # Definindo o caminho do diretório e o nome do arquivo
-    diretorio = '../front/public/data/'
-    arquivo_json = os.path.join(diretorio, 'novas_noticias.json')
+    # Definindo o caminho do diretório baseado na localização do script
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+    diretorio_destino = os.path.join(diretorio_atual, '../front/public/data/')
+    
+    # Criando o diretório se não existir
+    os.makedirs(diretorio_destino, exist_ok=True)
+    
+    # Definindo o caminho completo para o arquivo JSON
+    arquivo_json = os.path.join(diretorio_destino, 'novas_noticias.json')
 
     # Salvando os dados em um arquivo JSON
     with open(arquivo_json, 'w', encoding='utf-8') as f:
