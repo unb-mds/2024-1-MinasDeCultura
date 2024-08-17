@@ -3,8 +3,6 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
-    image: node:20.12.2
-    working_dir: /frontend
     volumes:
       - ./front:/frontend
       - /frontend/node_modules
@@ -20,7 +18,7 @@ services:
     volumes:
       - ./backend:/backend
     ports:
-      - "8000:8000"
+      - "5000:5000"
 
   postgres:
     container_name: minasdecultura-db

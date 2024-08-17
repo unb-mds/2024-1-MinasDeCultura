@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Front-end do Projeto Minas de Cultura
 
-## Getting Started
+Este diretório contém o código-fonte do front-end do projeto **Minas de Cultura**. O objetivo deste projeto é fornecer uma interface web amigável e intuitiva para os usuários, facilitando o acesso e a pesquisa de dados culturais.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js**: Framework de React para renderização do lado do servidor e construção de aplicações web modernas.
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Tailwind CSS**: Framework CSS para estilização rápida e eficiente.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática ao código.
+- **React Datepicker**: Componente para seleção de datas.
+- **Jest** e **React Testing Library**: Ferramentas de teste para garantir a qualidade do código.
+- **Lucide-react**: Biblioteca de ícones para React.
+
+## Estrutura de Pastas
+
+Abaixo está uma visão geral da estrutura de pastas do front-end:
+
+```
+frontend/
+├── public/          # Arquivos públicos como imagens e ícones
+├── src/             # Código-fonte do projeto
+│   ├── components/  # Componentes reutilizáveis do React
+│   ├── app/         # Páginas da aplicação
+│   ├── assets/      # imagens para utilização
+│   ├── types/       # Padrões de arquivo
+│   └── testes/      # Testes unitários e de integração
+├── jest.config.js   # Configuração do Jest para testes
+├── next.config.js   # Configuração do Next.js
+└── tsconfig.json    # Configuração do TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Como Executar o Projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Pré-requisitos
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Certifique-se de ter o [Git](https://git-scm.com/downloads) e o [Node.js](https://nodejs.org/en/download/) instalados em sua máquina.
 
-## Learn More
+### Passos para execução
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clonar o repositório**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/unb-mds/2024-1-MinasDeCultura.git
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Acessar o diretório do front-end**
 
-## Deploy on Vercel
+   ```bash
+   cd 2024-1-MinasDeCultura/frontend
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Instalar as dependências**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+   sudo npm i
+   ```
+
+4. **Iniciar o servidor de desenvolvimento**
+
+   ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    # or
+    bun dev
+   ```
+
+   O servidor de desenvolvimento será iniciado e a aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
+
+## Como Executar os Testes
+
+Para garantir a qualidade do código, execute os testes unitários e de integração:
+
+1. **Iniciar os testes**
+
+   ```bash
+   npm test
+   ```
+
+   Os testes serão executados automaticamente, verificando os componentes do front-end para garantir que estão funcionando conforme o esperado.
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você encontrar problemas ou tiver sugestões, sinta-se à vontade para abrir uma _issue_ ou enviar um _pull request_.

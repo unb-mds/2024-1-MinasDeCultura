@@ -6,19 +6,18 @@ import os
 class JuizDeForaSpider(scrapy.Spider):
     name = 'juiz_de_fora'
 
-    def __init__(self, ano=None, mes=None, *args, **kwargs):
+    custom_settings = {
+        'RETRY_TIMES': 3,  # Tenta novamente 3 vezes em caso de falha
+        'DOWNLOAD_TIMEOUT': 120,  # Tempo limite de 30 segundos para download
+        'DOWNLOAD_DELAY': 5,  # Espera 2 segundos entre cada requisição
+    }
+    
+    def __init__(self, *args, **kwargs):
         super(JuizDeForaSpider, self).__init__(*args, **kwargs)
-        if ano is None or mes is None:
-            raise ValueError("Ano e mês devem ser fornecidos")
-        if not (22 <= int(ano) <= 24):
-            raise ValueError("Ano deve estar entre 22 e 24")
-        if not (1 <= int(mes) <= 12):
-            raise ValueError("Mês deve estar entre 1 e 12")
-
-        self.ano = ano
-        self.mes = mes.zfill(2)
-        self.start_urls = [f'http://www.pjf.mg.gov.br/transparencia/despesas_publicas/mensal_consolidada/arquivos/pdf/{ano}{self.mes}.pdf']
-
+        self.anos = ['22', '23', '24']
+        self.meses = [str(mes).zfill(2) for mes in range(1, 13)]
+        self.failed_urls = []  # Lista para armazenar os URLs que falharam
+    
     def start_requests(self):
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, Gecko) Chrome/91.0.4472.124 Safari/537.36',
@@ -29,20 +28,29 @@ class JuizDeForaSpider(scrapy.Spider):
             'Upgrade-Insecure-Requests': '1',
             'TE': 'Trailers',
         }
-        yield scrapy.Request(self.start_urls[0], headers=headers, callback=self.parse)
 
-    def parse(self, response):
+        for ano in self.anos:
+            for mes in self.meses:
+                url = f'http://www.pjf.mg.gov.br/transparencia/despesas_publicas/mensal_consolidada/arquivos/pdf/{ano}{mes}.pdf'
+                yield scrapy.Request(url, headers=headers, callback=self.parse, cb_kwargs={'ano': ano, 'mes': mes}, errback=self.errback_httpbin)
+    
+    def errback_httpbin(self, failure):
+        self.log(f'Request failed: {failure.request.url}')
+        self.failed_urls.append(failure.request.url)
+    
+    def parse(self, response, ano, mes):
         if response.status == 200:
             self.log(f'Successfully accessed the PDF: {response.url}')
-            path = f'despesas_{self.ano}{self.mes}.pdf'
+            path = f'despesas_{ano}{mes}.pdf'
             with open(path, 'wb') as f:
                 f.write(response.body)
             self.log(f'Successfully downloaded the PDF to {path}')
-            self.process_pdf(path)
+            self.process_pdf(path, ano, mes)
         else:
             self.log(f'Failed to access the PDF: {response.url} with status code {response.status}')
+            self.failed_urls.append(response.url)
 
-    def process_pdf(self, path):
+    def process_pdf(self, path, ano, mes):
         try:
             with pdfplumber.open(path) as pdf:
                 first_page = pdf.pages[0]
@@ -56,19 +64,19 @@ class JuizDeForaSpider(scrapy.Spider):
                         "FUMAPE": "Fundo Municipal de Apoio ao Esporte",
                         "FUMTUR": "Fundo Municipal de Turismo",
                         "FMC": "Fundo Municipal de Cultura",
-                        "MAPRO": "Manutenção de Programas"
+                        "MAPRO": "Fundação Museu Mariano Procópio"
                     }
                     for row in table[1:]:
                         for keyword, full_name in keywords.items():
                             if keyword in row[0]:
                                 entry = {
-                                    "Sigla": keyword,
                                     "Unidade administrativa": full_name,
                                     "Valor empenhado": row[2],
                                     "Valor liquidado": row[3],
                                     "Valor pago": row[4],
-                                    "ano": self.ano,
-                                    "mes": self.mes
+                                    "ano": ano,
+                                    "mes": mes,
+                                    "cidade": "Juiz de Fora"
                                 }
                                 data.append(entry)
                     
@@ -90,3 +98,10 @@ class JuizDeForaSpider(scrapy.Spider):
 
         # Clean up the downloaded PDF
         os.remove(path)
+    
+    def closed(self, reason):
+        # Tentando novamente os URLs que falharam
+        if self.failed_urls:
+            self.log(f'Retrying {len(self.failed_urls)} failed URLs...')
+            for url in self.failed_urls:
+                yield scrapy.Request(url, callback=self.parse, errback=self.errback_httpbin)

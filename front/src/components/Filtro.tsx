@@ -1,5 +1,6 @@
 'use client';
 
+import { searchLicitacoes } from '../services/api';
 import { Search, MapPin, CalendarClock, MoveLeft, MoveRight } from "lucide-react";
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
@@ -56,10 +57,10 @@ const Filtro = () => {
     }
   };
 
-  const handleSearchClick = () => {
-    const startMonth = startDate ? startDate.getMonth() + 1 : null;
+  const handleSearchClick = async () => {
+    const startMonth = startDate ? (startDate.getMonth() + 1).toString().padStart(2, '0') : null;
     const startYear = startDate ? startDate.getFullYear().toString().slice(-2) : null;
-    const endMonth = endDate ? endDate.getMonth() + 1 : null;
+    const endMonth = endDate ? (endDate.getMonth() + 1).toString().padStart(2, '0') : null;
     const endYear = endDate ? endDate.getFullYear().toString().slice(-2) : null;
 
     const data = {
@@ -71,11 +72,18 @@ const Filtro = () => {
       endYear,
     };
 
-    console.log('Dados da busca:', data);
-    // Aqui mostram os dados da busca no console
+  
+    try {
+      const response = await searchLicitacoes(data);
+      console.log('Resposta da API:', response);
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
+    }
+
   };
 
   return (
+
     <div className="container bg-primary-white dark:bg-neutral-800 border rounded-lg flex flex-col items-center justify-center lg:p-12 p-8">
       <h1 className="text-neutral-700 dark:text-primary-white font-DMsans text-lg lg:text-4xl xl:text-5xl text-center mb-[50px]">
         Pesquise por cidade, período e tema
@@ -147,5 +155,6 @@ const Filtro = () => {
     </div>
   );
 };
+
 
 export default Filtro;

@@ -15,15 +15,14 @@ const client = new Client({
 
         const query = `
             CREATE TABLE licitacoes (
-            id SERIAL,
-            sigla VARCHAR(255),
-            unidade_adm VARCHAR(255),
-            valor_empenhado NUMERIC,
-            valor_liquidado NUMERIC,
-            valor_pago NUMERIC,
-            ano INTEGER,
-            mes VARCHAR(255),
-            PRIMARY KEY (unidade_adm, mes, ano)
+                unidade_adm VARCHAR(255),
+                valor_empenhado NUMERIC,
+                valor_liquidado NUMERIC,
+                valor_pago NUMERIC,
+                ano INTEGER,
+                mes INTEGER,
+                cidade VARCHAR(255),
+                PRIMARY KEY (unidade_adm, mes, ano, cidade)
             );
         `;
         await client.query(query);
