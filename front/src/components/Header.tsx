@@ -85,28 +85,28 @@ export function Header() {
                         >
                             <button
                                 onClick={() => { setDarkMode(!darkMode); closeMenu(); }}
-                                className="w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-300"
+                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
                             >
                                 {darkMode ? <Sun className="w-5 h-5 mr-2" /> : <Moon className="w-5 h-5 mr-2" />}
                                 {darkMode ? 'Modo Claro' : 'Modo Escuro'}
                             </button>
                             <button
                                 onClick={() => { setHighContrast(!highContrast); closeMenu(); }}
-                                className="w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-300"
+                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
                             >
                                 <Contrast className="w-5 h-5 mr-2" />
                                 {highContrast ? 'Contraste Normal' : 'Alto Contraste'}
                             </button>
                             <button
                                 onClick={() => { increaseFontSize(); closeMenu(); }}
-                                className="w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-300"
+                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
                             >
                                 <AArrowUp className="w-5 h-5 mr-2" />
                                 Aumentar Fonte
                             </button>
                             <button
                                 onClick={() => { resetFontSize(); closeMenu(); }}
-                                className="w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-300"
+                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
                             >
                                 <Text className="w-5 h-5 mr-2" />
                                 Fonte Original
