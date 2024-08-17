@@ -59,9 +59,9 @@ const Filtro = () => {
   
 
   const handleSearchClick = async () => {
-    const startMonth = startDate ? startDate.getMonth() + 1 : null;
+    const startMonth = startDate ? (startDate.getMonth() + 1).toString().padStart(2, '0') : null;
     const startYear = startDate ? startDate.getFullYear().toString().slice(-2) : null;
-    const endMonth = endDate ? endDate.getMonth() + 1 : null;
+    const endMonth = endDate ? (endDate.getMonth() + 1).toString().padStart(2, '0') : null;
     const endYear = endDate ? endDate.getFullYear().toString().slice(-2) : null;
   
     const data = {
