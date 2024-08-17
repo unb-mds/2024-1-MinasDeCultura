@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { searchLicitacoes } from '../services/api';
 import { Search, MapPin, CalendarClock, MoveLeft, MoveRight } from "lucide-react";
@@ -56,14 +56,13 @@ const Filtro = () => {
       setEndDate(date);
     }
   };
-  
 
   const handleSearchClick = async () => {
     const startMonth = startDate ? (startDate.getMonth() + 1).toString().padStart(2, '0') : null;
     const startYear = startDate ? startDate.getFullYear().toString().slice(-2) : null;
     const endMonth = endDate ? (endDate.getMonth() + 1).toString().padStart(2, '0') : null;
     const endYear = endDate ? endDate.getFullYear().toString().slice(-2) : null;
-  
+
     const data = {
       subject,
       location,
@@ -72,6 +71,7 @@ const Filtro = () => {
       endMonth,
       endYear,
     };
+
   
     try {
       const response = await searchLicitacoes(data);
@@ -79,82 +79,82 @@ const Filtro = () => {
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
     }
+
   };
-  
 
   return (
-      <div>
-        <div className="container bg-primary-white border rounded-lg flex flex-col items-center justify-center lg:p-12 p-8">
-          <h1 className="text-neutral-700 font-DMsans text-lg lg:text-4xl xl:text-5xl text-center mb-[50px]">
-            Pesquise por cidade, período e tema
-          </h1>
-          <ul className="flex lg:flex-row w-full justify-center flex-col gap-4">
-            <li className="relative flex items-center">
-              <Search className="w-6 h-6" color="#ED1C24" />
-              <input
-                type="text"
-                placeholder="Assunto"
-                className="w-full px-4 py-2 focus:outline-none"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-              />
-              <div className="border-b border-neutral-700 absolute left-0 right-0 bottom-0"></div>
-            </li>
-  
-            <li className="relative flex items-center">
-              <MapPin className="w-6 h-6" color="#ED1C24" />
-              <input
-                type="text"
-                placeholder="Local"
-                className="w-full px-4 py-2 focus:outline-none"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-              />
-              <div className="border-b border-neutral-700 absolute left-0 right-0 bottom-0"></div>
-            </li>
-  
-            <li className="relative flex items-center">
-              <CalendarClock className="w-6 h-6" color="#ED1C24" />
-              <DatePicker
-                selected={startDate}
-                onChange={handleStartDateChange}
-                dateFormat="MM / yyyy"
-                showMonthYearPicker
-                renderCustomHeader={renderCustomHeader}
-                maxDate={new Date(2024, 11, 31)}
-                className="w-full px-4 py-2 focus:outline-none text-xs md:text-base"
-                placeholderText="Data Inicial"
-                locale={ptBR}
-              />
-              <span className="px-2"><MoveRight className="size-3 md:size-auto" /></span>
-              <DatePicker
-                selected={endDate}
-                onChange={handleEndDateChange}
-                dateFormat="MM / yyyy"
-                showMonthYearPicker
-                renderCustomHeader={renderCustomHeader}
-                minDate={startDate ?? undefined}
-                maxDate={new Date(2024, 11, 31)}
-                className="w-full px-4 py-2 focus:outline-none text-xs md:text-base"
-                placeholderText="Data final"
-                locale={ptBR}
-              />
-              <div className="border-b border-neutral-700 absolute left-0 right-0 bottom-0"></div>
-            </li>
-  
-            <li>
-              <button
-                onClick={handleSearchClick}
-                className="flex flex-row items-center px-12 py-4 w-full gap-4 md:justify-start justify-center bg-primary-red text-white rounded-lg"
-              >
-                Buscar
-                <MoveRight className="w-6 h-6" color="white" />
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    );
-  };
+
+    <div className="container bg-primary-white dark:bg-neutral-800 border rounded-lg flex flex-col items-center justify-center lg:p-12 p-8">
+      <h1 className="text-neutral-700 dark:text-primary-white font-DMsans text-lg lg:text-4xl xl:text-5xl text-center mb-[50px]">
+        Pesquise por cidade, período e tema
+      </h1>
+      <ul className="flex lg:flex-row w-full justify-center flex-col gap-4">
+        <li className="relative flex items-center">
+          <Search className="w-6 h-6" color="#ED1C24" />
+          <input
+            type="text"
+            placeholder="Assunto"
+            className="w-full px-4 py-2 focus:outline-none bg-transparent dark:text-neutral-300"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          />
+          <div className="border-b border-neutral-700 dark:border-neutral-400 absolute left-0 right-0 bottom-0"></div>
+        </li>
+
+        <li className="relative flex items-center">
+          <MapPin className="w-6 h-6" color="#ED1C24" />
+          <input
+            type="text"
+            placeholder="Local"
+            className="w-full px-4 py-2 focus:outline-none bg-transparent dark:text-neutral-300"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+          <div className="border-b border-neutral-700 dark:border-neutral-400 absolute left-0 right-0 bottom-0"></div>
+        </li>
+
+        <li className="relative flex items-center">
+          <CalendarClock className="w-6 h-6" color="#ED1C24" />
+          <DatePicker
+            selected={startDate}
+            onChange={handleStartDateChange}
+            dateFormat="MM / yyyy"
+            showMonthYearPicker
+            renderCustomHeader={renderCustomHeader}
+            maxDate={new Date(2024, 11, 31)}
+            className="w-full px-4 py-2 focus:outline-none bg-transparent text-xs md:text-base dark:text-neutral-300"
+            placeholderText="Data Inicial"
+            locale={ptBR}
+          />
+          <span className="px-2"><MoveRight className="size-3 md:size-auto dark:text-neutral-300" /></span>
+          <DatePicker
+            selected={endDate}
+            onChange={handleEndDateChange}
+            dateFormat="MM / yyyy"
+            showMonthYearPicker
+            renderCustomHeader={renderCustomHeader}
+            minDate={startDate ?? undefined}
+            maxDate={new Date(2024, 11, 31)}
+            className="w-full px-4 py-2 focus:outline-none bg-transparent text-xs md:text-base dark:text-neutral-300"
+            placeholderText="Data final"
+            locale={ptBR}
+          />
+          <div className="border-b border-neutral-700 dark:border-neutral-400 absolute left-0 right-0 bottom-0"></div>
+        </li>
+
+        <li>
+          <button
+            onClick={handleSearchClick}
+            className="flex flex-row items-center px-12 py-4 w-full gap-4 md:justify-start justify-center bg-primary-red text-white rounded-lg"
+          >
+            Buscar
+            <MoveRight className="w-6 h-6" color="white" />
+          </button>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
 
 export default Filtro;

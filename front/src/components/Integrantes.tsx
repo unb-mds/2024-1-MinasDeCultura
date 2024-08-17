@@ -1,15 +1,15 @@
 const Integrantes = () => {
     return (
       <div>
-      <div className="bg-primary-gray flex sm:gap-10  justify-center max-w-auto ">
-        <div className="card w-[190px] h-[230px] sm:h-[254px] mb-10 bg-gradient-to-b from-primary-red via-primary-red to-black rounded-lg pt-2 mx-2  font-inherit transition-transform transform hover:scale-110 hover:bg-gradient-to-b hover:from-primary-red hover:to-gray-800 sm:w-[190px] sm:h-[254px] ">
+      <div className="bg-primary-gray dark:bg-neutral-900 flex sm:gap-10  justify-center max-w-auto ">
+        <div className="card w-[190px] h-[230px] mb-10 bg-gradient-to-b from-primary-red via-primary-red to-black rounded-lg pt-2 mx-2  font-inherit transition-transform transform hover:scale-110 hover:bg-gradient-to-b hover:from-primary-red hover:to-gray-800 sm:w-[190px] sm:h-[254px] ">
           <div className="card-border-top">
           </div>
           <div className="img w-[70px] h-[70px] rounded-full mx-auto mt-5 overflow-hidden">
             <img src="https://avatars.githubusercontent.com/u/111130521?v=4" className="w-full h-full object-cover" />
           </div>
           <span className="font-semibold text-white text-center block pt-2 lg:text-xl text-sm">Gabriel <br></br>Scheidt</span>
-          <p className="job font-normal text-white text-center block pt-1 text-base lg:text-xl text-sm">Scrum Master</p>
+          <p className="job font-normal text-white text-center block pt-1 lg:text-xl text-sm">Scrum Master</p>
           <div className="relative">
             <div className="w-full h-[2px] bg-gray-700 mt-2"></div>
             <div className="flex justify-center space-x-4 mt-3 ">
@@ -86,7 +86,7 @@ const Integrantes = () => {
 
 
 
-        <div className="bg-primary-gray flex sm:gap-10 justify-center ">
+        <div className="bg-primary-gray dark:bg-neutral-900 flex sm:gap-10 justify-center ">
         <div className="card w-[190px] h-[230px] sm:h-[254px] bg-gradient-to-b from-primary-red via-primary-red to-black rounded-lg pt-2 mx-2 font-inherit mb-36 transition-transform transform hover:scale-110 hover:bg-gradient-to-b hover:from-primary-red hover:to-gray-800">
           <div className="card-border-top">
           </div>
