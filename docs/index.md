@@ -35,6 +35,14 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 - *Ferramenta de Coleta de Dados:*
 <a href="https://scrapy.org/" target="_blank"><img src="https://img.shields.io/badge/Scrapy-pink?style=for-the-badge&logo=scrapy" alt="Scrapy"></a>
+<a href="https://www.selenium.dev/documentation/" target="_blank" class="inline-flex items-center px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+    <img src="https://img.shields.io/badge/Selenium-green?style=for-the-badge" alt="Selenium" class="h-6 w-6 mr-2">
+</a>
+<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+    <img src="https://img.shields.io/badge/BeautifulSoup-blue?style=for-the-badge" alt="BeautifulSoup" class="h-6 w-6 mr-2">
+</a>
+
+
 
 - *Framework Web:*
 <a href="https://nextjs.org/" target="_blank"><img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js" alt="Next JS"></a>
@@ -47,6 +55,9 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 <a href="https://www.w3schools.com/css/" target="_blank"><img src="https://img.shields.io/badge/CSS-GREEN?style=for-the-badge&logo=css3" alt="CSS"></a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img src="https://img.shields.io/badge/JavaScript-purple?style=for-the-badge&logo=javascript" alt="JavaScript"></a>
 <a href="https://docs.python.org/pt-br/3/library/re.html" target="_blank"><img src="https://img.shields.io/badge/Regex-red?style=for-the-badge" alt="Regex"></a>
+<a href="https://tailwindcss.com/docs" target="_blank" class="inline-flex items-center px-4 py-2 bg-teal-500 text-white text-sm font-medium rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2"><img src="https://img.shields.io/badge/TailwindCSS-teal?style=for-the-badge" alt="TailwindCSS" class="h-6 w-6 mr-2">
+</a>
+
 
 ## 🤖 Identidade Visual
 
