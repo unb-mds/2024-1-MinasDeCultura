@@ -5,7 +5,8 @@
 
 ## Projeto de Análise de Licitações Culturais
 
-Este é um projeto desenvolvido como parte da disciplina de Métodos de Desenvolvimento de Software (MDS) da Universidade de Brasília (UnB). O objetivo principal deste projeto é criar uma plataforma online para análise e armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal, utilizando a plataforma e a API do Querido Diário.
+Este projeto foi desenvolvido como parte da disciplina de Métodos de Desenvolvimento de Software (MDS) na Universidade de Brasília (UnB). O objetivo central é criar uma plataforma online para análise e armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal. A equipe de desenvolvimento elaborou raspadores personalizados para coletar esses dados, enfrentando o desafio de identificar cidades cujos dados estejam disponíveis e sejam adequados para uso. Utilizamos duas principais tecnologias de raspagem: Scrapy, para dados mais acessíveis e estruturados, e Selenium, para buscas em sites mais complexos que exigem maior interação.
+
 
 Através desta aplicação, buscamos oferecer uma maneira mais transparente e acessível para que o público em geral possa consultar os gastos governamentais em eventos culturais, shows, teatros e outras atividades culturais.
 
@@ -15,7 +16,6 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
     - [⚙️ Funcionalidades](#%EF%B8%8F-funcionalidades-previstas)
     - [💻 Tecnologias](#-tecnologias)
     - [🤖 Prototipação e Identidade Visual](#-prototipação-e-identidade-visual)
-    - [Protótipo de utilização da API do Querido Diário](#-Protótipo-de-utilização-da-API-do-Querido-Diário)
     - [Como testar o protótipo?](#-Como-testar-o-protótipo?)
     - [👥 Desenvolvedores](#-desenvolvedores)
     - [🗒 Story Map](#-story-map)
@@ -23,12 +23,10 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 ## ⚙️ Funcionalidades Previstas
 
-- **Coleta de Dados:** Implementação de um mecanismo para coletar dados sobre as dispensas de licitações culturais da API do "Querido Diário".
-- **Análise e Armazenamento:** Desenvolvimento de algoritmos para analisar os dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
+- **Coleta de Dados:** Implementação de um raspadores utilizando as ferramentas scrapy e selenium.
+- **Análise e Armazenamento:** Desenvolvimento de algoritmos para organizar dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
 - **Visualização de Dados:** Criação de interfaces intuitivas para que os usuários possam visualizar os dados de forma clara e compreensível, através de gráficos, tabelas e outros elementos visuais.
-- **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, tipo de evento, valor, entre outros, facilitando a busca por informações específicas.
-- **Notificações:** Implementação de um sistema de notificações para informar os usuários sobre novas dispensas de licitações adicionadas ao sistema, mantendo-os atualizados sobre as últimas informações disponíveis.
-
+- **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, unidade adminitrativa, valor, entre outros, facilitando a busca por informações específicas.
 
 ## 💻 Tecnologias
 
@@ -50,66 +48,15 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img src="https://img.shields.io/badge/JavaScript-purple?style=for-the-badge&logo=javascript" alt="JavaScript"></a>
 <a href="https://docs.python.org/pt-br/3/library/re.html" target="_blank"><img src="https://img.shields.io/badge/Regex-red?style=for-the-badge" alt="Regex"></a>
 
-## 🤖 Prototipação e Identidade Visual
+## 🤖 Identidade Visual
 
 - *Desenvolvimento da Identidade Visual:* Investimos tempo no desenvolvimento de uma identidade visual consistente para o projeto, incluindo seleção de cores, tipografia e uma logo autêntica baseada na bandeira. Essa identidade visual reflete nossa visão e valores, e está integrada em toda a interface do usuário e materiais de design.
 
-- *Protótipo da Home:* 
+- *PHome:* 
   
   ![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
 
-## Protótipo de utilização da API do Querido Diário
-
-Para fins de testes, desenvolvemos um protótipo de utilização da API do Querido Diário. Tínhamos dúvidas sobre como fazer as requisições e receber os dados, então optamos por criar um formulário. Nesse formulário, o usuário pode inserir um município (limitado aos municípios de Minas Gerais), um termo de busca e um intervalo de datas. Em seguida, o sistema realiza uma solicitação à API do Querido Diário com os parâmetros fornecidos.
-
-Os dados retornados pela API são então renderizados na tela, possibilitando ao usuário visualizar todas as respostas obtidas. Essa abordagem nos permite testar a integração com a API e entender como os dados são estruturados, facilitando o desenvolvimento de futuras funcionalidades.
-
-![Protótipo](https://github.com/unb-mds/2024-1-MinasDeCultura/blob/main/prototipo_form/image.png?raw=true)
-
-## Como testar o protótipo?
-
-Inicialmente, é preciso ter instalado em sua máquina o git e o node.js. Tendo os dois instalados, basta seguis o passo a passo abaixo:
-
-### Clonar o repositório
-
-```bash
-git clone https://github.com/unb-mds/2024-1-MinasDeCultura.git
-```
-
-### Acessar o repositório
-
-```bash
-cd 2024-1-MinasDeCultura
-```
-
-### Mudar de branch
-
-```bash
-git checkout origin/prototipo_qd
-```
-
-### Acessar diretório do protótipo
-
-```bash
-cd prototipo_form
-```
-
-### Instalar dependências
-
-```bash
-npm i
-```
-
-### Iniciar servidor de desenvolvimento
-
-```bash
-npm run dev
-```
-
-Após seguir esses passos, o servidor de desenvolvimento estará em execução e você poderá acessar o protótipo em seu navegador através do endereço fornecido pelo servidor. Certifique-se de testar todas as funcionalidades conforme necessário.
-
-
-## 🤖 Prototipação web scraping 
+## 🤖 Web scraping 
 Passo a passo de como usar o scrapy está [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/Como%20executar/Tutorial_scrapy/)
 
 ## 📚 Documentação
@@ -136,12 +83,6 @@ A arquitetura do projeto está disponível [aqui](https://miro.com/app/board/uXj
             <a href="https://github.com/isaacbatista26">
                 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/118384776?v=4" width="150px;"/>
                 <h5 class="text-center">Isaac Batista</h5>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/rafaelcarvalhoj">
-                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/105162671?v=4" width="150px;"/>
-                <h5 class="text-center">Rafael Carvalho</h5>
             </a>
         </td>
         </td>

@@ -1,37 +1,72 @@
-# Início
+# 2024-1-Minas de cultura
+<div align="center">
+    <img src="https://github.com/unb-mds/2024-1-MinasDeCultura/blob/main/docs/assets/images/logo_vermelha.png?raw=true" style="width:20vw"/>
+</div>
 
 ## Projeto de Análise de Licitações Culturais
 
-Este é um projeto desenvolvido como parte da disciplina de Métodos de Desenvolvimento de Software (MDS) da Universidade de Brasília (UnB). O objetivo principal deste projeto é criar uma plataforma online para análise e armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal, utilizando a plataforma e a API do Querido Diário.
+Este projeto foi desenvolvido como parte da disciplina de Métodos de Desenvolvimento de Software (MDS) na Universidade de Brasília (UnB). O objetivo central é criar uma plataforma online para análise e armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal. A equipe de desenvolvimento elaborou raspadores personalizados para coletar esses dados, enfrentando o desafio de identificar cidades cujos dados estejam disponíveis e sejam adequados para uso. Utilizamos duas principais tecnologias de raspagem: Scrapy, para dados mais acessíveis e estruturados, e Selenium, para buscas em sites mais complexos que exigem maior interação.
+
 
 Através desta aplicação, buscamos oferecer uma maneira mais transparente e acessível para que o público em geral possa consultar os gastos governamentais em eventos culturais, shows, teatros e outras atividades culturais.
 
+## 📝 Sumário
+- [Minas de Cultura](#projeto-de-análise-de-licitações-culturais)
+    - [📝 Sumário](#-sumário)
+    - [⚙️ Funcionalidades](#%EF%B8%8F-funcionalidades-previstas)
+    - [💻 Tecnologias](#-tecnologias)
+    - [🤖 Prototipação e Identidade Visual](#-prototipação-e-identidade-visual)
+    - [Como testar o protótipo?](#-Como-testar-o-protótipo?)
+    - [👥 Desenvolvedores](#-desenvolvedores)
+    - [🗒 Story Map](#-story-map)
+    - [🛠 Arquitetura](#-arquitetura)
+
 ## ⚙️ Funcionalidades Previstas
 
-- **Coleta de Dados:** Implementação de um mecanismo para coletar dados sobre as dispensas de licitações culturais da API do "Querido Diário".
-- **Análise e Armazenamento:** Desenvolvimento de algoritmos para analisar os dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
+- **Coleta de Dados:** Implementação de um raspadores utilizando as ferramentas scrapy e selenium.
+- **Análise e Armazenamento:** Desenvolvimento de algoritmos para organizar dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
 - **Visualização de Dados:** Criação de interfaces intuitivas para que os usuários possam visualizar os dados de forma clara e compreensível, através de gráficos, tabelas e outros elementos visuais.
-- **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, tipo de evento, valor, entre outros, facilitando a busca por informações específicas.
-- **Notificações:** Implementação de um sistema de notificações para informar os usuários sobre novas dispensas de licitações adicionadas ao sistema, mantendo-os atualizados sobre as últimas informações disponíveis.
+- **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, unidade adminitrativa, valor, entre outros, facilitando a busca por informações específicas.
 
-## 🤖 Prototipação e Identidade Visual
+## 💻 Tecnologias
 
-- **Figma:** Utilizamos o Figma como nossa ferramenta principal para o design de interface do usuário e criação de wireframes. Todos os nossos designs estão disponíveis no Figma para colaboração e revisão. _[Figma](https://www.figma.com/file/SS7Dy8wDCBCx39PuUI2cW7/Minas-de-cultura?type=design&node-id=23%3A2&mode=design&t=HL5tKdicVJJahwnQ-1)_
+- *Linguagem de Programação:*
+<a href="https://www.python.org/" target="_blank"><img src="https://img.shields.io/badge/Python-white?style=for-the-badge&logo=Python&logoColor=blue" alt="Python"></a>
 
-- **Desenvolvimento da Identidade Visual:** Investimos tempo no desenvolvimento de uma identidade visual consistente para o projeto, incluindo seleção de cores, tipografia e uma logo autêntica baseada na bandeira. Essa identidade visual reflete nossa visão e valores, e está integrada em toda a interface do usuário e materiais de design.[Clique aqui para visualizar o detalhamento desta etapa](https://unb-mds.github.io/2024-1-MinasDeCultura/Arquitetura/Figma/)
+- *Ferramenta de Coleta de Dados:*
+<a href="https://scrapy.org/" target="_blank"><img src="https://img.shields.io/badge/Scrapy-pink?style=for-the-badge&logo=scrapy" alt="Scrapy"></a>
 
-- **Protótipo da Home:** 
+- *Framework Web:*
+<a href="https://nextjs.org/" target="_blank"><img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js" alt="Next JS"></a>
+
+- *Banco de Dados:* 
+<a href="https://www.postgresql.org/" target="_blank"><img src="https://img.shields.io/badge/PostgreSQL-brown?style=for-the-badge&logo=PostgreSQL" alt="PostgreSQL"></a>
+
+- *Ferramentas Adicionais:* 
+<a href="https://www.w3schools.com/html/" target="_blank"><img src="https://img.shields.io/badge/HTML-blue?style=for-the-badge&logo=html5" alt="HTML"></a>
+<a href="https://www.w3schools.com/css/" target="_blank"><img src="https://img.shields.io/badge/CSS-GREEN?style=for-the-badge&logo=css3" alt="CSS"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><img src="https://img.shields.io/badge/JavaScript-purple?style=for-the-badge&logo=javascript" alt="JavaScript"></a>
+<a href="https://docs.python.org/pt-br/3/library/re.html" target="_blank"><img src="https://img.shields.io/badge/Regex-red?style=for-the-badge" alt="Regex"></a>
+
+## 🤖 Identidade Visual
+
+- *Desenvolvimento da Identidade Visual:* Investimos tempo no desenvolvimento de uma identidade visual consistente para o projeto, incluindo seleção de cores, tipografia e uma logo autêntica baseada na bandeira. Essa identidade visual reflete nossa visão e valores, e está integrada em toda a interface do usuário e materiais de design.
+
+- *PHome:* 
   
   ![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
 
-## 💻 Tecnologias Utilizadas
+## 🤖 Web scraping 
+Passo a passo de como usar o scrapy está [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/Como%20executar/Tutorial_scrapy/)
 
-- **Linguagem de Programação:** _[Python](https://www.python.org/)_, _[JavaScript](https://www.javascript.com/)_:
+## 📚 Documentação
+ A documentação do projeto está disponível [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
 
-- **Framework Web:** _[Next.js](https://nextjs.org/)_
-- **Banco de Dados:** (A definir)
-- **Ferramenta de Coleta de Dados:** _[Scrapy](https://scrapy.org/)_
-- **Ferramentas Adicionais:** _[Docker](https://www.docker.com/)_, _[Node.js](https://nodejs.org/en)_, _[Selenium](https://www.selenium.dev/)_ _[Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)_, _[Selenium](https://www.selenium.dev/)_, _[Prisma](https://www.prisma.io/)_
+## 🗒 Story Map
+O Story Map do projeto está disponível [aqui](https://miro.com/app/board/uXjVKYtRMq0=/?moveToWidget=3458764584482040000&cot=10)
+
+## 🛠 Arquitetura
+A arquitetura do projeto está disponível [aqui](https://miro.com/app/board/uXjVKVdk0Cw=/)
 
 ## 👥 Desenvolvedores
 
@@ -48,12 +83,6 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
             <a href="https://github.com/isaacbatista26">
                 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/118384776?v=4" width="150px;"/>
                 <h5 class="text-center">Isaac Batista</h5>
-            </a>
-        </td>
-        <td align="center">
-            <a href="https://github.com/rafaelcarvalhoj">
-                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/105162671?v=4" width="150px;"/>
-                <h5 class="text-center">Rafael Carvalho</h5>
             </a>
         </td>
         </td>
@@ -83,11 +112,3 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
         </td>
 </table>
 </center>
-
-## 📁 Histórico de versão
-
-| Versão |    Data    |                    Descrição                    |     Autor      |
-|:------:|:----------:|:-----------------------------------------------:|:--------------:|
-|  1.0   | 11/04/2024 |           Adicionando histórico de versão       | Gabriel Scheidt|
-|  1.1   | 25/04/2024 |           Adicionando emojis nos tópicos        | Isaac Batista  |
-|  1.2   | 26/04/2024 | Adicionando prototipação e identidade visual    | Manuella Valadares|

@@ -1,13 +1,13 @@
-# Tutoria Scrapy
+# Scrapy
 
 Este guia fornece instruções passo a passo para configurar e executar um spider Scrapy em uma máquina Linux, desde a instalação do Python até a execução de um spider.
 
-## Pré-requisitos
+### Pré-requisitos
 - Python 3
 - pip (gerenciador de pacotes para Python)
 - venv (ferramenta para criar ambientes virtuais isolados)
 
-## Passo 1: Instalação do Python
+### Passo 1: Instalação do Python
 
 Verifique se o Python está instalado em seu sistema com o seguinte comando:
 
@@ -65,7 +65,7 @@ cd webscrapy/minas_de_cultura_scrapy
 Execução do crawler:
 Os valores de ano foram definidos para funcionar entre 2022 até 2024 e os meses se iniciam sendo 01 até o 12.
 ```
-scrapy crawl juiz_de_fora -a ano=xx -a mes=xx
+scrapy crawl juiz_de_fora
 ```
 
 passando os parâmetros no final o resultado será armazenado como json em um arquivo nomeado resultado.

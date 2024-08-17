@@ -32,9 +32,9 @@ export function Header() {
                     </Link>
                 </div>
                 <nav className="hidden md:flex items-center text-lg lg:text-xl space-x-4 font-DMsans">
-                    <Link className="text-neutral-700 rounded-lg p-2" href="/">HOME</Link>
-                    <Link className="text-neutral-700 rounded-lg p-2" href="/Sobre">SOBRE</Link>
-                    <Link className="text-neutral-700 rounded-lg p-2" href="/Pesquisa">PESQUISA FILTRADA</Link>
+                    <Link className="text-neutral-700 rounded-lg p-2 " href="/">HOME</Link>
+                    <Link className="text-neutral-700 rounded-lg p-2 " href="/Sobre">SOBRE</Link>
+                    <Link className="text-white rounded-2xl p-2 bg-primary-red" href="/Pesquisa">PESQUISA </Link>
                 </nav>
             </div>
             <nav className={`mobile-menu w-full md:hidden bg-primary-white shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
