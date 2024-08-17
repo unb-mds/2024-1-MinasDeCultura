@@ -1,6 +1,9 @@
 const express = require('express');
 const pool = require('./db');
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 app.get('/licitacoes', async (req, res) => {
     const { inicio, fim, cidade } = req.query;
@@ -9,7 +12,7 @@ app.get('/licitacoes', async (req, res) => {
         return res.status(400).json({ error: "Data inicial, data final e cidade são obrigatórias" });
     }
     if (inicio > fim) {
-        return res.status(400).json({ error: "A data inicial deve ser maior que a data final" });
+        return res.status(400).json({ error: "A data inicial deve ser menor ou igual à data final" });
     }
     const inicioComparacao = parseInt(inicio);
     const fimComparacao = parseInt(fim);

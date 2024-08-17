@@ -24,7 +24,7 @@ function formatValue(value) {
   try {
     await client.connect();
     console.log('Conectando ao Postgre');
-    const data = JSON.parse(fs.readFileSync('../webscrapy/minas_de_cultura_scrapy/resultado.json', 'utf-8'));
+    const data = JSON.parse(fs.readFileSync('../webscrapy/minas_de_cultura_scrapy/despesas.json', 'utf-8'));
 
     // Loop de inserção no banco de dados
     for (const item of data) {
