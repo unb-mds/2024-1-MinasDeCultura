@@ -27,6 +27,7 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - **Análise e Armazenamento:** Desenvolvimento de algoritmos para organizar dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
 - **Visualização de Dados:** Criação de interfaces intuitivas para que os usuários possam visualizar os dados de forma clara e compreensível, através de gráficos, tabelas e outros elementos visuais.
 - **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, unidade adminitrativa, valor, entre outros, facilitando a busca por informações específicas.
+- **Menu de Acessibilidade:** Desenvolvimento de um menu de Acessibilidade para facilitar o uso por pessoas com deficiência visual, dificuldades de leitura ou outras condições que possam impactar a navegação em websites.
 
 ## 💻 Tecnologias
 
