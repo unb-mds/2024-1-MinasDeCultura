@@ -2,3 +2,5 @@ node_modules
 venv
 db-scripts/node_modules
 data
+backend/.env
+.env
