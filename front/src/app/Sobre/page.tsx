@@ -1,5 +1,6 @@
 import Informacoes from '@/components/Informacoes';
 import Integrantes from '@/components/Integrantes';
+import Dashboard from '@/components/Dashboard';
 
 export default function Sobre() {
     return (
@@ -9,6 +10,7 @@ export default function Sobre() {
          
         </main>
        <Integrantes/> 
+       <Dashboard/>
         </>
     );
 }
