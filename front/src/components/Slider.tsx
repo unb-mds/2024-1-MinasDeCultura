@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import React, { useState, useEffect } from 'react';
+import Image from "next/image";
 
 interface NewsItem {
     link: string;
@@ -43,11 +44,14 @@ const Slider: React.FC = () => {
                 {data.map((item, index) => (
                     <SwiperSlide key={index}>
                         <a className="w-full h-96" href={`${site}${item.link}`} target='_blank'>
-                            <img
-                                src={`${site}${item.image_url}`}
-                                alt="Slider"
-                                className="w-full object-cover h-96"
-                            />
+                        <Image
+                            src={`${site}${item.image_url}`}
+                            alt="Slider"
+                            className="w-full object-cover h-96"
+                            width={1920}
+                            height={1080}
+                        />
+
                             <div className="absolute bottom-0 w-full p-4 bg-black dark:bg-neutral-800 bg-opacity-30 text-white font-sans lg:text-4xl md:text-xl text-sm">
                                 <p className="text-center">{item.title}</p>
                             </div>
