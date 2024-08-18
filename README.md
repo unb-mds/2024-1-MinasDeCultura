@@ -13,13 +13,16 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 ## 📝 Sumário
 - [Minas de Cultura](#projeto-de-análise-de-licitações-culturais)
     - [📝 Sumário](#-sumário)
+    - [🚀 Getting Started](#-getting-started)
     - [⚙️ Funcionalidades](#%EF%B8%8F-funcionalidades-previstas)
     - [💻 Tecnologias](#-tecnologias)
-    - [🤖 Prototipação e Identidade Visual](#-prototipação-e-identidade-visual)
-    - [Como testar o protótipo?](#-Como-testar-o-protótipo?)
+    - [🤖 Identidade Visual](#-identidade-visual)
     - [👥 Desenvolvedores](#-desenvolvedores)
     - [🗒 Story Map](#-story-map)
     - [🛠 Arquitetura](#-arquitetura)
+    - [🧪 Testes](#testes)
+
+## 🚀 Getting Started
 
 ## ⚙️ Funcionalidades Previstas
 
@@ -59,6 +62,8 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 ## 🤖 Web scraping 
 Passo a passo de como usar o scrapy está [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/Como%20executar/Tutorial_scrapy/)
 
+## 
+
 ## 📚 Documentação
  A documentação do projeto está disponível [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
 
@@ -66,7 +71,8 @@ Passo a passo de como usar o scrapy está [aqui](https://unb-mds.github.io/2024-
 O Story Map do projeto está disponível [aqui](https://miro.com/app/board/uXjVKYtRMq0=/?moveToWidget=3458764584482040000&cot=10)
 
 ## 🛠 Arquitetura
-A arquitetura do projeto está disponível [aqui](https://miro.com/app/board/uXjVKVdk0Cw=/)
+A arquitetura do projeto está disponível [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/Arquitetura/Arquitetura/)
+
 
 ## 👥 Desenvolvedores
 

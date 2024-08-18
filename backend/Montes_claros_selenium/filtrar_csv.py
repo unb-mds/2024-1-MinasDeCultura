@@ -2,6 +2,16 @@ import os
 import pandas as pd
 import json
 
+def limpar_valor(valor):
+    try:
+        # Remove o símbolo "R$", os pontos de separação de milhar e substitui a vírgula por ponto
+        valor_limpo = valor.replace('R$', '').replace('.', '').replace(',', '.').strip()
+        # Converte para float e depois para string para manter as aspas
+        return f'{float(valor_limpo):.2f}'
+    except ValueError:
+        # Retorna "Null" se não for possível converter o valor
+        return "Null"
+
 def processar_arquivo_csv(caminho_arquivo, ano, mes):
     try:
         # Lê o CSV pulando as primeiras 4 linhas que contêm metadados, usando codificação 'latin1'
@@ -40,6 +50,10 @@ def processar_arquivo_csv(caminho_arquivo, ano, mes):
 
     # Seleciona as colunas de interesse
     filtro = filtro[['Descrição', 'No Período - Valor Empenhado', 'No Período - Valor Liquidado', 'No Período - Valor Pago']]
+
+    # Aplica a função de limpeza aos valores monetários
+    for coluna in ['No Período - Valor Empenhado', 'No Período - Valor Liquidado', 'No Período - Valor Pago']:
+        filtro[coluna] = filtro[coluna].apply(limpar_valor)
 
     # Renomeia as colunas para o formato desejado
     filtro = filtro.rename(columns={

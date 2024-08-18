@@ -1,4 +1,4 @@
-### ATA DE REUNIÃO 3
+# ATA DE REUNIÃO 3
 17/04/24
 
 **Redator:** William Bernardo.

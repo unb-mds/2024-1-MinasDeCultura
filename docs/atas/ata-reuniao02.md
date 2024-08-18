@@ -1,4 +1,4 @@
-### ATA DE REUNIÃO 2
+# ATA DE REUNIÃO 2
 10/04/24
 
 **Redator:** William Bernardo.

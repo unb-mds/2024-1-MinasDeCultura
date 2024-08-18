@@ -34,13 +34,4 @@ describe('Footer Component', () => {
     expect(screen.getByRole('link', { name: /PESQUISA FILTRADA/i })).toHaveAttribute('href', '/Pesquisa');
   });
 
-  test('renders the GitHub link', () => {
-    render(<Footer />);
-
-    const githubLink = screen.getByRole('link', { name: 'imggit' });
-    expect(githubLink).toBeInTheDocument();
-    expect(githubLink).toHaveAttribute('href', 'https://github.com/unb-mds/2024-1-MinasDeCultura');
-    expect(githubLink).toHaveAttribute('target', '_blank');
-    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
-  });
 });

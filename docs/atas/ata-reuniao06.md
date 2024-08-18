@@ -1,4 +1,4 @@
-### ATA DE REUNIÃO 6
+# ATA DE REUNIÃO 6
 
 **Data:** 05/07/2024  
 **Hora de Início:** 09:00  

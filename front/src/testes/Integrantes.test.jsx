@@ -2,6 +2,12 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Integrantes from '../components/Integrantes';
+import Gabriel from "../assets/Gabriel.png";
+import Isaac from "../assets/Isaac.jpeg";
+import Marcos from "../assets/Marcos.jpeg";
+import Manuella from "../assets/Manuella.png";
+import Mateus from "../assets/Mateus.jpeg";
+import William from "../assets/William.jpeg";
 
 describe('Integrantes', () => {
 test('renders Integrantes component', () => {
@@ -21,11 +27,11 @@ test('renders Integrantes component', () => {
       
      
       const images = screen.getAllByRole('img');
-      expect(images[0]).toHaveAttribute('src', 'https://avatars.githubusercontent.com/u/111130521?v=4');
-      expect(images[1]).toHaveAttribute('src', 'https://avatars.githubusercontent.com/u/118384776?v=4');
-      expect(images[2]).toHaveAttribute('src', 'https://avatars.githubusercontent.com/u/108913498?v=4');
-      expect(images[3]).toHaveAttribute('src', 'https://avatars.githubusercontent.com/u/119461383?v=4');
-      expect(images[4]).toHaveAttribute('src', 'https://avatars.githubusercontent.com/u/163928182?v=4');
-      expect(images[5]).toHaveAttribute('src', 'https://avatars.githubusercontent.com/u/124713089?v=4');
+      expect(images[0]).toHaveAttribute('src', Gabriel);
+      expect(images[1]).toHaveAttribute('src', Isaac);
+      expect(images[2]).toHaveAttribute('src', Marcos);
+      expect(images[3]).toHaveAttribute('src', Manuella);
+      expect(images[4]).toHaveAttribute('src', Mateus);
+      expect(images[5]).toHaveAttribute('src', William);
     });
 });

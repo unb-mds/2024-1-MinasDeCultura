@@ -13,8 +13,5 @@ RUN npm install
 # Copie o restante do código da aplicação
 COPY . .
 
-# Exponha a porta que o backend usará
-EXPOSE 5000
-
-# Comando para iniciar a aplicação
-CMD ["npm", "run", "dev"]
+# Execute múltiplos comandos em uma única linha
+CMD node db-scripts/createTable.js && node db-scripts/insertData.js && node api/app.js

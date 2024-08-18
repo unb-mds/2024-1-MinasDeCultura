@@ -12,6 +12,8 @@ services:
       - backend
 
   backend:
+    depends_on:
+      - postgres
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -33,6 +35,8 @@ services:
       - ./data:/var/lib/postgresql/data
 
   pgadmin:
+    depends_on:
+      - postgres
     container_name: pgadmin4_container
     image: dpage/pgadmin4
     environment:

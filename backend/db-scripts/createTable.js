@@ -1,7 +1,7 @@
 const { Client } = require('pg');
 
 const client = new Client({
-    host: 'localhost',
+    host: 'postgres',
     port: 5432,
     user: 'docker',
     password: 'docker',
@@ -14,7 +14,7 @@ const client = new Client({
         console.log('Conectando ao Pg');
 
         const query = `
-            CREATE TABLE licitacoes (
+            CREATE TABLE IF NOT EXISTS licitacoes (
                 unidade_adm VARCHAR(255),
                 valor_empenhado NUMERIC,
                 valor_liquidado NUMERIC,

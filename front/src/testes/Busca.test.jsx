@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */ 
+
 import { render, screen } from '@testing-library/react';
 import Busca from '../components/Busca';
 import '@testing-library/jest-dom';
@@ -5,7 +7,7 @@ import { MoveRight } from 'lucide-react';
 
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props) => <img {...props} />, // mock do componente Next.js Image
+  default: (props) => <img alt={props.alt} {...props} />, // mock do componente Next.js Image
 }));
 
 jest.mock('lucide-react', () => ({
