@@ -4,6 +4,11 @@ module.exports = {
     forceSwcTransforms: true,
   },
   images: {
-    domains: ['www.secult.mg.gov.br'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.secult.mg.gov.br',
+      },
+    ],
   },
 }

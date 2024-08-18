@@ -9,6 +9,13 @@ jest.mock('next/image', () => {
   };
 });
 
+jest.mock('@/assets/unblogo.png', () => 'test-file-stub');
+jest.mock('next/image', () => {
+  return ({ src, alt }) => {
+    return <img src={src} alt={alt} />;
+  };
+});
+
 jest.mock('@/assets/imggit.png', () => 'test-file-stub');
 jest.mock('next/image', () => {
   return ({ src, alt }) => {
