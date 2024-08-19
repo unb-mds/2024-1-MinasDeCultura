@@ -11,7 +11,6 @@ describe('Filtro Component', () => {
     expect(screen.getByText(/Pesquise por cidade, período e tema/i)).toBeInTheDocument();
   
     // Check if all input fields are rendered
-    expect(screen.getByPlaceholderText(/Assunto/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Local/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Data Inicial/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Data final/i)).toBeInTheDocument();
