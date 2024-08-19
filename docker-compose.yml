@@ -9,11 +9,14 @@ services:
     ports:
       - "3000:3000"
 
-  # backend:
-  #   build:
-  #     context: ./backend
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - ./backend:/backend
-  #   ports:
-  #     - "5000:5000"
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/backend
+      - /backend/node_modules
+    ports:
+      - "5000:5000"
+    depends_on:
+      - frontend
