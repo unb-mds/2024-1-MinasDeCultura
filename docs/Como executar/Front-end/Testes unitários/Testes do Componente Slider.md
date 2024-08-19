@@ -2,7 +2,7 @@
 
 ## Descrição Geral
 
-Este conjunto de testes foi desenvolvido para verificar o comportamento e a renderização correta do componente Slider no projeto. A abordagem adotada utiliza a biblioteca `@testing-library/react` e `jest-fetch-mock` para renderizar o componente, simular a resposta da API e validar a exibição dos dados obtidos, garantindo que o slider exiba as imagens e links esperados conforme a resposta simulada.
+Este conjunto de testes foi desenvolvido para verificar o comportamento e a renderização correta do componente Slider no projeto. A abordagem adotada utiliza a biblioteca `@testing-library/react` e `jest` para renderizar o componente, simular a resposta da API e validar a exibição dos dados obtidos, garantindo que o slider exiba as imagens e links esperados conforme a resposta simulada.
 
 ### Casos de Teste
 

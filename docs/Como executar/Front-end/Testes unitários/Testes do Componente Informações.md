@@ -2,7 +2,7 @@
 
 ## Descrição Geral
 
-Este conjunto de testes foi desenvolvido para verificar o comportamento e a renderização correta do componente Informacoes no projeto. A abordagem adotada utiliza a biblioteca `@testing-library/react` para renderizar o componente e validar os elementos visíveis na interface de usuário, garantindo que todos os elementos essenciais estejam presentes e corretamente configurados.
+Este conjunto de testes foi desenvolvido para verificar o comportamento e a renderização correta do componente Informacoes no projeto. A abordagem adotada utiliza a biblioteca `@testing-library/react` e `Jest` para renderizar o componente e validar os elementos visíveis na interface de usuário, garantindo que todos os elementos essenciais estejam presentes e corretamente configurados.
 
 ### Casos de Teste
 

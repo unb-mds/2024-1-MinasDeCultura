@@ -2,7 +2,7 @@
 
 ## Descrição Geral
 
-Este conjunto de testes foi desenvolvido para verificar o comportamento e a renderização correta do componente Integrantes no projeto. A abordagem adotada utiliza a biblioteca `@testing-library/react` para renderizar o componente e validar a exibição dos dados dos integrantes, garantindo que todos os textos e imagens estejam sendo renderizados conforme esperado.
+Este conjunto de testes foi desenvolvido para verificar o comportamento e a renderização correta do componente Integrantes no projeto. A abordagem adotada utiliza a biblioteca `@testing-library/react` e `Jest` para renderizar o componente e validar a exibição dos dados dos integrantes, garantindo que todos os textos e imagens estejam sendo renderizados conforme esperado.
 
 ### Casos de Teste
 

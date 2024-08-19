@@ -2,7 +2,7 @@
 
 ## Descrição Geral
 
-Este conjunto de testes foi desenvolvido para verificar o comportamento e a renderização correta do componente Footer no projeto. A abordagem adotada utiliza a biblioteca `@testing-library/react` para renderizar o componente e validar a presença e funcionalidade dos links de navegação, garantindo que todos os elementos essenciais estejam presentes e funcionando conforme o esperado.
+Este conjunto de testes foi desenvolvido para verificar o comportamento e a renderização correta do componente Footer no projeto. A abordagem adotada utiliza a biblioteca `@testing-library/react` e `Jest` para renderizar o componente e validar a presença e funcionalidade dos links de navegação, garantindo que todos os elementos essenciais estejam presentes e funcionando conforme o esperado.
 
 ### Casos de Teste
 

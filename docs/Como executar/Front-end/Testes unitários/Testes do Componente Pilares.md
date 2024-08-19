@@ -2,7 +2,7 @@
 
 ## Descrição Geral
 
-Este conjunto de testes foi desenvolvido para verificar o comportamento e a renderização correta do componente Pilares no projeto. A abordagem adotada utiliza a biblioteca `@testing-library/react` para renderizar o componente e validar a presença dos elementos principais, garantindo que o conteúdo esteja exibido corretamente conforme o design esperado.
+Este conjunto de testes foi desenvolvido para verificar o comportamento e a renderização correta do componente Pilares no projeto. A abordagem adotada utiliza a biblioteca `@testing-library/react` e `Jest` para renderizar o componente e validar a presença dos elementos principais, garantindo que o conteúdo esteja exibido corretamente conforme o design esperado.
 
 ### Casos de Teste
 
