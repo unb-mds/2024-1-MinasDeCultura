@@ -2,7 +2,6 @@
 
 import { Search, MapPin, CalendarClock, MoveRight } from "lucide-react";
 import Busca from "@/components/Busca";
-import Filtro from "@/components/Filtro";
 import dynamic from 'next/dynamic';
 import Slider from "@/components/Slider";
 import Pilares from "@/components/Pilares";
