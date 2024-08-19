@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */ 
-
 import { render, screen } from '@testing-library/react';
 import Busca from '../components/Busca';
 import '@testing-library/jest-dom';
