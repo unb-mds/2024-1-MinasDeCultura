@@ -10,8 +10,8 @@ COPY package*.json ./
 # Instale as dependências do Node.js
 RUN npm install
 
-# Copie o restante do código da aplicação
+# Copie o restante do código da aplicação, incluindo o .env
 COPY . .
 
-# Execute múltiplos comandos em uma única linha
-CMD node db-scripts/createTable.js && node db-scripts/insertData.js && node api/app.js
+# Execute o script principal da aplicação
+CMD ["node", "src/index.js"]
