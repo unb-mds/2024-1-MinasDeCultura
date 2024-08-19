@@ -1,8 +1,8 @@
 'use client';
 
-import { searchLicitacoes } from '../services/api';
-import { Search, MapPin, CalendarClock, MoveLeft, MoveRight } from "lucide-react";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchCities, searchLicitacoes } from '../services/api';
+import { MapPin, CalendarClock, MoveLeft, MoveRight } from "lucide-react";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ptBR } from 'date-fns/locale';
@@ -10,8 +10,21 @@ import { ptBR } from 'date-fns/locale';
 const Filtro = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
-  const [subject, setSubject] = useState('');
-  const [location, setLocation] = useState('');
+  const [cities, setCities] = useState([]);
+  const [selectedCityId, setSelectedCityId] = useState<number | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadCities = async () => {
+      try {
+        const data = await fetchCities();
+        setCities(data);
+      } catch (error) {
+        console.error('Erro ao carregar cidades:', error);
+      }
+    };
+    loadCities();
+  }, []);
 
   const renderCustomHeader = ({
     date,
@@ -58,58 +71,51 @@ const Filtro = () => {
   };
 
   const handleSearchClick = async () => {
-    const startMonth = startDate ? (startDate.getMonth() + 1).toString().padStart(2, '0') : null;
-    const startYear = startDate ? startDate.getFullYear().toString().slice(-2) : null;
-    const endMonth = endDate ? (endDate.getMonth() + 1).toString().padStart(2, '0') : null;
-    const endYear = endDate ? endDate.getFullYear().toString().slice(-2) : null;
+    const startMonth = startDate ? (startDate.getMonth() + 1).toString().padStart(2, '0') : '';
+    const startYear = startDate ? startDate.getFullYear().toString() : '';
+    const endMonth = endDate ? (endDate.getMonth() + 1).toString().padStart(2, '0') : '';
+    const endYear = endDate ? endDate.getFullYear().toString() : '';
 
-    const data = {
-      subject,
-      location,
-      startMonth,
-      startYear,
-      endMonth,
-      endYear,
-    };
+    if (startMonth && startYear && endMonth && endYear && selectedCityId !== null) {
+      const params = {
+        startYear,
+        startMonth,
+        endYear,
+        endMonth,
+        cityId: selectedCityId,
+      };
 
-  
-    try {
-      const response = await searchLicitacoes(data);
-      console.log('Resposta da API:', response);
-    } catch (error) {
-      console.error('Erro ao buscar dados:', error);
+      try {
+        const response = await searchLicitacoes(params);
+        console.log('Resposta da API:', response);
+        setErrorMessage(null); // Limpa a mensagem de erro após uma busca bem-sucedida
+      } catch (error) {
+        console.error('Erro ao buscar licitações:', error);
+      }
+    } else {
+      setErrorMessage('Por favor, preencha todos os campos.');
     }
-
   };
 
   return (
-
     <div className="container bg-primary-white dark:bg-neutral-800 border rounded-lg flex flex-col items-center justify-center lg:p-12 p-8">
       <h1 className="text-neutral-700 dark:text-primary-white font-DMsans text-lg lg:text-4xl xl:text-5xl text-center mb-[50px]">
         Pesquise por cidade, período e tema
       </h1>
       <ul className="flex lg:flex-row w-full justify-center flex-col gap-4">
         <li className="relative flex items-center">
-          <Search className="w-6 h-6" color="#ED1C24" />
-          <input
-            type="text"
-            placeholder="Assunto"
-            className="w-full px-4 py-2 focus:outline-none bg-transparent dark:text-neutral-300"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-          />
-          <div className="border-b border-neutral-700 dark:border-neutral-400 absolute left-0 right-0 bottom-0"></div>
-        </li>
-
-        <li className="relative flex items-center">
           <MapPin className="w-6 h-6" color="#ED1C24" />
-          <input
-            type="text"
-            placeholder="Local"
+          <select
             className="w-full px-4 py-2 focus:outline-none bg-transparent dark:text-neutral-300"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          />
+            onChange={(e) => setSelectedCityId(Number(e.target.value))}
+          >
+            <option value="">Selecione uma cidade</option>
+            {cities.map((city: any) => (
+              <option key={city.id} value={city.id}>
+                {city.name}
+              </option>
+            ))}
+          </select>
           <div className="border-b border-neutral-700 dark:border-neutral-400 absolute left-0 right-0 bottom-0"></div>
         </li>
 
@@ -151,10 +157,15 @@ const Filtro = () => {
             <MoveRight className="w-6 h-6" color="white" />
           </button>
         </li>
-      </ul>
+      </ul>      
+
+      {errorMessage && (
+        <div className="mt-4 text-red-500 text-center">
+          {errorMessage}
+        </div>
+      )}
     </div>
   );
 };
-
 
 export default Filtro;
