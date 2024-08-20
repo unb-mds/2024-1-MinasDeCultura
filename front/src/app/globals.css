@@ -33,6 +33,8 @@
 }
 
 /* Estilo para divs, header, main, e footer em modo de alto contraste */
+.high-contrast input,
+.high-contrast select,
 .high-contrast div,
 .high-contrast header,
 .high-contrast main,

@@ -28,10 +28,10 @@ const Filtro: React.FC = () => {
   const [pagoSeries, setPagoSeries] = useState<ApexAxisChartSeries>([]);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
+  const [isClient, setIsClient] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
-
-  const chartOptions: ApexOptions = {
+  const isHighContrastMode = document.documentElement.classList.contains('high-contrast');
+  const [chartOptions, setChartOptions] = useState<ApexOptions>({
     chart: {
       type: 'bar',
       background: '#ffffff',
@@ -72,8 +72,66 @@ const Filtro: React.FC = () => {
     theme: {
       mode: 'light', // Default mode
     },
-  };
-
+  });
+  useEffect(() => {
+    setIsClient(true);
+  
+    const root = document.documentElement;
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          const isDarkMode = root.classList.contains('dark');
+          const isHighContrastMode = root.classList.contains('high-contrast');
+  
+          setChartOptions((prevOptions) => ({
+            ...prevOptions,
+            chart: {
+              ...prevOptions.chart,
+              background: isHighContrastMode ? '#000000' : isDarkMode ? '#1f1f1f' : '#ffffff',
+              foreColor: isHighContrastMode ? '#FFFFFF' : isDarkMode ? '#e5e7eb' : '#000000',
+            },
+            xaxis: {
+              ...prevOptions.xaxis,
+              labels: {
+                style: {
+                  colors: isHighContrastMode ? '#FFFFFF' : isDarkMode ? '#e5e7eb' : '#000000',
+                }
+              }
+            },
+            yaxis: {
+              ...prevOptions.yaxis,
+              labels: {
+                style: {
+                  colors: isHighContrastMode ? '#FFFFFF' : isDarkMode ? '#e5e7eb' : '#000000',
+                },
+                formatter: (value) => `R$ ${value.toLocaleString('pt-BR')}`, // Adiciona o símbolo R$ e formata os números
+              }
+            },
+            plotOptions: {
+              ...prevOptions.plotOptions,
+              bar: {
+                ...prevOptions.plotOptions?.bar ?? {},
+                colors: {
+                  ranges: [{
+                    from: 0,
+                    to: 5000000000,
+                    color: isHighContrastMode ? '#FFEA00' : isDarkMode ? '#ED1C24' : '#ED1C24',
+                  }]
+                }
+              }
+            }
+          }));
+        }
+      });
+    });
+  
+    observer.observe(root, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  
+    return () => observer.disconnect();
+  }, []);
   const loadCities = async () => {
     try {
       const cities = await fetchCities();
@@ -223,7 +281,7 @@ const Filtro: React.FC = () => {
           <li className="relative flex items-center">
             <MapPin className="w-6 h-6" color="#ED1C24" />
             <select
-              className="w-full px-4 py-2 focus:outline-none bg-transparent dark:text-neutral-300"
+              className="w-full px-4 py-2 focus:outline-none bg-transparent dark:text-neutral-300 dark:bg-neutral-800"
               onChange={(e) => setSelectedCityId(Number(e.target.value))}
             >
               <option value="">Selecione uma cidade</option>
@@ -284,18 +342,18 @@ const Filtro: React.FC = () => {
       </div>
 
 
-      <div className="bg-primary-gray">
+      <div className="bg-primary-gray dark:bg-neutral-900">
         <div className="flex flex-col items-center mx-auto">
           <div>
-            <h2 className="flex justify-center font-DMSans text-2xl mt-4 mb-2">Valor Empenhado</h2>
+            <h2 className="flex dark:text-neutral-300 justify-center font-DMSans text-2xl mt-4 mb-2">Valor Empenhado</h2>
             <Chart options={chartOptions} series={empenhadoSeries} type="bar" />
           </div>
           <div>
-            <h2 className="flex justify-center font-DMSans text-2xl mt-2 mb-2">Valor Liquidado</h2>
+            <h2 className="flex dark:text-neutral-300 justify-center font-DMSans text-2xl mt-2 mb-2">Valor Liquidado</h2>
             <Chart options={chartOptions} series={liquidadoSeries} type="bar" />
           </div>
           <div>
-            <h2 className="flex justify-center font-DMSans text-2xl mt-2 mb-2">Valor Pago</h2>
+            <h2 className="flex justify-center dark:text-neutral-300 font-DMSans text-2xl mt-2 mb-2">Valor Pago</h2>
             <Chart options={chartOptions} series={pagoSeries} type="bar" />
           </div>
         </div>
