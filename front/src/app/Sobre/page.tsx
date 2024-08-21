@@ -9,6 +9,7 @@ export default function Sobre() {
          
         </main>
        <Integrantes/> 
+       
         </>
     );
 }

@@ -6,6 +6,7 @@ interface SearchParams {
   endYear: string;
   endMonth: string;
   cityId: number;
+  unitId: string;
 }
 
 export const fetchCities = async () => {
@@ -18,8 +19,18 @@ export const fetchCities = async () => {
   }
 };
 
+export const fetchUnits = async () => {
+  try {
+    const response = await axios.get('http://localhost:5000/units');
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao buscar cidades:', error);
+    throw error;
+  }
+};
+
 export const searchLicitacoes = async (params: SearchParams) => {
-  const { startYear, startMonth, endYear, endMonth, cityId } = params;
+  const { startYear, startMonth, endYear, endMonth, cityId, unitId} = params;
   
   const url = `http://localhost:5000/tenders?start=${startYear}${startMonth}&end=${endYear}${endMonth}&city=${cityId}`;
   
