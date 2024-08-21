@@ -24,6 +24,43 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 ## 🚀 Getting Started
 
+### Pré-requisito
+
+- [Docker compose](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+ 
+### Clonar o repositório
+
+```bash
+git clone https://github.com/unb-mds/2024-1-MinasDeCultura.git
+```
+
+### Acessar o repositório
+
+```bash
+cd 2024-1-MinasDeCultura
+```
+
+### Configurar o arquivo .env
+
+O projeto depende de algumas variáveis de ambiente que precisam ser configuradas antes de iniciar os containers. No diretório backend do projeto , crie um arquivo .env com as seguintes variáveis, no caso do nosso projeto estamos usando um banco de dados no SUPABASE:
+
+```bash
+SUPABASE_URL=
+SUPABASE_KEY=
+```
+
+Iniciar os containers
+
+Após configurar o .env, você pode iniciar o projeto executando o comando abaixo. Este comando irá construir as imagens Docker necessárias e iniciar todos os serviços definidos no docker-compose.yml:
+
+```bash
+
+    docker compose up
+```
+### Acessar o projeto
+
+Depois que os containers estiverem em execução, você poderá acessar o projeto em http://localhost:3000.
+
 ## ⚙️ Funcionalidades Previstas
 
 - **Coleta de Dados:** Implementação de um raspadores utilizando as ferramentas scrapy e selenium.
