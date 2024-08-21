@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --passWithNoTests"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,9 @@
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
     "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
