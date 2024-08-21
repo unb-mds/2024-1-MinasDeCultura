@@ -1,4 +1,6 @@
 node_modules
 venv
 db-scripts/node_modules
-front/public/data/novas_noticias.json
+data
+backend/.env
+.env

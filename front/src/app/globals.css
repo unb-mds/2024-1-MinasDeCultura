@@ -1,3 +1,70 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Define a classe de alto contraste */
+.high-contrast {
+    background-color: #000000; /* Fundo preto */
+    color: #FFFFFF; /* Texto branco */
+}
+
+/* Estilo para links em modo de alto contraste */
+.high-contrast a {
+    color: #FFD700; /* Links dourados */
+    border-color: #FFD700; /* Bordas douradas */
+}
+
+/* Estilo para botões em modo de alto contraste */
+.high-contrast button {
+    color: #000000; /* Texto preto */
+    background-color: #FFD700; /* Fundo dourado */
+    border-color: #FFD700; /* Bordas douradas */
+}
+
+/* Estilo para títulos e parágrafos em modo de alto contraste */
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast h4,
+.high-contrast h5,
+.high-contrast h6,
+.high-contrast p {
+    color: #FFFFFF; /* Texto branco */
+}
+
+/* Estilo para divs, header, main, e footer em modo de alto contraste */
+.high-contrast input,
+.high-contrast select,
+.high-contrast div,
+.high-contrast header,
+.high-contrast main,
+.high-contrast ul {
+    background-color: #000000; /* Fundo preto */
+    color: #FFFFFF; /* Texto branco */
+}
+
+/* Estilo para bordas */
+.high-contrast .bordered {
+    border: 2px solid #FFD700;
+}
+
+.high-contrast footer {
+    background-color: #000000; /* Fundo preto */
+    color: #FFFFFF; /* Texto branco */
+    border-top: 2px solid #FFD700;
+}
+
+.high-contrast .chart-container {
+    background-color: #000000; /* Fundo preto */
+    color: #FFFFFF; /* Texto branco */
+}
+
+/* Estilo para aumentar o tamanho da fonte */
+.font-lg {
+    font-size: 1.25rem; /* Tamanho da fonte aumentado */
+}
+
+/* Estilo para o tamanho original da fonte */
+.font-original {
+    font-size: 1rem; /* Tamanho da fonte original */
+}

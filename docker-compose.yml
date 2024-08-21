@@ -3,15 +3,11 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
-    image: node:20.12.2
-    working_dir: /frontend
     volumes:
       - ./front:/frontend
       - /frontend/node_modules
     ports:
       - "3000:3000"
-    depends_on:
-      - backend
 
   backend:
     build:
@@ -19,26 +15,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./backend:/backend
+      - /backend/node_modules
     ports:
-      - "8000:8000"
-
-  postgres:
-    container_name: minasdecultura-db
-    image: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: docker
-      POSTGRES_PASSWORD: docker
-      POSTGRES_DB: test_db
-    volumes:
-      - ./data:/var/lib/postgresql/data
-
-  pgadmin:
-    container_name: pgadmin4_container
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
-    ports:
-      - "5050:80"
+      - "5000:5000"
+    depends_on:
+      - frontend

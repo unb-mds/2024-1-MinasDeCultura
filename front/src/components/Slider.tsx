@@ -1,8 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'; 
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 import React, { useState, useEffect } from 'react';
+import Image from "next/image";
 
 interface NewsItem {
     link: string;
@@ -29,23 +32,27 @@ const Slider: React.FC = () => {
     }, []);
 
     return (
-        <div className="flex justify-center items-center mb-16 bg-primary-gray">
+        <div className="flex justify-center items-center mb-16 bg-primary-gray dark:bg-neutral-800">
             <Swiper
                 slidesPerView={1}
+                modules={[Navigation, Pagination, Autoplay]}
                 navigation={true}
                 pagination={{ clickable: true }}
-                autoplay={{ delay: 1000 }}
+                autoplay={{ delay: 5000 }}
                 loop={true}
             >
                 {data.map((item, index) => (
                     <SwiperSlide key={index}>
                         <a className="w-full h-96" href={`${site}${item.link}`} target='_blank'>
-                            <img
-                                src={`${site}${item.image_url}`}
-                                alt="Slider"
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute bottom-0 w-full p-4 bg-primary-gray bg-opacity-30 text-white font-sans text-4xl">
+                        <Image
+                            src={`${site}${item.image_url}`}
+                            alt="Slider"
+                            className="w-full object-cover h-96"
+                            width={1920}
+                            height={1080}
+                        />
+
+                            <div className="absolute bottom-0 w-full p-4 bg-black dark:bg-neutral-800 bg-opacity-30 text-white font-sans lg:text-4xl md:text-xl text-sm">
                                 <p className="text-center">{item.title}</p>
                             </div>
                         </a>

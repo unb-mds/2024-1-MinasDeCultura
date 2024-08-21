@@ -12,14 +12,15 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 ## 📝 Sumário
 - [Minas de Cultura](#projeto-de-análise-de-licitações-culturais)
-    - [📝 Sumário](#-sumário)
-    - [⚙️ Funcionalidades](#%EF%B8%8F-funcionalidades-previstas)
-    - [💻 Tecnologias](#-tecnologias)
-    - [🤖 Prototipação e Identidade Visual](#-prototipação-e-identidade-visual)
-    - [Como testar o protótipo?](#-Como-testar-o-protótipo?)
-    - [👥 Desenvolvedores](#-desenvolvedores)
-    - [🗒 Story Map](#-story-map)
-    - [🛠 Arquitetura](#-arquitetura)
+    - [Sumário](#sumário)
+    - [Funcionalidades](#funcionalidades-previstas)
+    - [Tecnologias](#tecnologias)
+    - [Web scrapy](https://unb-mds.github.io/2024-1-MinasDeCultura/Como%20executar/Tutorial_scrapy/)
+    - [Identidade Visual](#identidade-visual)
+    - [Desenvolvedores](#desenvolvedores)
+    - [Story Map](https://miro.com/app/board/uXjVKYtRMq0=/?moveToWidget=3458764584482040000&cot=10)
+    - [Arquitetura](https://unb-mds.github.io/2024-1-MinasDeCultura/Arquitetura/Arquitetura/)
+
 
 ## ⚙️ Funcionalidades Previstas
 
@@ -27,6 +28,7 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - **Análise e Armazenamento:** Desenvolvimento de algoritmos para organizar dados coletados e armazená-los em um banco de dados, garantindo a integridade e segurança das informações.
 - **Visualização de Dados:** Criação de interfaces intuitivas para que os usuários possam visualizar os dados de forma clara e compreensível, através de gráficos, tabelas e outros elementos visuais.
 - **Pesquisa Avançada:** Possibilidade para os usuários realizarem pesquisas avançadas nos dados, filtrando por diferentes critérios como data, unidade adminitrativa, valor, entre outros, facilitando a busca por informações específicas.
+- **Menu de Acessibilidade:** Desenvolvimento de um menu de Acessibilidade para facilitar o uso por pessoas com deficiência visual, dificuldades de leitura ou outras condições que possam impactar a navegação em websites.
 
 ## 💻 Tecnologias
 
@@ -66,18 +68,6 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 - *PHome:* 
   
   ![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
-
-## 🤖 Web scraping 
-Passo a passo de como usar o scrapy está [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/Como%20executar/Tutorial_scrapy/)
-
-## 📚 Documentação
- A documentação do projeto está disponível [aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/)
-
-## 🗒 Story Map
-O Story Map do projeto está disponível [aqui](https://miro.com/app/board/uXjVKYtRMq0=/?moveToWidget=3458764584482040000&cot=10)
-
-## 🛠 Arquitetura
-A arquitetura do projeto está disponível [aqui](https://miro.com/app/board/uXjVKVdk0Cw=/)
 
 ## 👥 Desenvolvedores
 
