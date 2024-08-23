@@ -120,8 +120,10 @@ try:
                 driver.find_element(By.CLASS_NAME, "ui-datepicker-next").click()
                 time.sleep(1)
             time.sleep(5)
-            # Seleciona o dia 1º
-            driver.find_element(By.XPATH, "//a[text()='1']").click()
+            
+            # Seleciona o dia 1º diretamente pelo link dentro do td
+            dia_1_link = driver.find_element(By.XPATH, "//td[not(contains(@class, 'ui-datepicker-other-month'))]//a[text()='1']")
+            driver.execute_script("arguments[0].click();", dia_1_link)
             
             # Resto do seu código para selecionar o órgão, marcar checkbox, etc.
             campo_de_entrada = driver.find_element(By.ID, "jform_ID_ORGAO_chosen")
