@@ -26,8 +26,21 @@ driver = webdriver.Chrome(service=service, options=options)
 url = 'https://www.transparencia.mg.gov.br/despesa-estado/despesa/despesa-orgaos/2024/01-01-2024/31-12-2024/4538'
 driver.get(url)
 
-# Lista de meses em ordem
-meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+# Mapeamento de meses para números
+meses_numeros = {
+    "Janeiro": "01",
+    "Fevereiro": "02",
+    "Março": "03",
+    "Abril": "04",
+    "Maio": "05",
+    "Junho": "06",
+    "Julho": "07",
+    "Agosto": "08",
+    "Setembro": "09",
+    "Outubro": "10",
+    "Novembro": "11",
+    "Dezembro": "12"
+}
 
 def obter_mes_ano_atual(driver):
     return driver.find_element(By.CLASS_NAME, "ui-datepicker-title").text
@@ -86,12 +99,12 @@ try:
     )
     dados = []
 
-    for ano in range(2005, 2025):
+    for ano in range(2002, 2025):
         select_ano = driver.find_element(By.ID, "jform_ano")
         select_ano.click()
         select_ano.find_element(By.XPATH, f"//option[@value='{ano}']").click()
         
-        for mes_nome in meses:
+        for mes_nome in meses_numeros.keys():
             campo_fim = driver.find_element(By.ID, "jform_datafim")
             campo_fim.click()
             time.sleep(2)
@@ -180,7 +193,7 @@ try:
                     "Valor Liquidado": cols[2].text,
                     "Valor Pago": cols[3].text,
                     "Ano": str(ano),
-                    "Mes": mes_nome
+                    "Mes": meses_numeros[mes_nome]  # Substitui o nome do mês pelo número correspondente
                 })
 
             time.sleep(2)
