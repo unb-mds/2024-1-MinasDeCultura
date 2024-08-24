@@ -175,17 +175,17 @@ try:
             for linha in tabela_linhas:
                 cols = linha.find_elements(By.TAG_NAME, "td")
                 dados.append({
-                    "Órgão": cols[0].text,
+                    "orgao": cols[0].text,
                     "Valor Empenhado": cols[1].text,
                     "Valor Liquidado": cols[2].text,
                     "Valor Pago": cols[3].text,
                     "Ano": str(ano),
-                    "Mês": mes_nome
+                    "Mes": mes_nome
                 })
 
             time.sleep(2)
     
-    caminho_arquivo_json = os.path.join(os.getcwd(), 'resultado.json')
+    caminho_arquivo_json = os.path.join(os.getcwd(), 'selenium_portal_transparencia_meses.json')
     with open(caminho_arquivo_json, 'w') as arquivo_json:
         json.dump(dados, arquivo_json, indent=4, ensure_ascii=False)
 
