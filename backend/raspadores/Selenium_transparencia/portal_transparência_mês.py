@@ -47,6 +47,8 @@ try:
         EC.presence_of_element_located((By.ID, "jform_ano"))
     )
     dados = []
+    # Variável de controle para garantir que a seleção do dropdown ocorra apenas na primeira interação
+    primeira_interacao = True
 
     # Loop para selecionar o ano de 2005 até o ano atual (2024)
     for ano in range(2005, 2025):
@@ -125,25 +127,37 @@ try:
             dia_1_link = driver.find_element(By.XPATH, "//td[not(contains(@class, 'ui-datepicker-other-month'))]//a[text()='1']")
             driver.execute_script("arguments[0].click();", dia_1_link)
             
-            # Resto do seu código para selecionar o órgão, marcar checkbox, etc.
-            campo_de_entrada = driver.find_element(By.ID, "jform_ID_ORGAO_chosen")
-            time.sleep(3)
-            campo_de_entrada.click()
-            
-            WebDriverWait(driver, 10).until(
-                EC.visibility_of_element_located((By.CLASS_NAME, "chosen-drop"))
-            )
-            
-            try:
-                opcao_cultura = driver.find_element(By.XPATH, "//ul[contains(@class, 'chosen-results')]//li[contains(text(), 'Secretaria De Estado De Cultura')]")
-                opcao_cultura.click()
-            except StaleElementReferenceException:
+            # Executa a seleção do dropdown apenas na primeira interação
+            if primeira_interacao:
+                # Aguarda a presença do dropdown e clica nele para abrir
+                WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located((By.ID, "jform_ID_ORGAO_chosen"))
+                )
+                campo_de_entrada = driver.find_element(By.ID, "jform_ID_ORGAO_chosen")
+                time.sleep(3)
+                campo_de_entrada.click()
+                
+                # Aguarda a presença do dropdown visível e localiza a lista de opções
                 WebDriverWait(driver, 10).until(
                     EC.visibility_of_element_located((By.CLASS_NAME, "chosen-drop"))
                 )
-                opcao_cultura = driver.find_element(By.XPATH, "//ul[contains(@class, 'chosen-results')]//li[contains(text(), 'Secretaria De Estado De Cultura')]")
-                opcao_cultura.click()
+
+                # Encontra e clica na opção "Secretaria De Estado De Cultura"
+                try:
+                    opcao_cultura = driver.find_element(By.XPATH, "//ul[contains(@class, 'chosen-results')]//li[contains(text(), 'Secretaria De Estado De Cultura')]")
+                    opcao_cultura.click()
+                except StaleElementReferenceException:
+                    # Tenta encontrar e clicar na opção novamente se o elemento se tornar obsoleto
+                    WebDriverWait(driver, 10).until(
+                        EC.visibility_of_element_located((By.CLASS_NAME, "chosen-drop"))
+                    )
+                    opcao_cultura = driver.find_element(By.XPATH, "//ul[contains(@class, 'chosen-results')]//li[contains(text(), 'Secretaria De Estado De Cultura')]")
+                    opcao_cultura.click()
+                
+                # Atualiza a variável de controle para evitar repetir essa ação
+                primeira_interacao = False
             
+            # Continua com o restante do código...
             try:
                 WebDriverWait(driver, 10).until(
                     EC.visibility_of_element_located((By.ID, "jform_check__orgao"))
@@ -194,7 +208,7 @@ try:
                 })
 
             time.sleep(8)
-    
+
     caminho_arquivo_json = os.path.join(os.getcwd(), 'resultado.json')
     with open(caminho_arquivo_json, 'w') as arquivo_json:
         json.dump(dados, arquivo_json, indent=4, ensure_ascii=False)
