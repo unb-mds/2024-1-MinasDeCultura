@@ -47,7 +47,7 @@ try:
     dados = []
 
     # Loop para selecionar o ano de 2005 até o ano atual (2024)
-    for ano in range(2005, 2025):
+    for ano in range(2002, 2025):
         # Encontra o dropdown pelo ID e cria um objeto Select
         select_ano = Select(driver.find_element(By.ID, "jform_ano"))
         
@@ -122,7 +122,7 @@ try:
         driver.execute_script("window.scrollBy(0, 500);")
         
         # Aguarda os dados da tabela serem carregados
-        time.sleep(5)
+        time.sleep(2)
 
         # Extrai dados da tabela
         tabela_linhas = driver.find_elements(By.CSS_SELECTOR, "tr.odd")
@@ -130,7 +130,7 @@ try:
         for linha in tabela_linhas:
             cols = linha.find_elements(By.TAG_NAME, "td")
             dados.append({
-                "Órgão": cols[0].text,
+                "orgao": cols[0].text,
                 "Valor Empenhado": cols[1].text,
                 "Valor Liquidado": cols[2].text,
                 "Valor Pago": cols[3].text,
@@ -138,10 +138,10 @@ try:
             })
 
         # Espera antes de continuar o loop (ajuste conforme necessário)
-        time.sleep(8)
+        time.sleep(2)
     
     # Salva os dados em um arquivo JSON no diretório de trabalho
-    caminho_arquivo_json = os.path.join(working_dir, 'resultado.json')
+    caminho_arquivo_json = os.path.join(working_dir, 'selenium_portal_transparencia_anos.json')
     with open(caminho_arquivo_json, 'w') as arquivo_json:
         json.dump(dados, arquivo_json, indent=4, ensure_ascii=False)
 

@@ -55,7 +55,7 @@ def selecionar_mes_ano(driver, mes_nome, ano):
         
         try:
             mes_ano_antes = mes_ano_texto
-            driver.find_element(By.CLASS_NAME, "ui-datepicker-prev").click()
+            driver.find_element(By.CLASS_NAME, "ui-datepicker-next").click()
             time.sleep(1)
             mes_ano_depois = obter_mes_ano_atual(driver)
             
@@ -75,7 +75,7 @@ def selecionar_mes_ano(driver, mes_nome, ano):
         
         try:
             mes_ano_antes = mes_ano_texto
-            driver.find_element(By.CLASS_NAME, "ui-datepicker-next").click()
+            driver.find_element(By.CLASS_NAME, "ui-datepicker-prev").click()
             time.sleep(1)
             mes_ano_depois = obter_mes_ano_atual(driver)
             
@@ -197,10 +197,11 @@ try:
                 })
 
             time.sleep(2)
+            caminho_arquivo_json = os.path.join(os.getcwd(), 'selenium_portal_transparencia_meses.json')
+            with open(caminho_arquivo_json, 'w') as arquivo_json:
+                json.dump(dados, arquivo_json, indent=4, ensure_ascii=False)
+        
     
-    caminho_arquivo_json = os.path.join(os.getcwd(), 'selenium_portal_transparencia_meses.json')
-    with open(caminho_arquivo_json, 'w') as arquivo_json:
-        json.dump(dados, arquivo_json, indent=4, ensure_ascii=False)
 
 finally:
     driver.quit()
