@@ -26,121 +26,126 @@ driver = webdriver.Chrome(service=service, options=options)
 url = 'https://www.transparencia.mg.gov.br/despesa-estado/despesa/despesa-orgaos/2024/01-01-2024/31-12-2024/4538'
 driver.get(url)
 
-# Lista de meses em ordem
-meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+# Mapeamento de meses para números
+meses_numeros = {
+    "Janeiro": "01",
+    "Fevereiro": "02",
+    "Março": "03",
+    "Abril": "04",
+    "Maio": "05",
+    "Junho": "06",
+    "Julho": "07",
+    "Agosto": "08",
+    "Setembro": "09",
+    "Outubro": "10",
+    "Novembro": "11",
+    "Dezembro": "12"
+}
 
 def obter_mes_ano_atual(driver):
     return driver.find_element(By.CLASS_NAME, "ui-datepicker-title").text
 
+def selecionar_mes_ano(driver, mes_nome, ano):
+    # Tenta avançar para o final da esquerda
+    for _ in range(12):  # Limite de 12 tentativas para evitar loops infinitos
+        mes_ano_texto = obter_mes_ano_atual(driver)
+        
+        if f"{mes_nome}" in mes_ano_texto and f"{ano}" in mes_ano_texto:
+            return
+        
+        try:
+            mes_ano_antes = mes_ano_texto
+            driver.find_element(By.CLASS_NAME, "ui-datepicker-next").click()
+            time.sleep(1)
+            mes_ano_depois = obter_mes_ano_atual(driver)
+            
+            if mes_ano_antes == mes_ano_depois:
+                raise Exception("Mês não mudou ao tentar ir para a esquerda.")
+                
+        except Exception as e:
+            print(f"Erro ao tentar ir para a esquerda: {e}. Tentando para a direita.")
+            break  # Saia do loop e tente para a direita
+
+    # Caso não encontre o mês, tenta avançar para o final da direita
+    for _ in range(12):
+        mes_ano_texto = obter_mes_ano_atual(driver)
+        
+        if f"{mes_nome}" in mes_ano_texto and f"{ano}" in mes_ano_texto:
+            return
+        
+        try:
+            mes_ano_antes = mes_ano_texto
+            driver.find_element(By.CLASS_NAME, "ui-datepicker-prev").click()
+            time.sleep(1)
+            mes_ano_depois = obter_mes_ano_atual(driver)
+            
+            if mes_ano_antes == mes_ano_depois:
+                raise Exception("Mês não mudou ao tentar ir para a direita.")
+                
+        except Exception as e:
+            print(f"Erro ao tentar ir para a direita: {e}. Tentando para a esquerda.")
+            break  # Saia do loop e tente para a esquerda novamente
+
 try:
-    # Espera até que o botão "Pesquisa Avançada" esteja presente na página
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "a.btn.btn-red"))
     )
     
-    # Encontra o botão "Pesquisa Avançada" e clica nele
     botao_pesquisa_avancada = driver.find_element(By.CSS_SELECTOR, "a.btn.btn-red")
     botao_pesquisa_avancada.click()
     
-    # Aguarda a página carregar, onde os campos de seleção estão presentes
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, "jform_ano"))
     )
     dados = []
 
-    # Loop para selecionar o ano de 2005 até o ano atual (2024)
-    for ano in range(2005, 2025):
-        # Encontra o dropdown pelo ID e cria um objeto Select para o ano
+    for ano in range(2002, 2025):
         select_ano = driver.find_element(By.ID, "jform_ano")
-        
-        # Seleciona o ano desejado pelo valor
         select_ano.click()
         select_ano.find_element(By.XPATH, f"//option[@value='{ano}']").click()
         
-        # Loop para selecionar cada mês do ano
-        for mes_nome in meses:
-            # Seleciona o campo "Fim" e define a data final primeiro
+        for mes_nome in meses_numeros.keys():
             campo_fim = driver.find_element(By.ID, "jform_datafim")
             campo_fim.click()
             time.sleep(2)
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.CLASS_NAME, "ui-datepicker-title"))
-            )
-
-            # Armazena o mês/ano atual antes de clicar no botão "Próximo"
-            mes_ano_atual = obter_mes_ano_atual(driver)
-
-            while True:
-                # Obtém o texto do mês e ano atual no calendário
-                mes_ano_texto_fim = obter_mes_ano_atual(driver)
-                
-                # Verifica se o mês/ano atual corresponde ao desejado
-                if f"{mes_nome}" in mes_ano_texto_fim and f"{ano}" in mes_ano_texto_fim:
-                    break
-                
-                # Tenta avançar para o próximo mês
-                driver.find_element(By.CLASS_NAME, "ui-datepicker-prev").click()
-                time.sleep(1)
-                
-                # Verifica se o mês mudou após clicar em "Próximo"
-                novo_mes_ano = obter_mes_ano_atual(driver)
-                if novo_mes_ano == mes_ano_atual:
-                    # Se o mês não mudou, clica no botão "Voltar"
-                    driver.find_element(By.CLASS_NAME, "ui-datepicker-next").click()
-                    time.sleep(1)
-                
-                # Atualiza o mês/ano atual
-                mes_ano_atual = novo_mes_ano
             
-            # Seleciona o último dia do mês (ajustar conforme necessário)
+            selecionar_mes_ano(driver, mes_nome, ano)
+            
             try:
                 driver.find_element(By.XPATH, "//a[text()='31']").click()
             except NoSuchElementException:
-                # Em meses com menos de 31 dias, seleciona o último dia disponível
                 driver.find_elements(By.XPATH, "//td[@data-handler='selectDay']/a")[-1].click()
             
-            # Seleciona o campo "Início" e define a data inicial após a final
             campo_inicio = driver.find_element(By.ID, "jform_datainicio")
             campo_inicio.click()
             time.sleep(2)
-            # Aguarda a presença do calendário e navega até o mês/ano desejado
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.CLASS_NAME, "ui-datepicker-title"))
-            )
             
-            while True:
-                # Obtém o texto do mês e ano atual no calendário
-                mes_ano_texto = driver.find_element(By.CLASS_NAME, "ui-datepicker-title").text
+            selecionar_mes_ano(driver, mes_nome, ano)
+            
+            dia_1_link = driver.find_element(By.XPATH, "//td[not(contains(@class, 'ui-datepicker-other-month'))]//a[text()='1']")
+            driver.execute_script("arguments[0].click();", dia_1_link)
+            
+            if mes_nome == "Janeiro":
+                WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located((By.ID, "jform_ID_ORGAO_chosen"))
+                )
+                campo_de_entrada = driver.find_element(By.ID, "jform_ID_ORGAO_chosen")
+                time.sleep(2)
+                campo_de_entrada.click()
                 
-                # Verifica se o mês/ano atual corresponde ao desejado
-                if f"{mes_nome}" in mes_ano_texto and f"{ano}" in mes_ano_texto:
-                    break
-                
-                # Avança para o próximo mês
-                driver.find_element(By.CLASS_NAME, "ui-datepicker-next").click()
-                time.sleep(1)
-            time.sleep(5)
-            # Seleciona o dia 1º
-            driver.find_element(By.XPATH, "//a[text()='1']").click()
-            
-            # Resto do seu código para selecionar o órgão, marcar checkbox, etc.
-            campo_de_entrada = driver.find_element(By.ID, "jform_ID_ORGAO_chosen")
-            time.sleep(3)
-            campo_de_entrada.click()
-            
-            WebDriverWait(driver, 10).until(
-                EC.visibility_of_element_located((By.CLASS_NAME, "chosen-drop"))
-            )
-            
-            try:
-                opcao_cultura = driver.find_element(By.XPATH, "//ul[contains(@class, 'chosen-results')]//li[contains(text(), 'Secretaria De Estado De Cultura')]")
-                opcao_cultura.click()
-            except StaleElementReferenceException:
                 WebDriverWait(driver, 10).until(
                     EC.visibility_of_element_located((By.CLASS_NAME, "chosen-drop"))
                 )
-                opcao_cultura = driver.find_element(By.XPATH, "//ul[contains(@class, 'chosen-results')]//li[contains(text(), 'Secretaria De Estado De Cultura')]")
-                opcao_cultura.click()
+
+                try:
+                    opcao_cultura = driver.find_element(By.XPATH, "//ul[contains(@class, 'chosen-results')]//li[contains(text(), 'Secretaria De Estado De Cultura')]")
+                    opcao_cultura.click()
+                except StaleElementReferenceException:
+                    WebDriverWait(driver, 10).until(
+                        EC.visibility_of_element_located((By.CLASS_NAME, "chosen-drop"))
+                    )
+                    opcao_cultura = driver.find_element(By.XPATH, "//ul[contains(@class, 'chosen-results')]//li[contains(text(), 'Secretaria De Estado De Cultura')]")
+                    opcao_cultura.click()
             
             try:
                 WebDriverWait(driver, 10).until(
@@ -176,26 +181,27 @@ try:
             )
             
             driver.execute_script("window.scrollBy(0, 500);")
-            time.sleep(5)
+            time.sleep(2)
 
             tabela_linhas = driver.find_elements(By.CSS_SELECTOR, "tr.odd")
             
             for linha in tabela_linhas:
                 cols = linha.find_elements(By.TAG_NAME, "td")
                 dados.append({
-                    "Órgão": cols[0].text,
+                    "orgao": cols[0].text,
                     "Valor Empenhado": cols[1].text,
                     "Valor Liquidado": cols[2].text,
                     "Valor Pago": cols[3].text,
                     "Ano": str(ano),
-                    "Mês": mes_nome
+                    "Mes": meses_numeros[mes_nome]  # Substitui o nome do mês pelo número correspondente
                 })
 
-            time.sleep(8)
+            time.sleep(2)
+            caminho_arquivo_json = os.path.join(os.getcwd(), 'selenium_portal_transparencia_meses.json')
+            with open(caminho_arquivo_json, 'w') as arquivo_json:
+                json.dump(dados, arquivo_json, indent=4, ensure_ascii=False)
+        
     
-    caminho_arquivo_json = os.path.join(os.getcwd(), 'resultado.json')
-    with open(caminho_arquivo_json, 'w') as arquivo_json:
-        json.dump(dados, arquivo_json, indent=4, ensure_ascii=False)
 
 finally:
     driver.quit()
