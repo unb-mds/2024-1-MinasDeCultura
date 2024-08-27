@@ -5,12 +5,6 @@ async function getTendersByMonth(start, end) {
     const startMonth = start % 100;
     const endYear = Math.floor(end / 100);
     const endMonth = end % 100;
-    console.log(start)
-    console.log(end)
-    console.log(startYear)
-    console.log(startMonth)
-    console.log(endYear)
-    console.log(endMonth)
 
     const { data, error } = await supabase
         .from('tendersmonth')
