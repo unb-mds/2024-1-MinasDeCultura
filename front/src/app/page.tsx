@@ -6,16 +6,12 @@ import dynamic from 'next/dynamic';
 import Slider from "@/components/Slider";
 import Pilares from "@/components/Pilares";
 import Mensagem from "@/components/Mensagem";
-
-const Grafico = dynamic(() => import('@/components/Grafico'), { ssr: false });
+import Grafico from '@/components/Grafico';
 
 export default function Home() {
   return (
     <main className="bg-primary-gray dark:bg-neutral-900 flex flex-col items-center min-h-screen gap-10 p-12">
       <Mensagem />
-      <div className="container w-full h-auto bg-primary-white dark:bg-neutral-800 rounded-lg">
-        {/* Conteúdo adicional pode ir aqui */}
-      </div>
       <Grafico />
       <Busca />
       <div className="container font-sans">
