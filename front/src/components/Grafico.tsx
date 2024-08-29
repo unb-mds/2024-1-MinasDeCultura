@@ -1,165 +1,151 @@
-"use client";
-
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { fetchYearlyTendersData } from '../services/api';
 import { ApexOptions } from 'apexcharts';
 
-const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
+const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
+
+interface Dados {
+  year: number;
+  committed_value: number;
+  liquidated_value: number;
+  paid_value: number;
+}
 
 const Grafico: React.FC = () => {
-    const [isClient, setIsClient] = useState(false);
-    const isHighContrastMode = document.documentElement.classList.contains('high-contrast');
-    const [chartOptions, setChartOptions] = useState<ApexOptions>({
-        chart: {
-            type: 'bar',
-            height: 500,
-            background: '#ffffff',
-            foreColor: '#000000',
-        },
-        plotOptions: {
-            bar: {
-                horizontal: false,
-                distributed: true,
-                barHeight: '100%',
-                colors: {
-                    ranges: [{
-                        from: 0,
-                        to: 500000,
-                        color: '#ED1C24'
-                    }],
-                }
-            }
-        },
-        xaxis: {
-            categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-            type: 'category',
-            labels: {
-                style: {
-                    colors: '#000000'
-                }
-            }
-        },
-        yaxis: {
-            title: {
-                text: 'Valor',
-                style: {
-                    color: '#000000'
-                }
-            },
-            labels: {
-                style: {
-                    colors: '#000000'
-                }
-            }
-        },
-        legend: {
-            show: false,
-        },
-        responsive: [
-            {
-                breakpoint: 1025,
-                options: {
-                    chart: {
-                        height: 424,
-                        width: 800,
-                    }
-                }
-            },
-            {
-                breakpoint: 640,
-                options: {
-                    chart: {
-                        height: 200,
-                        width: 310,
-                    }
-                }
-            },
-            {
-                breakpoint: 769,
-                options: {
-                    chart: {
-                        height: 424,
-                        width: 700
-                    }
-                }
-            }
-        ],
-        theme: {
-            mode: 'light', // Modo padrão inicial
-            palette: 'palette1',
-        },
-    });
+  const [series, setSeries] = useState<any[]>([]);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-    const series = [{
-        name: 'Valor gasto',
-        data: [20000, 300000, 65000, 100000, 200000, 200000, 20000, 30000, 20000, 75000, 300000, 200000]
-    }];
+  const fetchData = async () => {
+    try {
+      const data = await fetchYearlyTendersData();
+      console.log('API Response:', data);
+      
+      if (Array.isArray(data) && data.length > 0) {
+        const series = [
+          {
+            name: 'Valor Empenhado',
+            data: data.map((item) => ({
+              x: new Date(item.year, 0, 1).toISOString(),
+              y: item.committed_value || 0
+            })),
+          },
+          {
+            name: 'Valor Liquidado',
+            data: data.map((item) => ({
+              x: new Date(item.year, 0, 1).toISOString(),
+              y: item.liquidated_value || 0
+            })),
+          },
+          {
+            name: 'Valor Pago',
+            data: data.map((item) => ({
+              x: new Date(item.year, 0, 1).toISOString(),
+              y: item.paid_value || 0
+            })),
+          },
+        ];
 
-    useEffect(() => {
-        setIsClient(true);
+        console.log('Series Data Transformada:', series);
 
-        const root = document.documentElement;
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.attributeName === "class") {
-                    const isDarkMode = root.classList.contains('dark');
-                    const isHighContrastMode = root.classList.contains('high-contrast'); // Verifica o modo de alto contraste
-                    setChartOptions((prevOptions) => ({
-                        ...prevOptions,
-                        chart: {
-                            ...prevOptions.chart,
-                            background: isHighContrastMode ? '#000000' : isDarkMode ? '#1f1f1f' : '#ffffff',
-                            foreColor: isHighContrastMode ? '#FFFFFF' : isDarkMode ? '#e5e7eb' : '#000000',
-                        },
-                        xaxis: {
-                            ...prevOptions.xaxis,
-                            labels: {
-                                style: {
-                                    colors: isHighContrastMode ? '#FFFFFF' : isDarkMode ? '#e5e7eb' : '#000000'
-                                }
-                            }
-                        },
-                        yaxis: {
-                            ...prevOptions.yaxis,
-                            labels: {
-                                style: {
-                                    colors: isHighContrastMode ? '#FFFFFF' : isDarkMode ? '#e5e7eb' : '#000000'
-                                }
-                            },
-                            title: {
-                                style: {
-                                    color: isDarkMode ? '#e5e7eb' : '#000000'
-                                }
-                            }
-                        },
-                        theme: {
-                            mode: isDarkMode ? 'dark' : 'light',
-                        }
-                    }));
-                }
-            });
-        });
+        setSeries(series);
+        setErrorMessage(null);
+      } else {
+        console.error('Dados inválidos retornados pela API.');
+        setErrorMessage('Dados inválidos retornados pela API.');
+      }
+    } catch (error) {
+      console.error('Erro ao buscar dados para o gráfico:', error);
+      setErrorMessage('Erro ao buscar dados para o gráfico.');
+    }
+  };
 
-        observer.observe(root, { attributes: true });
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-        return () => {
-            observer.disconnect();
-        };
-    }, []);
+  const options: ApexOptions = {
+    chart: {
+      type: 'line',
+      height: 600,
+      zoom: {
+        enabled: true,
+        type: 'x',
+        zoomedArea: {
+          fill: {
+            color: '#90CAF9',
+            opacity: 0.4
+          }
+        }
+      },
+      toolbar: {
+        tools: {
+          zoomin: true,
+          zoomout: true,
+          pan: true,
+          reset: true
+        },
+        autoSelected: 'pan' // Garantir que a ferramenta 'pan' seja selecionada inicialmente
+      }
+    },
+    colors: ['#F19C28', '#ED1C24', '#2FB551'],
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        opacityFrom: 0.6,
+        opacityTo: 0.8,
+      }
+    },
+    legend: {
+      position: 'top',
+      horizontalAlign: 'center'
+    },
+    xaxis: {
+      type: 'datetime',
+      labels: {
+        format: 'yyyy',
+      },
+      tickAmount: 10,
+      min: new Date(2014, 0, 1).getTime(),
+      max: new Date(2023, 0, 1).getTime(),
+    },
+    yaxis: {
+      labels: {
+        style: {
+          fontSize: '14px',
+        },
+        formatter: (value: number) => `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`
+      },
+      tickAmount: 4,
+      min: 5000000, // Define o valor mínimo do eixo y como 25 milhões
+    },
+    tooltip: {
+      x: {
+        format: 'yyyy'
+      },
+    },
+  };
 
-    return (
-        <>
-            {isClient && (
-                <ApexCharts
-                    options={chartOptions}
-                    series={series}
-                    type='bar'
-                    width={1200}
-                    height={424}
-                />
-            )}
-        </>
-    );
-}
+  return (
+    <div className='w-full p-4'>
+      <h1 className='text-2xl font-bold mb-4 mt-16 text-center text-neutral-700'>
+        Despesas em Cultura em Minas Gerais ao Longo dos Anos (2002-2023)
+      </h1>
+      {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
+      <ReactApexChart 
+        options={options} 
+        series={series} 
+        type="line" 
+        height={500} 
+      />
+    </div>
+  );
+};
 
 export default Grafico;
