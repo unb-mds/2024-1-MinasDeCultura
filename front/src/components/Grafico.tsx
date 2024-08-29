@@ -120,7 +120,12 @@ const Grafico: React.FC = () => {
         style: {
           fontSize: '14px',
         },
-        formatter: (value: number) => `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`
+        formatter: (value: number) => {
+          if (typeof value === 'number') {
+            return `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+          }
+          return 'R$ 0,00'; // Valor padrão se `value` não for um número
+        }
       },
       tickAmount: 4,
       min: 5000000, // Define o valor mínimo do eixo y como 25 milhões
