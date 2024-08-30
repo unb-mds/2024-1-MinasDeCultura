@@ -89,7 +89,7 @@ const Grafico: React.FC = () => {
       },
       background: '#fff', // Fundo branco
     },
-    colors: ['#F19C28', '#ED1C24', '#2FB551'],
+    colors: ['#ED1C24', '#F19C28', '#2FB551'],
     dataLabels: {
       enabled: false
     },
