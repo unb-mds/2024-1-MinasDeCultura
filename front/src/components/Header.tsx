@@ -64,7 +64,7 @@ export function Header() {
                 <nav className="hidden md:flex items-center text-lg lg:text-xl space-x-4 font-DMsans">
                     <Link className="text-neutral-700 dark:text-neutral-300 rounded-lg p-2" href="/">HOME</Link>
                     <Link className="text-neutral-700 dark:text-neutral-300 rounded-lg p-2" href="/Sobre">SOBRE</Link>
-                    <Link className="text-neutral-700 dark:text-neutral-300 rounded-xl p-2 bg-primary-red" href="/Pesquisa">PESQUISA</Link>
+                    <Link className="text-neutral-700 dark:text-neutral-300 rounded-xl p-2 bg-red-400" href="/Pesquisa">PESQUISA</Link>
                 </nav>
 
                 <div className="relative">

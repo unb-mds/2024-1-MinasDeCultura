@@ -32,7 +32,7 @@ const Slider: React.FC = () => {
     }, []);
 
     return (
-        <div className="flex justify-center items-center mb-16 bg-primary-gray dark:bg-neutral-800">
+        <div className="relative flex justify-center items-center bg-primary-gray dark:bg-neutral-800">
             <Swiper
                 slidesPerView={1}
                 modules={[Navigation, Pagination, Autoplay]}
@@ -44,13 +44,13 @@ const Slider: React.FC = () => {
                 {data.map((item, index) => (
                     <SwiperSlide key={index}>
                         <a className="w-full h-96" href={`${site}${item.link}`} target='_blank'>
-                        <Image
-                            src={`${site}${item.image_url}`}
-                            alt="Slider"
-                            className="w-full object-cover h-96"
-                            width={1920}
-                            height={1080}
-                        />
+                            <Image
+                                src={`${site}${item.image_url}`}
+                                alt="Slider"
+                                className="w-full object-cover h-96"
+                                width={1920}
+                                height={1080}
+                            />
 
                             <div className="absolute bottom-0 w-full p-4 bg-black dark:bg-neutral-800 bg-opacity-30 text-white font-sans lg:text-4xl md:text-xl text-sm">
                                 <p className="text-center">{item.title}</p>
