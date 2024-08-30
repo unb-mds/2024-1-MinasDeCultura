@@ -14,11 +14,28 @@ export function Header() {
     const [accessibilityMenuOpen, setAccessibilityMenuOpen] = useState(false);
     const [keepMenuOpen, setKeepMenuOpen] = useState(false);
 
+    // Carrega as configurações do localStorage
+    useEffect(() => {
+        const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+        const savedHighContrast = localStorage.getItem('highContrast') === 'true';
+        const savedFontSize = localStorage.getItem('fontSize') || 'text-base';
+        
+        setDarkMode(savedDarkMode);
+        setHighContrast(savedHighContrast);
+        setFontSize(savedFontSize);
+    }, []);
+
+    // Atualiza as configurações e aplica as classes
     useEffect(() => {
         document.documentElement.classList.toggle('dark', darkMode);
         document.documentElement.classList.toggle('high-contrast', highContrast);
         document.documentElement.classList.toggle('font-lg', fontSize === 'text-lg');
         document.documentElement.classList.toggle('font-original', fontSize === 'text-base');
+
+        // Salva as configurações no localStorage
+        localStorage.setItem('darkMode', darkMode.toString());
+        localStorage.setItem('highContrast', highContrast.toString());
+        localStorage.setItem('fontSize', fontSize);
     }, [darkMode, highContrast, fontSize]);
 
     const toggleNavbar = () => setIsOpen(!isOpen);
