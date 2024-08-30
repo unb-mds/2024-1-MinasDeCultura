@@ -85,8 +85,9 @@ const Grafico: React.FC = () => {
           pan: true,
           reset: true
         },
-        autoSelected: 'pan' // Garantir que a ferramenta 'pan' seja selecionada inicialmente
-      }
+        autoSelected: 'pan' 
+      },
+      background: '#fff', // Fundo branco
     },
     colors: ['#F19C28', '#ED1C24', '#2FB551'],
     dataLabels: {
@@ -104,12 +105,16 @@ const Grafico: React.FC = () => {
     },
     legend: {
       position: 'top',
-      horizontalAlign: 'center'
+      horizontalAlign: 'center',
+      fontSize: '14px', // Tamanho padrão da fonte da legenda
     },
     xaxis: {
       type: 'datetime',
       labels: {
         format: 'yyyy',
+        style: {
+          fontSize: '12px', // Tamanho padrão da fonte do eixo X
+        },
       },
       tickAmount: 10,
       min: new Date(2014, 0, 1).getTime(),
@@ -118,38 +123,118 @@ const Grafico: React.FC = () => {
     yaxis: {
       labels: {
         style: {
-          fontSize: '14px',
+          fontSize: '14px', // Tamanho padrão da fonte do eixo Y
         },
         formatter: (value: number) => {
           if (typeof value === 'number') {
             return `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
           }
-          return 'R$ 0,00'; // Valor padrão se `value` não for um número
+          return 'R$ 0,00';
         }
       },
       tickAmount: 4,
-      min: 5000000, // Define o valor mínimo do eixo y como 25 milhões
+      min: 5000000,
     },
     tooltip: {
       x: {
-        format: 'yyyy'
+        format: 'DESPESA DE yyyy'
+        
       },
     },
+    responsive: [
+      {
+        breakpoint: 768, // Ajustes abaixo de 768px
+        options: {
+          chart: {
+            height: 400, // Reduzir a altura do gráfico em telas menores
+          },
+          legend: {
+            position: 'bottom',
+            horizontalAlign: 'center',
+            fontSize: '10px', // Reduzir tamanho da fonte da legenda
+          },
+          xaxis: {
+            labels: {
+              style: {
+                fontSize: '10px', // Reduzir tamanho da fonte do eixo X
+              },
+            },
+          },
+          yaxis: {
+            labels: {
+              style: {
+                fontSize: '6px', // Tamanho padrão da fonte do eixo Y
+              },
+              formatter: (value: number) => {
+                if (typeof value === 'number') {
+                  return `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+                }
+                return 'R$ 0,00';
+              }
+            },
+            tickAmount: 3,
+          },
+        }
+      },
+      {
+        breakpoint: 480, 
+        options: {
+          chart: {
+            height: 300, 
+          },
+          legend: {
+            fontSize: '8px', 
+          },
+          xaxis: {
+            labels: {
+              style: {
+                fontSize: '8px', 
+              },
+            },
+          },
+        }
+      }
+    ]
   };
 
   return (
-    <div className='w-full p-4'>
-      <h1 className='text-2xl font-bold mb-4 mt-16 text-center text-neutral-700'>
+    <div className="w-4/5 mx-auto mt-16">
+      <h1 className='text-2xl font-bold mb-4 text-center text-neutral-700'>
         Despesas em Cultura em Minas Gerais ao Longo dos Anos (2002-2023)
       </h1>
       {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
-      <ReactApexChart 
-        options={options} 
-        series={series} 
-        type="line" 
-        height={500} 
-      />
+      <div>
+        <ReactApexChart 
+          options={options} 
+          series={series} 
+          type="line" 
+          height={600} 
+        />
+      </div>
+      <ul className="space-y-7 mt-8">
+        <li className="flex items-center gap-4 text-lg">
+          <div className="flex-shrink-0 w-8 h-8 bg-[#ED1C24] rounded-sm"></div>
+          <div className="text-neutral-700">
+            <strong>Valor Empenhado:</strong> Valor do orçamento reservado para fazer face a compromisso formalmente assumido com fornecedor ou credor.
+          </div>
+        </li>
+        <li className="flex items-center gap-4 text-lg">
+          <div className="flex-shrink-0 w-8 h-8 bg-[#F19C28] rounded-sm"></div>
+          <div className="text-neutral-700">
+            <strong>Valor Liquidado:</strong> Valor que o fornecedor ou credor tem direito a receber referente a produto ou serviço devidamente entregue.
+          </div>
+        </li>
+        <li className="flex items-center gap-4 text-lg">
+          <div className="flex-shrink-0 w-8 h-8 bg-[#2FB551] rounded-sm"></div>
+          <div className="text-neutral-700">
+            <strong>Valor Pago:</strong> Valor referente aos pagamentos efetuados através de movimentações bancárias, escriturais e apropriação contábil da despesa.
+          </div>
+        </li>
+      </ul>
     </div>
+
+
+
   );
 };
 
