@@ -205,7 +205,7 @@ try:
         })
 
     time.sleep(2)
-    caminho_arquivo_json = os.path.join(os.getcwd(), 'selenium_portal_transparencia_automacao.json')
+    caminho_arquivo_json = os.path.join(os.getcwd(), 'selenium_portal_transparencia_.json')
     with open(caminho_arquivo_json, 'a') as arquivo_json:
         json.dump(dados, arquivo_json, indent=4, ensure_ascii=False)
         
