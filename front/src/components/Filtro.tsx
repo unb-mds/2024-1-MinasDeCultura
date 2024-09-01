@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import ApexCharts from 'react-apexcharts';
+import dynamic from 'next/dynamic';
 import { ApexOptions } from 'apexcharts';
 import { CalendarClock, MoveLeft, MoveRight } from 'lucide-react';
 import DatePicker from 'react-datepicker';
@@ -17,6 +17,8 @@ interface Dados {
   month: number;
 }
 
+const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
+
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<Dados[]>([]);
   const [lineChartSeries, setLineChartSeries] = useState<any>([]);
@@ -28,6 +30,163 @@ const Dashboard: React.FC = () => {
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  // Inicialização dos estados dos gráficos com opções padrão
+  const [lineChartOptions, setLineChartOptions] = useState<ApexOptions>({
+    chart: {
+      type: 'line',
+      height: 350,
+      toolbar: {
+        show: true,
+      },
+      zoom: {
+        enabled: true,
+      },
+      animations: {
+        enabled: true,
+      },
+      background: '#ffffff',
+      foreColor: '#000000',
+    },
+    stroke: {
+      curve: 'smooth',
+      width: 2,
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    markers: {
+      size: 4,
+    },
+    xaxis: {
+      categories: [],
+      labels: {
+        style: {
+          fontSize: '12px',
+        },
+      },
+      tickAmount: 10,
+    },
+    yaxis: {
+      title: {
+        text: 'Valores',
+        style: {
+          fontSize: '14px',
+        },
+      },
+      labels: {
+        formatter: (value: number) => `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`,
+        style: {
+          fontSize: '12px',
+        },
+      },
+    },
+    legend: {
+      position: 'top',
+      horizontalAlign: 'center',
+      fontSize: '14px',
+    },
+    tooltip: {
+      y: {
+        formatter: (value: number) => `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`,
+      },
+    },
+    colors: ['#ED1C24', '#F19C28', '#2FB551'],
+    responsive: [
+      {
+        breakpoint: 1024,
+        options: {
+          xaxis: {
+            labels: {
+              style: {
+                fontSize: '10px',
+              },
+            },
+          },
+          yaxis: [
+            {
+              labels: {
+                style: {
+                  fontSize: '10px',
+                },
+              },
+            },
+          ],
+          legend: {
+            fontSize: '12px',
+          },
+        },
+      },
+      {
+        breakpoint: 768,
+        options: {
+          chart: {
+            height: 300,
+          },
+          xaxis: {
+            labels: {
+              style: {
+                fontSize: '8px',
+              },
+            },
+          },
+          yaxis: [
+            {
+              labels: {
+                style: {
+                  fontSize: '8px',
+                },
+              },
+            },
+          ],
+          legend: {
+            fontSize: '10px',
+          },
+        },
+      },
+    ],
+  });
+
+  const [pieChartOptions, setPieChartOptions] = useState<ApexOptions>({
+    chart: {
+      type: 'pie',
+      height: 350,
+      background: '#ffffff',
+      foreColor: '#000000',
+    },
+    labels: ['Valor Empenhado', 'Valor Liquidado', 'Valor Pago'],
+    legend: {
+      position: 'bottom',
+      fontSize: '14px',
+    },
+    tooltip: {
+      y: {
+        formatter: (value: number) => `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`,
+      },
+    },
+    colors: ['#ED1C24', '#F19C28', '#2FB551'],
+    responsive: [
+      {
+        breakpoint: 1024,
+        options: {
+          legend: {
+            fontSize: '12px',
+          },
+        },
+      },
+      {
+        breakpoint: 768,
+        options: {
+          chart: {
+            height: 300,
+          },
+          legend: {
+            fontSize: '10px',
+          },
+        },
+      },
+    ],
+  });
+
   const fetchData = async (startDate: Date | null, endDate: Date | null) => {
     if (!startDate || !endDate) return;
 
@@ -37,30 +196,43 @@ const Dashboard: React.FC = () => {
       const endMonth = (endDate.getMonth() + 1).toString().padStart(2, '0');
       const endYear = endDate.getFullYear().toString();
 
-      const data = await fettchYearAndMonthTender({ startYear, startMonth, endYear, endMonth });
-      setData(data);
+      const fetchedData = await fettchYearAndMonthTender({ startYear, startMonth, endYear, endMonth });
 
-      const committedValues = data.map((item: Dados) => item.committed_value);
-      const liquidatedValues = data.map((item: Dados) => item.liquidated_value);
-      const paidValues = data.map((item: Dados) => item.paid_value);
+      if (Array.isArray(fetchedData) && fetchedData.length > 0) {
+        setData(fetchedData);
 
+        const categories = fetchedData.map(item => `${item.year}-${String(item.month).padStart(2, '0')}`);
+        const committedValues = fetchedData.map((item: Dados) => item.committed_value);
+        const liquidatedValues = fetchedData.map((item: Dados) => item.liquidated_value);
+        const paidValues = fetchedData.map((item: Dados) => item.paid_value);
 
-      setLineChartSeries([
-        { name: 'Valor Empenhado', data: committedValues },
-        { name: 'Valor Liquidado', data: liquidatedValues },
-        { name: 'Valor Pago', data: paidValues }
-      ]);
+        setLineChartSeries([
+          { name: 'Valor Empenhado', data: committedValues },
+          { name: 'Valor Liquidado', data: liquidatedValues },
+          { name: 'Valor Pago', data: paidValues },
+        ]);
 
-      const totalCommitted = data.reduce((acc: number, item: Dados) => acc + item.committed_value, 0);
-      const totalLiquidated = data.reduce((acc: number, item: Dados) => acc + item.liquidated_value, 0);
-      const totalPaid = data.reduce((acc: number, item: Dados) => acc + item.paid_value, 0);
+        setLineChartOptions(prevOptions => ({
+          ...prevOptions,
+          xaxis: {
+            ...prevOptions.xaxis,
+            categories,
+          },
+        }));
 
-      setPieChartSeries([totalCommitted, totalLiquidated, totalPaid]);
-      setTotalSales(totalCommitted);
-      setTotalRevenue(totalLiquidated);
-      setTotalUsers(totalPaid);
+        const totalCommitted = committedValues.reduce((acc, val) => acc + val, 0);
+        const totalLiquidated = liquidatedValues.reduce((acc, val) => acc + val, 0);
+        const totalPaid = paidValues.reduce((acc, val) => acc + val, 0);
 
-      setErrorMessage(null);
+        setPieChartSeries([totalCommitted, totalLiquidated, totalPaid]);
+        setTotalSales(totalCommitted);
+        setTotalRevenue(totalLiquidated);
+        setTotalUsers(totalPaid);
+
+        setErrorMessage(null);
+      } else {
+        setErrorMessage('Nenhum dado encontrado para o período selecionado.');
+      }
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
       setErrorMessage('Erro ao buscar dados.');
@@ -71,28 +243,107 @@ const Dashboard: React.FC = () => {
     fetchData(startDate, endDate);
   }, [startDate, endDate]);
 
+  const updateChartOptionsForTheme = () => {
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    const isHighContrastMode = document.documentElement.classList.contains('high-contrast');
+
+    const backgroundColor = isHighContrastMode ? '#000000' : isDarkMode ? '#1f1f1f' : '#ffffff';
+    const foreColor = isHighContrastMode ? '#FFFFFF' : isDarkMode ? '#e5e7eb' : '#000000';
+
+    setLineChartOptions(prevOptions => ({
+      ...prevOptions,
+      chart: {
+        ...prevOptions.chart,
+        background: backgroundColor,
+        foreColor: foreColor,
+      },
+      xaxis: {
+        ...prevOptions.xaxis,
+        labels: {
+          ...prevOptions.xaxis?.labels,
+          style: {
+            ...prevOptions.xaxis?.labels?.style,
+            colors: foreColor,
+          },
+        },
+      },
+      yaxis: {
+        ...prevOptions.yaxis,
+        labels: {
+          ...(Array.isArray(prevOptions.yaxis) ? {} : prevOptions.yaxis?.labels),
+          style: {
+            ...(Array.isArray(prevOptions.yaxis) ? {} : prevOptions.yaxis?.labels?.style),
+            colors: foreColor,
+          },
+        },
+      },
+      legend: {
+        ...prevOptions.legend,
+        labels: {
+          colors: foreColor,
+        },
+      },
+    }));
+
+    setPieChartOptions(prevOptions => ({
+      ...prevOptions,
+      chart: {
+        ...prevOptions.chart,
+        background: backgroundColor,
+        foreColor: foreColor,
+      },
+      legend: {
+        ...prevOptions.legend,
+        labels: {
+          colors: foreColor,
+        },
+      },
+    }));
+  };
+
+  useEffect(() => {
+    updateChartOptionsForTheme();
+
+    const observer = new MutationObserver(() => {
+      updateChartOptionsForTheme();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const renderCustomHeader = ({
     date,
+    decreaseMonth,
+    increaseMonth,
     decreaseYear,
     increaseYear,
   }: {
     date: Date;
+    decreaseMonth: () => void;
+    increaseMonth: () => void;
     decreaseYear: () => void;
     increaseYear: () => void;
   }) => {
     const months = [
       'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-      'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+      'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',
     ];
     return (
       <div className="flex justify-between items-center py-2 px-4 rounded-md">
-        <button onClick={decreaseYear} className="p-2 rounded-md">
+        <button onClick={decreaseYear} className="p-2 rounded-md" aria-label="Ano anterior">
           <MoveLeft />
         </button>
         <span className="text-sm md:text-lg font-DMsans">
           {months[date.getMonth()]} de {date.getFullYear()}
         </span>
-        <button onClick={increaseYear} className="p-2 rounded-md">
+        <button onClick={increaseYear} className="p-2 rounded-md" aria-label="Próximo ano">
           <MoveRight />
         </button>
       </div>
@@ -108,126 +359,85 @@ const Dashboard: React.FC = () => {
 
   const handleEndDateChange = (date: Date | null) => {
     if (date && startDate && date < startDate) {
-      setEndDate(startDate);
-    } else {
-      setEndDate(date);
+      setStartDate(date);
     }
-  };
-
-  const lineChartOptions: ApexOptions = {
-    chart: {
-      type: 'line',
-    },
-    title: {
-      text: 'Valores',
-      align: 'center'
-    },
-    xaxis: {
-      categories: data.map(item => `${item.year}-${String(item.month).padStart(2, '0')}`)
-    },
-    yaxis: {
-      title: {
-        text: 'Valores'
-      },
-      labels: {
-        formatter: (value: number) => `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`
-      }
-    },
-    colors: ['#ED1C24', '#F19C28', '#2FB551']
-  };
-
-  const pieChartOptions: ApexOptions = {
-    chart: {
-      type: 'pie',
-    },
-    title: {
-      text: 'Distribuição de valores',
-      align: 'center'
-    },
-    labels: ['Valor Empenhado', 'Valor Liquidado', 'Valor Pago'],
-    tooltip: {
-      y: {
-        formatter: (value: number) => `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`
-      }
-    },
-    colors: ['#ED1C24', '#F19C28', '#2FB551'],
-    legend: {
-      position: 'bottom',
-    }
+    setEndDate(date);
   };
 
   return (
-    <div className="container">
-      <div className="mb-10">
-        <div className="container bg-primary-white dark:bg-neutral-800 border rounded-lg flex flex-col items-center justify-center lg:p-12 p-8">
-          <h1 className="text-neutral-700 dark:text-primary-white font-DMsans text-lg lg:text-4xl xl:text-5xl text-center mb-[50px]">
-            Pesquise por período
-          </h1>
-          <ul className="flex lg:flex-row w-full justify-center flex-col gap-4">
-            <li className="relative flex items-center">
-              <CalendarClock className="w-6 h-6" color="#ED1C24" />
-              <DatePicker
-                selected={startDate}
-                onChange={handleStartDateChange}
-                dateFormat="MM / yyyy"
-                showMonthYearPicker
-                renderCustomHeader={renderCustomHeader}
-                maxDate={new Date(2024, 11, 31)}
-                className="w-full px-4 py-2 focus:outline-none bg-transparent text-xs md:text-base dark:text-neutral-300"
-                placeholderText="Data Inicial"
-                locale={ptBR}
-              />
-              <span className="px-2"><MoveRight className="size-3 md:size-auto dark:text-neutral-300" /></span>
-              <DatePicker
-                selected={endDate}
-                onChange={handleEndDateChange}
-                dateFormat="MM / yyyy"
-                showMonthYearPicker
-                renderCustomHeader={renderCustomHeader}
-                minDate={startDate ?? undefined}
-                maxDate={new Date(2024, 11, 31)}
-                className="w-full px-4 py-2 focus:outline-none bg-transparent text-xs md:text-base dark:text-neutral-300"
-                placeholderText="Data final"
-                locale={ptBR}
-              />
-              <div className="border-b border-neutral-700 dark:border-neutral-400 absolute left-0 right-0 bottom-0"></div>
-            </li>
-          </ul>
-        </div>
-
-
-
-        <div className="flex lg:justify-center md:justify-center flex-wrap gap-2 mb-6 mt-6">
-          <div className="w-full sm:w-1/4 p-4 rounded-lg shadow-2xl bg-white">
-            <h3 className="lg:text-lg md:text-md text-sm flex justify-center">Total Empenhado</h3>
-            <p className="lg:text-2xl md:text-lg text-sm flex justify-center">R$ {totalSales.toLocaleString()}</p>
-          </div>
-          <div className="w-full sm:w-1/4 p-4 rounded-lg shadow-2xl bg-white">
-            <h3 className="lg:text-lg md:text-md text-sm flex justify-center">Total Liquidado</h3>
-            <p className="lg:text-2xl md:text-lg text-sm flex justify-center">R$ {totalRevenue.toLocaleString()}</p>
-          </div>
-          <div className="w-full sm:w-1/4 p-4 rounded-lg shadow-2xl bg-white">
-            <h3 className="lg:text-lg md:text-md text-sm flex justify-center">Total Pago</h3>
-            <p className="lg:text-2xl md:text-lg text-sm flex justify-center">R$ {totalUsers.toLocaleString()}</p>
-          </div>
-        </div>
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 bg-white">
-          <div className="w-full md:w-1/2">
-            <ApexCharts
-              options={lineChartOptions}
-              series={lineChartSeries}
-              type="line"
-              height={350}
+    <div className="container mx-auto p-4">
+      <div className="bg-primary-white dark:bg-neutral-800 border rounded-lg flex flex-col items-center justify-center lg:p-12 p-8">
+        <h1 className="text-neutral-700 dark:text-primary-white font-DMsans text-lg lg:text-4xl xl:text-5xl text-center mb-8">
+          <strong>Pesquise por período</strong>
+        </h1>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+          <div className="flex items-center gap-2">
+            <CalendarClock className="w-6 h-6 text-red-600" />
+            <DatePicker
+              selected={startDate}
+              onChange={handleStartDateChange}
+              dateFormat="MM/yyyy"
+              showMonthYearPicker
+              renderCustomHeader={renderCustomHeader}
+              maxDate={new Date(2024, 11, 31)}
+              className="w-32 px-4 py-2 focus:outline-none bg-transparent text-sm md:text-base dark:text-neutral-300 border-b border-neutral-700 dark:border-neutral-400"
+              placeholderText="Data Inicial"
+              locale={ptBR}
+              aria-label="Data inicial"
             />
           </div>
-          <div className="w-full md:w-1/2">
-            <ApexCharts
-              options={pieChartOptions}
-              series={pieChartSeries}
-              type="pie"
-              height={350}
+          <span className="text-neutral-700 dark:text-neutral-300">até</span>
+          <div className="flex items-center gap-2">
+            <CalendarClock className="w-6 h-6 text-red-600" />
+            <DatePicker
+              selected={endDate}
+              onChange={handleEndDateChange}
+              dateFormat="MM/yyyy"
+              showMonthYearPicker
+              renderCustomHeader={renderCustomHeader}
+              minDate={startDate ?? undefined}
+              maxDate={new Date(2024, 11, 31)}
+              className="w-32 px-4 py-2 focus:outline-none bg-transparent text-sm md:text-base dark:text-neutral-300 border-b border-neutral-700 dark:border-neutral-400"
+              placeholderText="Data Final"
+              locale={ptBR}
+              aria-label="Data final"
             />
           </div>
+        </div>
+        {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
+      </div>
+
+      <div className="flex flex-wrap justify-center gap-4 my-8">
+        <div className="w-full sm:w-1/3 p-4 rounded-lg shadow-lg bg-white dark:bg-neutral-800">
+          <h3 className="text-center text-neutral-700 dark:text-neutral-300 text-lg font-semibold mb-2">Total Empenhado</h3>
+          <p className="text-center text-neutral-900 dark:text-neutral-100 text-2xl">R$ {totalSales.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+        </div>
+        <div className="w-full sm:w-1/3 p-4 rounded-lg shadow-lg bg-white dark:bg-neutral-800">
+          <h3 className="text-center text-neutral-700 dark:text-neutral-300 text-lg font-semibold mb-2">Total Liquidado</h3>
+          <p className="text-center text-neutral-900 dark:text-neutral-100 text-2xl">R$ {totalRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+        </div>
+        <div className="w-full sm:w-1/3 p-4 rounded-lg shadow-lg bg-white dark:bg-neutral-800">
+          <h3 className="text-center text-neutral-700 dark:text-neutral-300 text-lg font-semibold mb-2">Total Pago</h3>
+          <p className="text-center text-neutral-900 dark:text-neutral-100 text-2xl">R$ {totalUsers.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="w-full md:w-1/2 bg-white dark:bg-neutral-800 p-4 rounded-lg shadow-lg">
+          <ReactApexChart
+            options={lineChartOptions}
+            series={lineChartSeries}
+            type="line"
+            height={350}
+          />
+        </div>
+        <div className="w-full md:w-1/2 bg-white dark:bg-neutral-800 p-4 rounded-lg shadow-lg">
+          <ReactApexChart
+            options={pieChartOptions}
+            series={pieChartSeries}
+            type="pie"
+            height={350}
+          />
         </div>
       </div>
     </div>
