@@ -33,7 +33,7 @@ export const fetchYearlyTendersData = async () => {
     try {
         const requests = [];
         for (let year = 2002; year <= 2023; year++) {
-            requests.push(axios.get(`http://localhost:5000/tenders/year?year=${year}`));
+            requests.push(axios.get(`https://minas-cultura-api.onrender.com/tenders/year?year=${year}`));
         }
         const responses = await Promise.all(requests);
         return responses.flatMap((response) => response.data);
@@ -42,16 +42,6 @@ export const fetchYearlyTendersData = async () => {
         return [];
     }
 };
-
-export const fetchYearTender = async (year: number) => {
-    try {
-        const response = await axios.get(`http://localhost:5000/tenders/year?year=${year}`);
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching year tender data:', error);
-        return [];
-    }
-}
 
 export const searchLicitacoes = async (params: SearchParams) => {
   const { startYear, startMonth, endYear, endMonth, cityId, unitId } = params;
