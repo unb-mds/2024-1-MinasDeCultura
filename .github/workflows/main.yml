@@ -2,7 +2,7 @@ name: Run Scraper Monthly
 
 on:
   schedule:
-    - cron: "0 0 1 * *"
+    - cron: "0 19 1 * *"
 
 jobs:
   run-scraper:
