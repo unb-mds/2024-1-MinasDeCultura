@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import Dashboard from '../components/Dashboard';
+import Filtro from '../components/Filtro';
 import { fettchYearAndMonthTender } from '../services/api';
 
 // Mock das funções de API
@@ -29,18 +29,18 @@ beforeEach(() => {
 });
 
 test('renders Dashboard component and interacts with date pickers', async () => {
-  render(<Dashboard />);
+  render(<Filtro />);
 
   // Verifica se o título está presente
   expect(screen.getByText('Pesquise por período')).toBeInTheDocument();
 
   // Verifica se os campos de data inicial e final estão presentes
   expect(screen.getByPlaceholderText('Data Inicial')).toBeInTheDocument();
-  expect(screen.getByPlaceholderText('Data final')).toBeInTheDocument();
+  expect(screen.getByPlaceholderText('Data Final')).toBeInTheDocument();
 
   // Simula a seleção de datas
-  fireEvent.change(screen.getByPlaceholderText('Data Inicial'), { target: { value: '01 / 2023' } });
-  fireEvent.change(screen.getByPlaceholderText('Data final'), { target: { value: '12 / 2023' } });
+  fireEvent.change(screen.getByPlaceholderText('Data Inicial'), { target: { value: '01/2023' } });
+  fireEvent.change(screen.getByPlaceholderText('Data Final'), { target: { value: '12/2023' } });
 
   // Aguarda a busca de dados
   await waitFor(() => expect(fettchYearAndMonthTender).toHaveBeenCalled());
