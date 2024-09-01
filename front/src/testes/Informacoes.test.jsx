@@ -16,7 +16,7 @@ describe('Informacoes', () => {
     expect(title).toBeInTheDocument();
 
     // Verifica se o parágrafo é renderizado
-    const paragraphText = "Este é um projeto desenvolvido como parte da disciplina de Métodos de Desenvolvimento de Software (MDS) da Universidade de Brasília (UnB). O objetivo principal deste projeto é criar uma plataforma online para análise e armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal, utilizando a plataforma e a API do Querido Diário.";
+    const paragraphText = "Este é um projeto desenvolvido como parte da disciplina de Métodos de Desenvolvimento de Software (MDS) da Universidade de Brasília (UnB). O objetivo principal deste projeto é criar uma plataforma online para análise e armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal, utilizando informações da Secretaria de Cultura do Estado de Minas Gerais.";
     const paragraph = screen.getByText((content, element) => {
       const hasText = element => element.textContent === paragraphText;
       const elementHasText = hasText(element);
