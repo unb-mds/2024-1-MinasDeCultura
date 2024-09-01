@@ -1,6 +1,7 @@
 import time
 import os
 import json
+import argparse
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -22,30 +23,38 @@ options.add_experimental_option("prefs", prefs)
 service = Service()
 driver = webdriver.Chrome(service=service, options=options)
 
+# Configuração dos argumentos de linha de comando
+parser = argparse.ArgumentParser(description="Script para acessar o portal de transparência e raspar dados")
+parser.add_argument('--ano', type=int, required=True, help="Ano desejado no formato YYYY")
+parser.add_argument('--mes', type=str, required=True, help="Número do mês desejado no formato MM (ex: 01, 02, etc.)")
+args = parser.parse_args()
+
 # URL a ser acessada
-url = 'https://www.transparencia.mg.gov.br/despesa-estado/despesa/despesa-orgaos/2024/01-01-2024/31-12-2024/4538'
+url = f'https://www.transparencia.mg.gov.br/despesa-estado/despesa/despesa-orgaos/{args.ano}/01-01-{args.ano}/31-12-{args.ano}/4538'
 driver.get(url)
 
-# Mapeamento de meses para números
-meses_numeros = {
-    "Janeiro": "01",
-    "Fevereiro": "02",
-    "Março": "03",
-    "Abril": "04",
-    "Maio": "05",
-    "Junho": "06",
-    "Julho": "07",
-    "Agosto": "08",
-    "Setembro": "09",
-    "Outubro": "10",
-    "Novembro": "11",
-    "Dezembro": "12"
+# Mapeamento de números para nomes de meses
+numeros_meses = {
+    "01": "Janeiro",
+    "02": "Fevereiro",
+    "03": "Março",
+    "04": "Abril",
+    "05": "Maio",
+    "06": "Junho",
+    "07": "Julho",
+    "08": "Agosto",
+    "09": "Setembro",
+    "10": "Outubro",
+    "11": "Novembro",
+    "12": "Dezembro"
 }
 
 def obter_mes_ano_atual(driver):
     return driver.find_element(By.CLASS_NAME, "ui-datepicker-title").text
 
-def selecionar_mes_ano(driver, mes_nome, ano):
+def selecionar_mes_ano(driver, mes_num, ano):
+    mes_nome = numeros_meses[mes_num]
+
     # Tenta avançar para o final da esquerda
     for _ in range(12):  # Limite de 12 tentativas para evitar loops infinitos
         mes_ano_texto = obter_mes_ano_atual(driver)
@@ -98,8 +107,8 @@ try:
         EC.presence_of_element_located((By.ID, "jform_ano"))
     )
     dados = []
-    ano = 2024
-    mes_nome = "Fevereiro"
+    ano = args.ano
+    mes_num = args.mes
 
     select_ano = driver.find_element(By.ID, "jform_ano")
     select_ano.click()
@@ -109,7 +118,7 @@ try:
     campo_fim.click()
     time.sleep(2)
     
-    selecionar_mes_ano(driver, mes_nome, ano)
+    selecionar_mes_ano(driver, mes_num, ano)
     
     try:
         driver.find_element(By.XPATH, "//a[text()='31']").click()
@@ -120,7 +129,7 @@ try:
     campo_inicio.click()
     time.sleep(2)
     
-    selecionar_mes_ano(driver, mes_nome, ano)
+    selecionar_mes_ano(driver, mes_num, ano)
     
     dia_1_link = driver.find_element(By.XPATH, "//td[not(contains(@class, 'ui-datepicker-other-month'))]//a[text()='1']")
     driver.execute_script("arguments[0].click();", dia_1_link)
@@ -192,15 +201,13 @@ try:
             "Valor Liquidado": cols[2].text,
             "Valor Pago": cols[3].text,
             "Ano": str(ano),
-            "Mes": meses_numeros[mes_nome]  # Substitui o nome do mês pelo número correspondente
+            "Mes": mes_num  # Agora usamos o número do mês diretamente
         })
 
     time.sleep(2)
-    caminho_arquivo_json = os.path.join(os.getcwd(), 'selenium_portal_transparencia_meses.json')
+    caminho_arquivo_json = os.path.join(os.getcwd(), 'selenium_portal_transparencia_.json')
     with open(caminho_arquivo_json, 'a') as arquivo_json:
         json.dump(dados, arquivo_json, indent=4, ensure_ascii=False)
         
-    
-
 finally:
     driver.quit()
