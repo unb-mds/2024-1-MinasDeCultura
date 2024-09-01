@@ -7,9 +7,9 @@ import { CalendarClock, MoveLeft, MoveRight } from 'lucide-react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ptBR } from 'date-fns/locale';
+import { fettchYearAndMonthTender } from '../services/api';
 
 interface Dados {
-  id: number;
   committed_value: number;
   liquidated_value: number;
   paid_value: number;
@@ -17,7 +17,7 @@ interface Dados {
   month: number;
 }
 
-const DashboardWithFilter: React.FC = () => {
+const Dashboard: React.FC = () => {
   const [data, setData] = useState<Dados[]>([]);
   const [lineChartSeries, setLineChartSeries] = useState<any>([]);
   const [pieChartSeries, setPieChartSeries] = useState<number[]>([]);
@@ -37,13 +37,13 @@ const DashboardWithFilter: React.FC = () => {
       const endMonth = (endDate.getMonth() + 1).toString().padStart(2, '0');
       const endYear = endDate.getFullYear().toString();
 
-      const response = await fetch(`http://localhost:5000/tenders?start=${startYear}${startMonth}&end=${endYear}${endMonth}`);
-      const data: Dados[] = await response.json();
+      const data = await fettchYearAndMonthTender({ startYear, startMonth, endYear, endMonth });
       setData(data);
 
-      const committedValues = data.map(item => item.committed_value);
-      const liquidatedValues = data.map(item => item.liquidated_value);
-      const paidValues = data.map(item => item.paid_value);
+      const committedValues = data.map((item: Dados) => item.committed_value);
+      const liquidatedValues = data.map((item: Dados) => item.liquidated_value);
+      const paidValues = data.map((item: Dados) => item.paid_value);
+
 
       setLineChartSeries([
         { name: 'Valor Empenhado', data: committedValues },
@@ -51,9 +51,9 @@ const DashboardWithFilter: React.FC = () => {
         { name: 'Valor Pago', data: paidValues }
       ]);
 
-      const totalCommitted = data.reduce((acc, item) => acc + item.committed_value, 0);
-      const totalLiquidated = data.reduce((acc, item) => acc + item.liquidated_value, 0);
-      const totalPaid = data.reduce((acc, item) => acc + item.paid_value, 0);
+      const totalCommitted = data.reduce((acc: number, item: Dados) => acc + item.committed_value, 0);
+      const totalLiquidated = data.reduce((acc: number, item: Dados) => acc + item.liquidated_value, 0);
+      const totalPaid = data.reduce((acc: number, item: Dados) => acc + item.paid_value, 0);
 
       setPieChartSeries([totalCommitted, totalLiquidated, totalPaid]);
       setTotalSales(totalCommitted);
@@ -234,4 +234,4 @@ const DashboardWithFilter: React.FC = () => {
   );
 };
 
-export default DashboardWithFilter;
+export default Dashboard;

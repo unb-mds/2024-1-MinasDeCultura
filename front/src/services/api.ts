@@ -5,8 +5,6 @@ interface SearchParams {
   startMonth: string;
   endYear: string;
   endMonth: string;
-  cityId: number;
-  unitId: string;
 }
 
 export const fetchCities = async () => {
@@ -53,10 +51,10 @@ export const fetchYearTender = async (year: number) => {
     }
 }
 
-export const searchLicitacoes = async (params: SearchParams) => {
-  const { startYear, startMonth, endYear, endMonth, cityId, unitId } = params;
+export const fettchYearAndMonthTender = async (params: SearchParams) => {
+  const { startYear, startMonth, endYear, endMonth } = params;
   
-  const url = `http://localhost:5000/tenders?start=${startYear}${startMonth}&end=${endYear}${endMonth}&city=${cityId}`;
+  const url = `https://minas-cultura-api.onrender.com/tenders?start=${startYear}${startMonth}&end=${endYear}${endMonth}`;
   
   try {
     const response = await axios.get(url);
