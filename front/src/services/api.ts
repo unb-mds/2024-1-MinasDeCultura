@@ -41,16 +41,6 @@ export const fetchYearlyTendersData = async () => {
     }
 };
 
-export const fetchYearTender = async (year: number) => {
-    try {
-        const response = await axios.get(`http://localhost:5000/tenders/year?year=${year}`);
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching year tender data:', error);
-        return [];
-    }
-}
-
 export const fettchYearAndMonthTender = async (params: SearchParams) => {
   const { startYear, startMonth, endYear, endMonth } = params;
   
