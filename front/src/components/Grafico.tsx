@@ -282,8 +282,8 @@ const Grafico: React.FC = () => {
 
   return (
     <div className="w-4/5 mx-auto mt-10">
-      <h1 className='text-lg md:text-xl lg:text-3xl font-bold mb-4 text-center text-neutral-700 dark:text-neutral-300'>
-        Despesas em Cultura em Minas Gerais ao Longo dos Anos (2002-2023)
+      <h1 className='text-xl lg:text-3xl font-DMsans mb-4 text-center text-neutral-700 dark:text-neutral-300'>
+        <strong>Despesas em Cultura em Minas Gerais ao Longo dos Anos (2002-2023)</strong>
       </h1>
       {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
       <div>
@@ -295,22 +295,22 @@ const Grafico: React.FC = () => {
         />
       </div>
       <ul className="space-y-7 mt-8">
-        <li className="flex flex-wrap items-center gap-4 text-base lg:text-lg">
-          <div className="flex-shrink-0 w-8 h-8 legend-color-red rounded-sm"></div>
+        <li className="flex flex-wrap items-center gap-4 text-sm md:text-base lg:text-lg">
+          <div className="flex-shrink-0 w-5 h-5 md:w-8 md:h-8 legend-color-red rounded-sm"></div>
           <div className="text-neutral-700 dark:text-neutral-300 flex flex-1 flex-col md:flex-row items-start md:items-center gap-2">
             <strong className="md:w-40 w-full">Valor Empenhado:</strong>
             <span className="w-full md:w-auto">Valor do orçamento reservado para fazer face a compromisso formalmente assumido com fornecedor ou credor.</span>
           </div>
         </li>
-        <li className="flex flex-wrap items-center gap-4 text-base lg:text-lg">
-          <div className="flex-shrink-0 w-8 h-8 legend-color-orange rounded-sm"></div>
+        <li className="flex flex-wrap items-center gap-4 text-sm md:text-base lg:text-lg">
+          <div className="flex-shrink-0 w-5 h-5 md:w-8 md:h-8 legend-color-orange rounded-sm"></div>
           <div className="text-neutral-700 dark:text-neutral-300 flex flex-1 flex-col md:flex-row items-start md:items-center gap-2">
             <strong className="md:w-40 w-full">Valor Liquidado:</strong>
             <span className="w-full md:w-auto">Valor que o fornecedor ou credor tem direito a receber referente a produto ou serviço devidamente entregue.</span>
           </div>
         </li>
-        <li className="flex flex-wrap items-center gap-4 text-base lg:text-lg">
-          <div className="flex-shrink-0 w-8 h-8 legend-color-green rounded-sm"></div>
+        <li className="flex flex-wrap items-center gap-4 text-sm md:text-base lg:text-lg">
+          <div className="flex-shrink-0 w-5 h-5 md:w-8 md:h-8 legend-color-green rounded-sm"></div>
           <div className="text-neutral-700 dark:text-neutral-300 flex flex-1 flex-col md:flex-row items-start md:items-center gap-2">
             <strong className="md:w-40 w-full">Valor Pago:</strong>
             <span className="w-full md:w-auto">Valor referente aos pagamentos efetuados através de movimentações bancárias, escriturais e apropriação contábil da despesa.</span>

@@ -12,11 +12,12 @@ export default function Home() {
   return (
     <main className="bg-primary-gray dark:bg-neutral-900 flex flex-col items-center min-h-screen gap-10 p-12">
       <Mensagem />
-      <div className="container font-sans">
-        <Slider />
-      </div>  
+      <Slider />
       <Grafico />
       <Busca />
+      <div className="container font-sans mb-5">
+        <Pilares />
+      </div> 
     </main>
   );
 }
