@@ -19,6 +19,11 @@ prefs = {
 }
 options.add_experimental_option("prefs", prefs)
 
+# Adiciona a opção para rodar o Chrome no modo headless (sem interface gráfica)
+options.add_argument("--headless")
+options.add_argument("--disable-gpu")  # Opcional, mas recomendado para algumas versões do Chrome
+options.add_argument("--no-sandbox")  # Opcional, melhora a segurança ao rodar em alguns ambientes
+
 # Inicializa o Chrome WebDriver com as opções definidas
 service = Service()
 driver = webdriver.Chrome(service=service, options=options)
