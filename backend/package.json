@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --passWithNoTests",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
