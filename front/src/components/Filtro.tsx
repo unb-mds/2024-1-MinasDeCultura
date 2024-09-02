@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { ApexOptions } from 'apexcharts';
-import { CalendarClock, MoveLeft, MoveRight } from 'lucide-react';
+import { CalendarClock, MoveLeft, MoveRight, HelpCircle } from 'lucide-react'; // Importação do HelpCircle
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ptBR } from 'date-fns/locale';
@@ -408,17 +408,61 @@ const Dashboard: React.FC = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-4 my-8">
+        {/* Total Empenhado */}
         <div className="w-full sm:w-1/3 p-4 rounded-lg shadow-lg bg-white dark:bg-neutral-800">
-          <h3 className="text-center text-neutral-700 dark:text-neutral-300 text-lg font-semibold mb-2">Total Empenhado</h3>
-          <p className="text-center text-neutral-900 dark:text-neutral-100 text-2xl">R$ {totalSales.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+          <h3 className="flex items-center justify-center text-neutral-700 dark:text-neutral-300 text-lg font-semibold mb-2">
+            Total Empenhado
+            {/* Tooltip */}
+            <div className="relative inline-block ml-2 group">
+              <HelpCircle className="w-5 h-5 text-gray-700 dark:text-neutral-300 cursor-pointer" />
+              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 hidden group-hover:block">
+                <div className="bg-gray-700 text-white text-xs rounded py-1 px-2 text-center">
+                  Valor Empenhado: Valor do orçamento reservado para fazer face a compromisso formalmente assumido com fornecedor ou credor.
+                </div>
+              </div>
+            </div>
+          </h3>
+          <p className="text-center text-neutral-900 dark:text-neutral-100 text-2xl">
+            R$ {totalSales.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+          </p>
         </div>
+
+        {/* Total Liquidado */}
         <div className="w-full sm:w-1/3 p-4 rounded-lg shadow-lg bg-white dark:bg-neutral-800">
-          <h3 className="text-center text-neutral-700 dark:text-neutral-300 text-lg font-semibold mb-2">Total Liquidado</h3>
-          <p className="text-center text-neutral-900 dark:text-neutral-100 text-2xl">R$ {totalRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+          <h3 className="flex items-center justify-center text-neutral-700 dark:text-neutral-300 text-lg font-semibold mb-2">
+            Total Liquidado
+            {/* Tooltip */}
+            <div className="relative inline-block ml-2 group">
+              <HelpCircle className="w-5 h-5 text-gray-700 dark:text-neutral-300 cursor-pointer" />
+              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 hidden group-hover:block">
+                <div className="bg-gray-700 text-white text-xs rounded py-1 px-2 text-center">
+                  Valor Liquidado: Valor que o fornecedor ou credor tem direito a receber referente a produto ou serviço devidamente entregue.
+                </div>
+              </div>
+            </div>
+          </h3>
+          <p className="text-center text-neutral-900 dark:text-neutral-100 text-2xl">
+            R$ {totalRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+          </p>
         </div>
+
+        {/* Total Pago */}
         <div className="w-full sm:w-1/3 p-4 rounded-lg shadow-lg bg-white dark:bg-neutral-800">
-          <h3 className="text-center text-neutral-700 dark:text-neutral-300 text-lg font-semibold mb-2">Total Pago</h3>
-          <p className="text-center text-neutral-900 dark:text-neutral-100 text-2xl">R$ {totalUsers.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+          <h3 className="flex items-center justify-center text-neutral-700 dark:text-neutral-300 text-lg font-semibold mb-2">
+            Total Pago
+            {/* Tooltip */}
+            <div className="relative inline-block ml-2 group">
+              <HelpCircle className="w-5 h-5 text-gray-700 dark:text-neutral-300 cursor-pointer" />
+              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-60 hidden group-hover:block">
+                <div className="bg-gray-700 text-white text-xs rounded py-1 px-2 text-center">
+                  Valor Pago: Valor referente aos pagamentos efetuados através de movimentações bancárias, escriturais e apropriação contábil da despesa.
+                </div>
+              </div>
+            </div>
+          </h3>
+          <p className="text-center text-neutral-900 dark:text-neutral-100 text-2xl">
+            R$ {totalUsers.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+          </p>
         </div>
       </div>
 
