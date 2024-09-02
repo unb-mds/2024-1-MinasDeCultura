@@ -1,28 +1,19 @@
-import globals from "globals";
-import tseslint from "@typescript-eslint/eslint-plugin";
-import pluginReact from "eslint-plugin-react";
+import globals from 'globals';
 
 export default [
   {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    files: ["**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
-      globals: globals.browser,
-      sourceType: "module", // Especifica o uso de módulos ES6
-    },
-    plugins: {
-      "@typescript-eslint": tseslint,
-      "react": pluginReact,
+      ecmaVersion: 2021,
+      sourceType: "module",
+      globals: {
+        ...globals.node,
+        ...globals.es2021,
+      },
     },
     rules: {
-      // Adicione aqui regras personalizadas se necessário
-    },
-  },
-  {
-    files: ["**/*.js"],
-    languageOptions: {
-      sourceType: "commonjs", // Para arquivos .js que usam CommonJS
-    },
-  },
-  ...tseslint.configs.recommended,
-  pluginReact.configs.recommended, // Use as configurações recomendadas
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
+  }
 ];
