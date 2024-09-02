@@ -41,20 +41,7 @@ export const fetchYearlyTendersData = async () => {
     }
 };
 
-export const fettchYearAndMonthTender = async (params: SearchParams) => {
-  const { startYear, startMonth, endYear, endMonth } = params;
-  
-  const url = `http://localhost:5000/tenders?start=${startYear}${startMonth}&end=${endYear}${endMonth}`;
-  
-  try {
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    console.error('Error searching tenders:', error);
-    throw error;
-  }
-};
-/* pra quando a API remota estiver com a lógica certa
+/* pra quando a API remota estiver com a lógica certa*/
 export const fettchYearAndMonthTender = async (params: SearchParams) => {
   const { startYear, startMonth, endYear, endMonth } = params;
   
@@ -67,4 +54,4 @@ export const fettchYearAndMonthTender = async (params: SearchParams) => {
     console.error('Error searching tenders:', error);
     throw error;
   }
-};*/
+};
