@@ -59,6 +59,23 @@
     color: #FFFFFF; /* Texto branco */
 }
 
+/* Estilo para linhas do gráfico */
+.high-contrast .chart-line-emp-enhanced,
+.high-contrast .chart-line-liquidated,
+.high-contrast .chart-line-paid {
+    stroke: #FFFFFF; /* Linha branca para manter contraste */
+}
+
+/* Estilo para a legenda do gráfico */
+.high-contrast .chart-legend-item {
+    color: #FFD700; /* Cor dourada para itens da legenda */
+}
+
+/* Estilo para explicações do gráfico */
+.high-contrast .chart-explanation {
+    color: #FFD700; /* Cor dourada para explicações */
+}
+
 /* Estilo para aumentar o tamanho da fonte */
 .font-lg {
     font-size: 1.25rem; /* Tamanho da fonte aumentado */
@@ -68,3 +85,22 @@
 .font-original {
     font-size: 1rem; /* Tamanho da fonte original */
 }
+
+/* Força a aplicação da cor vermelha */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #ED1C24 !important;
+}
+/* styles.css or a relevant CSS file */
+.legend-color-red {
+    background-color: #ED1C24 !important;
+  }
+  
+  .legend-color-orange {
+    background-color: #F19C28 !important;
+  }
+  
+  .legend-color-green {
+    background-color: #2FB551 !important;
+  }
+  
