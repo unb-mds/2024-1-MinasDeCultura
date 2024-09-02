@@ -7,7 +7,8 @@ on:
       - developer
 
 jobs:
-  test_frontend:
+  frontend-tests:
+    name: Frontend Tests
     runs-on: ubuntu-22.04
 
     steps:
@@ -19,6 +20,14 @@ jobs:
         with:
           node-version: '20.12.2'
 
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ./front/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/front/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Install dependencies
         working-directory: ./front
         run: npm install
@@ -29,4 +38,37 @@ jobs:
 
       - name: Run tests
         working-directory: ./front
+        run: npm test
+
+  backend-tests:
+    name: Backend Tests
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.12.2'
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ./backend/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/backend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: npm install
+
+      - name: Run Lint
+        working-directory: ./backend
+        run: npm run lint
+
+      - name: Run tests
+        working-directory: ./backend
         run: npm test
