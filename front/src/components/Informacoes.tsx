@@ -21,11 +21,11 @@ const Informacoes = () => {
                         Este é um projeto desenvolvido como parte da disciplina de <b>Métodos de Desenvolvimento de Software</b> (MDS) da 
                         Universidade de Brasília (UnB). O objetivo principal deste projeto é criar uma plataforma online para análise e 
                         armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal, utilizando 
-                        informações da Secretaria de Cultura do Estado de Minas Gerais.
+                        informações da Secretaria de Cultura do Estado de Minas Gerais. 
                     </p>
                     <p> </p>
                     <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-2xl 2xl:text-2xl font-DMsans font-regular text-justify leading-10">
-                        A plataforma permite aos usuários filtrar dados por um intervalo de tempo para obter informações de interesse, 
+                        <br></br>A plataforma permite aos usuários filtrar dados por um intervalo de tempo para obter informações de interesse, 
                         além de oferecer um dashboard informativo que facilita a consulta e visualização dos dados. Adicionalmente, 
                         a plataforma busca abranger a comunidade com funcionalidades como modo noturno, alto contraste e aumento de 
                         fonte para melhorar a acessibilidade, além de permitir o acesso via dispositivos móveis, garantindo 

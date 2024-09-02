@@ -27,10 +27,12 @@ const Footer = () => {
             </li>                   
         </ul>
         <div className="flex justify-end gap-6">
-          <Image className="hidden md:flex w-12 h-12 lg:-mt-9 lg:mb-10 -mt-4"
-              src={unblogo}
-              alt='unblogo'
-          />       
+          <a href="https://unb.br" target="_  blank" rel="noopener noreferrer">
+            <Image className="hidden md:flex w-12 h-12 lg:-mt-9 lg:mb-10 -mt-4"
+                src={unblogo}
+                alt='unblogo'
+            />       
+          </a>
           <a href="https://github.com/unb-mds/2024-1-MinasDeCultura" target="_blank" rel="noopener noreferrer">
             <Image className="lg:-mt-12 lg:mb-10 -mt-4"
               src={ImgGit}
