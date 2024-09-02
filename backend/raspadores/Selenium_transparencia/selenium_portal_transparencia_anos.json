@@ -1,6 +1,27 @@
 [
     {
         "orgao": "SECRETARIA DE ESTADO DE CULTURA",
+        "Valor Empenhado": "12.393.520,76",
+        "Valor Liquidado": "12.256.568,78",
+        "Valor Pago": "11.631.714,36",
+        "Ano": "2002"
+    },
+    {
+        "orgao": "SECRETARIA DE ESTADO DE CULTURA",
+        "Valor Empenhado": "11.330.370,08",
+        "Valor Liquidado": "11.328.156,86",
+        "Valor Pago": "11.060.012,21",
+        "Ano": "2003"
+    },
+    {
+        "orgao": "SECRETARIA DE ESTADO DE CULTURA",
+        "Valor Empenhado": "8.561.824,17",
+        "Valor Liquidado": "8.488.209,37",
+        "Valor Pago": "8.299.818,13",
+        "Ano": "2004"
+    },
+    {
+        "orgao": "SECRETARIA DE ESTADO DE CULTURA",
         "Valor Empenhado": "11.836.724,34",
         "Valor Liquidado": "10.695.261,30",
         "Valor Pago": "10.117.617,61",
@@ -134,9 +155,9 @@
     },
     {
         "orgao": "SECRETARIA DE ESTADO DE CULTURA E TURISMO",
-        "Valor Empenhado": "219.325.565,07",
-        "Valor Liquidado": "204.456.362,49",
-        "Valor Pago": "202.236.778,42",
+        "Valor Empenhado": "221.040.326,09",
+        "Valor Liquidado": "205.473.411,30",
+        "Valor Pago": "203.449.438,78",
         "Ano": "2024"
     }
 ]
