@@ -12,16 +12,16 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 ## 📝 Sumário
 - [Minas de Cultura](#projeto-de-análise-de-licitações-culturais)
-    - [Sumário](#sumário)
-    - [Funcionalidades](#funcionalidades-previstas)
-    - [Tecnologias](#tecnologias)
-    - [Web scrapy](https://unb-mds.github.io/2024-1-MinasDeCultura/Como%20executar/Tutorial_scrapy/)
-    - [Identidade Visual](#identidade-visual)
-    - [Desenvolvedores](#desenvolvedores)
-    - [Story Map](https://miro.com/app/board/uXjVKYtRMq0=/?moveToWidget=3458764584482040000&cot=10)
-    - [Arquitetura](https://unb-mds.github.io/2024-1-MinasDeCultura/Arquitetura/Arquitetura/)
-
-
+    - [📝 Sumário](#-sumário)
+    - [🚀 Getting Started](#-getting-started)
+    - [⚙️ Funcionalidades](#%EF%B8%8F-funcionalidades-previstas)
+    - [💻 Tecnologias](#-tecnologias)
+    - [🤖 Identidade Visual](#-identidade-visual)
+    - [👥 Desenvolvedores](#-desenvolvedores)
+    - [🗒 Story Map](#-story-map)
+    - [🛠 Arquitetura](https://unb-mds.github.io/2024-1-MinasDeCultura/Arquitetura/Arquitetura/)
+    - [🧪 Testes](https://unb-mds.github.io/2024-1-MinasDeCultura/Como%20executar/Front-end/Executar%20os%20Testes/)
+    
 ## ⚙️ Funcionalidades Previstas
 
 - **Coleta de Dados:** Implementação de um raspadores utilizando as ferramentas scrapy e selenium.
@@ -65,7 +65,7 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 ### Pré-requisito
 
-- [Docker compose](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+- Baixar o docker compose usando o apt [Aqui](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
  
 ### Clonar o repositório
 
@@ -78,27 +78,6 @@ git clone https://github.com/unb-mds/2024-1-MinasDeCultura.git
 ```bash
 cd 2024-1-MinasDeCultura
 ```
-
-### Configurar o arquivo .env
-
-O projeto depende de algumas variáveis de ambiente que precisam ser configuradas antes de iniciar os containers. No diretório backend do projeto , crie um arquivo .env com as seguintes variáveis, no caso do nosso projeto estamos usando um banco de dados no SUPABASE:
-
-```bash
-SUPABASE_URL=
-SUPABASE_KEY=
-```
-
-Iniciar os containers
-
-Após configurar o .env, você pode iniciar o projeto executando o comando abaixo. Este comando irá construir as imagens Docker necessárias e iniciar todos os serviços definidos no docker-compose.yml:
-
-```bash
-
-    docker compose up
-```
-### Acessar o projeto
-
-Depois que os containers estiverem em execução, você poderá acessar o projeto em http://localhost:3000.
 
 
 ## 🤖 Identidade Visual

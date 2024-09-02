@@ -52,7 +52,7 @@ else:
 
     # Definindo o caminho do diretório baseado na localização do script
     diretorio_atual = os.path.dirname(os.path.abspath(__file__))
-    diretorio_destino = os.path.join(diretorio_atual, '../front/public/data/')
+    diretorio_destino = os.path.join(diretorio_atual, '../../../front/public/data/')
     
     # Criando o diretório se não existir
     os.makedirs(diretorio_destino, exist_ok=True)

@@ -14,11 +14,28 @@ export function Header() {
     const [accessibilityMenuOpen, setAccessibilityMenuOpen] = useState(false);
     const [keepMenuOpen, setKeepMenuOpen] = useState(false);
 
+    // Carrega as configurações do localStorage
+    useEffect(() => {
+        const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+        const savedHighContrast = localStorage.getItem('highContrast') === 'true';
+        const savedFontSize = localStorage.getItem('fontSize') || 'text-base';
+        
+        setDarkMode(savedDarkMode);
+        setHighContrast(savedHighContrast);
+        setFontSize(savedFontSize);
+    }, []);
+
+    // Atualiza as configurações e aplica as classes
     useEffect(() => {
         document.documentElement.classList.toggle('dark', darkMode);
         document.documentElement.classList.toggle('high-contrast', highContrast);
         document.documentElement.classList.toggle('font-lg', fontSize === 'text-lg');
         document.documentElement.classList.toggle('font-original', fontSize === 'text-base');
+
+        // Salva as configurações no localStorage
+        localStorage.setItem('darkMode', darkMode.toString());
+        localStorage.setItem('highContrast', highContrast.toString());
+        localStorage.setItem('fontSize', fontSize);
     }, [darkMode, highContrast, fontSize]);
 
     const toggleNavbar = () => setIsOpen(!isOpen);
@@ -64,7 +81,7 @@ export function Header() {
                 <nav className="hidden md:flex items-center text-lg lg:text-xl space-x-4 font-DMsans">
                     <Link className="text-neutral-700 dark:text-neutral-300 rounded-lg p-2" href="/">HOME</Link>
                     <Link className="text-neutral-700 dark:text-neutral-300 rounded-lg p-2" href="/Sobre">SOBRE</Link>
-                    <Link className="text-neutral-700 dark:text-neutral-300 rounded-xl p-2 bg-primary-red text-white" href="/Pesquisa">PESQUISA</Link>
+                    <Link className="text-white dark:text-neutral-300 rounded-xl p-2 bg-primary-red" href="/Pesquisa">PESQUISA</Link>
                 </nav>
 
                 <div className="relative">

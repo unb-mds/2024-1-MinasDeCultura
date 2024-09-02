@@ -13,19 +13,19 @@ describe('Pilares', () => {
 
     // Check if the first section is rendered
     const firstHeading = screen.getByText(/Deve preservar/i);
-    const firstSubheading = screen.getByText(/o patrimônio cultural do estado de Minas Gerais/i);
+    const firstSubheading = screen.getByText(/patrimônio cultural do estado de Minas Gerais/i);
     expect(firstHeading).toBeInTheDocument();
     expect(firstSubheading).toBeInTheDocument();
 
     // Check if the second section is rendered
     const secondHeading = screen.getByText(/Deve promover/i);
-    const secondSubheading = screen.getByText(/a acessibilidade e inclusão social à cultura/i);
+    const secondSubheading = screen.getByText(/acessibilidade e inclusão social à cultura/i);
     expect(secondHeading).toBeInTheDocument();
     expect(secondSubheading).toBeInTheDocument();
 
     // Check if the third section is rendered
     const thirdHeading = screen.getByText(/Deve fomentar/i);
-    const thirdSubheading = screen.getByText(/a produção artística da população/i);
+    const thirdSubheading = screen.getByText(/produção artística da população/i);
     expect(thirdHeading).toBeInTheDocument();
     expect(thirdSubheading).toBeInTheDocument();
   });

@@ -5,21 +5,21 @@ import Link from 'next/link';
 
 const Busca = () => {
   return (
-    <div className="flex bg-primary-gray dark:bg-neutral-900 p-6">
+    <div className="flex flex-col lg:flex-row items-center justify-center bg-primary-gray dark:bg-neutral-900 p-6">
       <Image
-        className="lg:ml-10 sm:-ml-10 -ml-12 lg:h-auto lg:w-auto lg:mt-2 sm:h-60 sm:w-48 mt-16"
+        className="lg:ml-10 lg:h-auto lg:w-auto sm:h-48 sm:w-48 h-32 w-32 mt-4 lg:mt-0"
         src={Lupa1}
         alt='Lupa1'
       />
-      <div>
-        <h1 className="text-azul-busca dark:text-primary-white font-DMsans mt-20 ml-4 lg:text-4xl sm:text-3xl text-xl">
-          <strong>Faça sua busca <br /> filtrada</strong>:
-          <p className="text-neutral-700 dark:text-neutral-300 lg:text-2xl sm:text-xl text-sm">
-            Veja os dados para cada município do Estado de <br /> Minas Gerais
-          </p>
+      <div className="mt-6 lg:mt-0 lg:ml-8 text-center lg:text-left">
+        <h1 className="text-azul-busca dark:text-primary-white font-DMsans lg:text-4xl sm:text-3xl text-2xl">
+          <strong>Faça sua busca <br className="hidden sm:block" /> filtrada</strong>:
         </h1>
+        <p className="text-neutral-700 dark:text-neutral-300 lg:text-2xl sm:text-xl text-sm mt-2">
+          Veja os dados para cada município do Estado de <br className="hidden sm:block" /> Minas Gerais
+        </p>
         <Link href="/Pesquisa">
-          <button className="flex flex-row items-center gap-2 md:justify-start justify-center bg-primary-red text-white rounded-lg ml-4 mt-8 lg:px-8 lg:py-4 sm:px-6 sm:py-4 px-2 py-1">
+          <button className="flex flex-row items-center gap-2 justify-center bg-primary-red text-white rounded-lg mt-6 lg:px-8 lg:py-4 sm:px-6 sm:py-4 px-4 py-2 mx-auto lg:mx-0">
             Buscar
             <MoveRight className="w-6 h-6" color="#fff" />
           </button>
