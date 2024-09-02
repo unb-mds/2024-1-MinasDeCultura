@@ -81,7 +81,7 @@ const Dashboard: React.FC = () => {
       },
     },
     legend: {
-      position: 'top',
+      position: 'bottom',
       horizontalAlign: 'center',
       fontSize: '14px',
     },
