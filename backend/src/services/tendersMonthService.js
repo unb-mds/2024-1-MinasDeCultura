@@ -22,6 +22,8 @@ async function getTendersByMonth(start, end) {
             );
     }
 
+    query = query.order('year', {ascending: true }).order('month', { ascending: true });
+
     const { data, error } = await query;
 
     if (error) {
