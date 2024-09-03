@@ -19,15 +19,13 @@ describe('Header', () => {
     const toggleButton = screen.getByLabelText(/Open menu/i);
     expect(toggleButton).toBeInTheDocument();
 
-    // Verifica se o menu está inicialmente fechado
-    const menu = document.querySelector('.mobile-menu');
-    expect(menu).toHaveClass('max-h-0');
-
     // Simula o clique para abrir o menu
     fireEvent.click(toggleButton);
 
-    // Verifica se o menu está visível após o clique
-    expect(menu).not.toHaveClass('max-h-0');
+    // Verifica se o menu mobile está visível após o clique
+    const menus = screen.getAllByRole('navigation', { hidden: true });
+    const mobileMenu = menus.find(menu => menu.classList.contains('mobile-menu'));
+    expect(mobileMenu).toBeInTheDocument();
 
     // Verifica se o botão de toggle mudou para "Close menu"
     const closeButton = screen.getByLabelText(/Close menu/i);
@@ -35,6 +33,8 @@ describe('Header', () => {
 
     // Simula o clique para fechar o menu
     fireEvent.click(closeButton);
-    expect(menu).toHaveClass('max-h-0');
+
+    // Verifica se o menu mobile foi fechado
+    expect(mobileMenu).not.toBeInTheDocument();
   });
 });
