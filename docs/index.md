@@ -63,9 +63,11 @@ Através desta aplicação, buscamos oferecer uma maneira mais transparente e ac
 
 ## 🚀 Getting Started
 
-### Pré-requisito
-
-- Baixar o docker compose usando o apt [Aqui](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+### Pré-requisito para rodar localmente
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [Npm](https://www.npmjs.com/) 
+- [Node](https://nodejs.org/en)
  
 ### Clonar o repositório
 
@@ -78,6 +80,9 @@ git clone https://github.com/unb-mds/2024-1-MinasDeCultura.git
 ```bash
 cd 2024-1-MinasDeCultura
 ```
+
+
+Acesse o guia completo [Aqui](https://unb-mds.github.io/2024-1-MinasDeCultura/Como%20executar/Front-end/Executar%20o%20Frontend/)
 
 
 ## 🤖 Identidade Visual
