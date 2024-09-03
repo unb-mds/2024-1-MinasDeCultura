@@ -26,7 +26,7 @@ const insertInitialData = async () => {
 
   // Inserir cidades
   for (const city of uniqueCities) {
-    const { data: cityData, error: cityError } = await supabase
+    const { error: cityError } = await supabase
       .from('cities')
       .upsert({ name: city }, { onConflict: ['name'] })
 
@@ -37,7 +37,7 @@ const insertInitialData = async () => {
 
   // Inserir unidades administrativas
   for (const unit of uniqueUnits) {
-    const { data: unitData, error: unitError } = await supabase
+    const { error: unitError } = await supabase
       .from('administrative_units')
       .upsert({ name: unit }, { onConflict: ['name'] })
 

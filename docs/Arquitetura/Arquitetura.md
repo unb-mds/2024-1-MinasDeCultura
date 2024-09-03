@@ -18,11 +18,15 @@ O deploy do frontend foi realizado na **Vercel**, uma plataforma otimizada para 
 
 ## Backend
 
-O backend do projeto é uma **API REST** desenvolvida com **Express.js**, um framework minimalista para Node.js. Essa API é responsável por gerenciar as requisições dos usuários e interagir com o banco de dados **PostgreSQL**. Utilizamos **pgAdmin** para facilitar a administração e o gerenciamento do banco de dados.
+O backend do projeto é uma **API REST** desenvolvida com [**Express.js**](https://expressjs.com/), um framework minimalista para [**Node.js**](https://nodejs.org/). Esta API é responsável por gerenciar as requisições dos usuários e interagir com o banco de dados [**PostgreSQL**](https://www.postgresql.org/). 
+
+Inicialmente, utilizamos um container de **PostgreSQL** junto com o [**pgAdmin**](https://www.pgadmin.org/) para facilitar a administração e o gerenciamento do banco de dados durante a fase inicial de desenvolvimento. Posteriormente, migramos para o [**Supabase**](https://supabase.com/), que oferece uma solução gerenciada de PostgreSQL com funcionalidades adicionais para desenvolvimento de aplicações web.
 
 ### Deploy do Backend
 
-O deploy da nossa API foi realizado no **Render**, uma plataforma de cloud que oferece deploys automáticos a partir de repositórios Git, suporte a SSL automático e escalabilidade fácil. O Render foi escolhido por sua simplicidade e robustez, permitindo que a API esteja sempre disponível e pronta para responder às requisições com alta performance.
+O deploy da nossa API foi realizado no [**Render**](https://render.com/), uma plataforma de cloud que oferece **deploys automáticos** a partir de repositórios Git, suporte a **SSL automático** e **escalabilidade fácil**. Escolhemos o Render por sua simplicidade e robustez. No entanto, enfrentamos alguns desafios, pois o plano gratuito do Render limita o tempo em que a aplicação permanece ativa quando não está em uso, resultando em períodos de inatividade (downtime).
+
+Para contornar essa limitação, utilizamos outra plataforma chamada [**BetterStack**](https://betterstack.com/), que monitora a aplicação em intervalos regulares. Implementamos um endpoint específico `/health` que verifica a saúde da aplicação a cada 10 minutos. Dessa forma, garantimos que a API esteja sempre disponível e pronta para responder às requisições, mantendo alta performance e evitando o downtime.
 
 ## Banco de Dados
 
@@ -53,14 +57,16 @@ Abaixo estão as principais tecnologias que compõem o projeto:
 
 - **Linguagens de Programação**: [Python](https://docs.python.org/3/), [JavaScript](https://www.javascript.com/), [TypeScript](https://www.typescriptlang.org/)
 - **Framework Web**: [Next.js](https://nextjs.org/)
-- **Banco de Dados**: [PostgreSQL](https://www.postgresql.org/)
+- **Banco de Dados**: [PostgreSQL](https://www.postgresql.org/) e [Supabase](https://supabase.com/)
 - **Ferramentas de Coleta de Dados**: Framework [Scrapy](https://scrapy.org/) com auxílio das bibliotecas [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/) e [Selenium](https://www.selenium.dev/)
+- **Testes**: [Jest](https://jestjs.io/pt-BR/) e [Supertest](https://github.com/ladjs/supertest)
 - **Tecnologias Adicionais**: [Docker](https://www.docker.com/), [Express](https://expressjs.com/), [React](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/)
 
 ## 📁 Histórico de Versão
 
 | Versão |    Data    |                                    Descrição                                     |      Autor      |
 | :----: | :--------: | :------------------------------------------------------------------------------: | :-------------: |
+|  6.0   | 03/09/2024 |         Detalhamento do backend | Isaac Batista|
 |  5.0   | 02/09/2024 |                     Reestruturação da arquitetura                                | Gabriel Scheidt|
 |  4.0   | 16/08/2024 |                     Reestruturação da arquitetura                                | Gabriel Scheidt|
 |  3.0   | 25/04/2024 |                     Reestruturando Documento de Arquitetura                      | Rafael Carvalho |

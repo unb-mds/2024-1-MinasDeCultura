@@ -1,4 +1,4 @@
-const supabase = require('../config/supabaseClient');
+const supabase = require('../../src/config/supabaseClient');
 
 async function getTendersByCityAndDate(start, end, cityId) {
   const startAno = Math.floor(start / 100) % 100;  // Extrai os últimos dois dígitos do ano
