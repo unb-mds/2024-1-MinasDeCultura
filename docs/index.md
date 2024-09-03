@@ -84,9 +84,13 @@ cd 2024-1-MinasDeCultura
 
 - *Desenvolvimento da Identidade Visual:* Investimos tempo no desenvolvimento de uma identidade visual consistente para o projeto, incluindo seleção de cores, tipografia e uma logo autêntica baseada na bandeira. Essa identidade visual reflete nossa visão e valores, e está integrada em toda a interface do usuário e materiais de design.
 
-- *PHome:* 
+- *Desenvolvimento do Style-Guide para Padronização:* Criamos um Style-Guide detalhado. Este guia teve como objetivo central facilitar o processo de prototipação, garantindo consistência visual e de estilo em todas as etapas do desenvolvimento. Com elementos como tipografia, ícones, espaçamentos e componentes definidos de antemão, ganhamos eficiência e coesão em nosso trabalho.
+
+![Style Guide](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Minas_de_cultura.png)
+
+- *PHome:* Com as bases sólidas estabelecidas, criamos o modelo final da nossa página principal.
   
-  ![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
+![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
 
 ## 👥 Desenvolvedores
 

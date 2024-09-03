@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Logo from '@/assets/logo_vermelha.png';
 import Link from 'next/link';
@@ -14,7 +14,8 @@ export function Header() {
     const [accessibilityMenuOpen, setAccessibilityMenuOpen] = useState(false);
     const [keepMenuOpen, setKeepMenuOpen] = useState(false);
 
-    // Carrega as configurações do localStorage
+    const accessibilityMenuRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         const savedDarkMode = localStorage.getItem('darkMode') === 'true';
         const savedHighContrast = localStorage.getItem('highContrast') === 'true';
@@ -25,18 +26,34 @@ export function Header() {
         setFontSize(savedFontSize);
     }, []);
 
-    // Atualiza as configurações e aplica as classes
     useEffect(() => {
         document.documentElement.classList.toggle('dark', darkMode);
         document.documentElement.classList.toggle('high-contrast', highContrast);
         document.documentElement.classList.toggle('font-lg', fontSize === 'text-lg');
         document.documentElement.classList.toggle('font-original', fontSize === 'text-base');
 
-        // Salva as configurações no localStorage
         localStorage.setItem('darkMode', darkMode.toString());
         localStorage.setItem('highContrast', highContrast.toString());
         localStorage.setItem('fontSize', fontSize);
     }, [darkMode, highContrast, fontSize]);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (accessibilityMenuRef.current && !accessibilityMenuRef.current.contains(event.target as Node)) {
+                setAccessibilityMenuOpen(false);
+            }
+        };
+
+        if (accessibilityMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [accessibilityMenuOpen]);
 
     const toggleNavbar = () => setIsOpen(!isOpen);
 
@@ -61,44 +78,47 @@ export function Header() {
     };
 
     return (
-        <header className="flex flex-col items-center bg-primary-white dark:bg-neutral-800 high-contrast:bg-hc-background w-full relative">
-            <div className="py-1 flex w-full h-22 gap-20 px-5 sm:px-10 lg:px-20 xl:px-44 mx-auto items-center justify-between">
-                <div className="flex flex-row items-center justify-center gap-4">
-                    <button
-                        aria-label={isOpen ? 'Close menu' : 'Open menu'}
-                        className="md:hidden inline-flex items-center justify-center p-2 rounded-md"
-                        onClick={toggleNavbar}
-                    >
-                        {isOpen ? <X className="text-neutral-700 dark:text-neutral-300 high-contrast:text-hc-text" /> : <Menu className="text-neutral-700 dark:text-neutral-300 high-contrast:text-hc-text" />}
-                    </button>
-                    <Link href="/" className="flex flex-row items-center justify-center gap-4">
-                        <Image className="size-14 lg:size-20" src={Logo} alt='Logo' />
-                        <h1 className="text-center text-2xl text-neutral-700 dark:text-neutral-300 high-contrast:text-hc-text sm:text-3xl font-DMsans">
-                            <strong>Minas</strong>deCultura
-                        </h1>
-                    </Link>
-                </div>
-                <nav className="hidden md:flex items-center text-lg lg:text-xl space-x-4 font-DMsans">
-                    <Link className="text-neutral-700 dark:text-neutral-300 rounded-lg p-2" href="/">HOME</Link>
-                    <Link className="text-neutral-700 dark:text-neutral-300 rounded-lg p-2" href="/Sobre">SOBRE</Link>
-                    <Link className="text-white dark:text-neutral-300 rounded-xl p-2 bg-primary-red" href="/Pesquisa">PESQUISA</Link>
-                </nav>
+        <header className="flex flex-col md:flex-row items-center bg-primary-white dark:bg-neutral-800 high-contrast:bg-hc-background w-full relative">
+            <div className="py-1 flex w-full h-22 gap-4 sm:gap-20 px-5 sm:px-10 lg:px-20 xl:px-44 mx-auto items-center justify-between">
+                <button
+                    aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                    className="md:hidden inline-flex items-center justify-center p-2 rounded-md"
+                    onClick={toggleNavbar}
+                >
+                    {isOpen ? <X className="text-neutral-700 dark:text-neutral-300 high-contrast:text-hc-text" /> : <Menu className="text-neutral-700 dark:text-neutral-300 high-contrast:text-hc-text" />}
+                </button>
 
-                <div className="relative">
+                <Link href="/" className="flex items-center justify-center gap-2">
+                    <Image className="size-12 lg:size-20" src={Logo} alt='Logo' />
+                    <h1 className="text-center text-xl text-neutral-700 dark:text-neutral-300 high-contrast:text-hc-text sm:text-2xl lg:text-3xl font-DMsans">
+                        <strong>Minas</strong>deCultura
+                    </h1>
+                </Link>
+
+                <div className="relative flex items-center justify-end">
+                    {/* Menu de navegação para desktop */}
+                    <nav className="hidden md:flex items-center text-lg lg:text-xl space-x-4 font-DMsans">
+                        <Link className="text-neutral-700 dark:text-neutral-300 rounded-lg p-2" href="/">HOME</Link>
+                        <Link className="text-neutral-700 dark:text-neutral-300 rounded-lg p-2" href="/Sobre">SOBRE</Link>
+                        <Link className="text-white dark:text-neutral-300 rounded-xl p-2 bg-primary-red" href="/Pesquisa">PESQUISA</Link>
+                    </nav>
+
                     <button
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
-                        className="p-2 rounded-lg bg-gray-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
+                        className="ml-4 p-2 rounded-lg bg-gray-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
                         aria-label="Acessibilidade"
                     >
                         <PersonStanding className="w-6 h-6" />
                     </button>
 
                     {accessibilityMenuOpen && (
-                        <div 
-                            onMouseEnter={handleMouseEnter} 
+                        <div
+                            ref={accessibilityMenuRef}
+                            onMouseEnter={handleMouseEnter}
                             onMouseLeave={closeMenu}
-                            className="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-700 shadow-lg rounded-lg z-10"
+                            className="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-700 shadow-lg rounded-lg z-20"
+                            style={{ top: '100%', transform: 'translateY(0)' }}
                         >
                             <button
                                 onClick={() => { setDarkMode(!darkMode); closeMenu(); }}
@@ -133,19 +153,22 @@ export function Header() {
                 </div>
             </div>
 
-            <nav className={`mobile-menu w-full md:hidden bg-primary-white dark:bg-neutral-900 shadow-lg overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="flex flex-col items-start space-y-1 py-2 px-8 sm:px-10">
-                    <Link href="/">
-                        <button className="text-lg block w-full text-center py-2 font-DMsans text-neutral-700 dark:text-neutral-300">HOME</button>
-                    </Link>
-                    <Link href="/Sobre">
-                        <button className="text-lg block w-full text-center py-2 font-DMsans text-neutral-700 dark:text-neutral-300">SOBRE</button>
-                    </Link>
-                    <Link href="/Pesquisa">
-                        <button className="text-lg block w-full text-center py-2 font-DMsans text-neutral-700 dark:text-neutral-300">PESQUISA FILTRADA</button>
-                    </Link>
-                </div>
-            </nav>
+            {/* Menu de navegação para mobile */}
+            {isOpen && (
+                <nav className="mobile-menu w-full md:hidden bg-primary-white dark:bg-neutral-900 shadow-lg overflow-hidden transition-all duration-300">
+                    <div className="flex flex-col items-start space-y-1 py-2 px-8 sm:px-10">
+                        <Link href="/">
+                            <button className="text-lg block w-full text-center py-2 font-DMsans text-neutral-700 dark:text-neutral-300">HOME</button>
+                        </Link>
+                        <Link href="/Sobre">
+                            <button className="text-lg block w-full text-center py-2 font-DMsans text-neutral-700 dark:text-neutral-300">SOBRE</button>
+                        </Link>
+                        <Link href="/Pesquisa">
+                            <button className="text-lg block w-full text-center py-2 font-DMsans text-neutral-700 dark:text-neutral-300">PESQUISA</button>
+                        </Link>
+                    </div>
+                </nav>
+            )}
         </header>
     );
 }

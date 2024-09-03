@@ -18,9 +18,9 @@ Utilizando a história de usuário elaborada pelo grupo como referência, conceb
 
 ![Estrutura Site](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Estrutura-MinasCult1.png)
 
-### Prototipação da Tela Inicial (em Andamento):
+### Prototipação da Tela Inicial:
 
-Com as bases sólidas estabelecidas, iniciamos o processo de prototipagem da tela inicial.
+Com as bases sólidas estabelecidas, criamos o modelo final da nossa página principal.
 
 ![Home Page](https://raw.githubusercontent.com/unb-mds/2024-1-MinasDeCultura/main/docs/assets/images/Home.jpg)
 
