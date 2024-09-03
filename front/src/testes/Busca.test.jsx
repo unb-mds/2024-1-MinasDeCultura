@@ -3,11 +3,6 @@ import Busca from '../components/Busca';
 import '@testing-library/jest-dom';
 import { MoveRight } from 'lucide-react';
 
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: (props) => <img alt={props.alt} {...props} />, // mock do componente Next.js Image
-}));
-
 jest.mock('lucide-react', () => ({
   MoveRight: (props) => <svg {...props} />, // mock do ícone MoveRight
 }));
