@@ -6,14 +6,23 @@ async function getTendersByMonth(start, end) {
     const endYear = Math.floor(end / 100);
     const endMonth = end % 100;
 
-    const { data, error } = await supabase
-        .from('tendersmonth')
-        .select('*')
-        .or(
-          `and(year.eq.${startYear},month.gte.${startMonth}),` +
-          `and(year.gt.${startYear},year.lt.${endYear}),` +
-          `and(year.eq.${endYear},month.lte.${endMonth})`
-        );
+    let query = supabase.from('tendersmonth').select('*');
+
+    if (startYear === endYear) {
+        query = query
+            .eq('year', startYear)
+            .gte('month', startMonth)
+            .lte('month', endMonth);
+    } else {
+        query = query
+            .or(
+                `and(year.eq.${startYear},month.gte.${startMonth}),` +
+                `and(year.eq.${endYear},month.lte.${endMonth}),` +
+                `and(year.gt.${startYear},year.lt.${endYear})`
+            );
+    }
+
+    const { data, error } = await query;
 
     if (error) {
         throw new Error(error.message);
@@ -25,3 +34,4 @@ async function getTendersByMonth(start, end) {
 module.exports = {
     getTendersByMonth,
 };
+
