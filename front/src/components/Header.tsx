@@ -93,41 +93,43 @@ export function Header() {
                     </button>
 
                     {accessibilityMenuOpen && (
-                        <div 
-                            onMouseEnter={handleMouseEnter} 
-                            onMouseLeave={closeMenu}
-                            className="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-700 shadow-lg rounded-lg z-10"
+                    <div
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={closeMenu}
+                        className="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-700 shadow-lg rounded-lg z-20"
+                        style={{ top: '100%', transform: 'translateY(0)' }}
+                    >
+                        <button
+                            onClick={() => { setDarkMode(!darkMode); closeMenu(); }}
+                            className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
                         >
-                            <button
-                                onClick={() => { setDarkMode(!darkMode); closeMenu(); }}
-                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
-                            >
-                                {darkMode ? <Sun className="w-5 h-5 mr-2" /> : <Moon className="w-5 h-5 mr-2" />}
-                                {darkMode ? 'Modo Claro' : 'Modo Escuro'}
-                            </button>
-                            <button
-                                onClick={() => { setHighContrast(!highContrast); closeMenu(); }}
-                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
-                            >
-                                <Contrast className="w-5 h-5 mr-2" />
-                                {highContrast ? 'Contraste Normal' : 'Alto Contraste'}
-                            </button>
-                            <button
-                                onClick={() => { increaseFontSize(); closeMenu(); }}
-                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
-                            >
-                                <AArrowUp className="w-5 h-5 mr-2" />
-                                Aumentar Fonte
-                            </button>
-                            <button
-                                onClick={() => { resetFontSize(); closeMenu(); }}
-                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
-                            >
-                                <Text className="w-5 h-5 mr-2" />
-                                Fonte Original
-                            </button>
-                        </div>
-                    )}
+                            {darkMode ? <Sun className="w-5 h-5 mr-2" /> : <Moon className="w-5 h-5 mr-2" />}
+                            {darkMode ? 'Modo Claro' : 'Modo Escuro'}
+                        </button>
+                        <button
+                            onClick={() => { setHighContrast(!highContrast); closeMenu(); }}
+                            className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
+                        >
+                            <Contrast className="w-5 h-5 mr-2" />
+                            {highContrast ? 'Contraste Normal' : 'Alto Contraste'}
+                        </button>
+                        <button
+                            onClick={() => { increaseFontSize(); closeMenu(); }}
+                            className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
+                        >
+                            <AArrowUp className="w-5 h-5 mr-2" />
+                            Aumentar Fonte
+                        </button>
+                        <button
+                            onClick={() => { resetFontSize(); closeMenu(); }}
+                            className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
+                        >
+                            <Text className="w-5 h-5 mr-2" />
+                            Fonte Original
+                        </button>
+                    </div>
+                )}
+
                 </div>
             </div>
 
