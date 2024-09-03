@@ -7,7 +7,7 @@
 
 Este projeto foi desenvolvido como parte da disciplina de Métodos de Desenvolvimento de Software (MDS) na Universidade de Brasília (UnB). O objetivo central é criar uma plataforma online para análise e armazenamento de dados de licitações relacionadas aos gastos culturais apoiados pelo Governo Federal. A equipe de desenvolvimento elaborou raspadores personalizados para coletar esses dados, enfrentando o desafio de identificar cidades cujos dados estejam disponíveis e sejam adequados para uso. Utilizamos duas principais tecnologias de raspagem: Scrapy, para dados mais acessíveis e estruturados, e Selenium, para buscas em sites mais complexos que exigem maior interação.
 
-
+DESCONSIDERAR
 Através desta aplicação, buscamos oferecer uma maneira mais transparente e acessível para que o público em geral possa consultar os gastos governamentais em eventos culturais, shows, teatros e outras atividades culturais.
 
 ## 📝 Sumário
