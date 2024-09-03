@@ -35,7 +35,7 @@ async function main() {
         .single()
 
       if (unidadeAdmError || !unidadeAdmData) {
-        const { data, error } = await supabase
+        const { data } = await supabase
           .from('administrative_units')
           .insert([{ name: unidadeAdm }])
           .single()
@@ -52,7 +52,7 @@ async function main() {
         .single()
 
       if (cidadeError || !cidadeData) {
-        const { data, error } = await supabase
+        const { data } = await supabase
           .from('cities')
           .insert([{ name: cidade }])
           .single()
