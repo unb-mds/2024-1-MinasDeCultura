@@ -71,4 +71,7 @@ jobs:
 
       - name: Run tests
         working-directory: ./backend
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: npm test
