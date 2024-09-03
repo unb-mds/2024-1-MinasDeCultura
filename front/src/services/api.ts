@@ -7,26 +7,6 @@ interface SearchParams {
   endMonth: string;
 }
 
-export const fetchCities = async () => {
-  try {
-    const response = await axios.get('http://localhost:5000/cities');
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching cities:', error);
-    throw error;
-  }
-};
-
-export const fetchUnits = async () => {
-  try {
-    const response = await axios.get('http://localhost:5000/units');
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching units:', error);
-    throw error;
-  }
-};
-
 export const fetchYearlyTendersData = async () => {
     try {
         const requests = [];
@@ -41,7 +21,6 @@ export const fetchYearlyTendersData = async () => {
     }
 };
 
-/* pra quando a API remota estiver com a lógica certa*/
 export const fettchYearAndMonthTender = async (params: SearchParams) => {
   const { startYear, startMonth, endYear, endMonth } = params;
   
