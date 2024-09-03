@@ -81,6 +81,7 @@ const Grafico: React.FC = () => {
       tickAmount: 4,
       min: 5000000,
     },
+    
     tooltip: {
       x: {
         format: 'DESPESA DE yyyy'
@@ -109,6 +110,15 @@ const Grafico: React.FC = () => {
           },
           legend: {
             fontSize: '12px',
+          },
+          toolbar: {
+            tools: {
+              zoomin: true,
+              zoomout: true,
+              pan: true,
+              reset: true
+            },
+            autoSelected: 'pan'
           },
         }
       },
@@ -141,6 +151,15 @@ const Grafico: React.FC = () => {
             horizontalAlign: 'center',
             fontSize: '10px',
           },
+          toolbar: {
+            tools: {
+              zoomin: true,
+              zoomout: true,
+              pan: true,
+              reset: true
+            },
+            autoSelected: 'pan'
+          },
         }
       },
       {
@@ -169,6 +188,15 @@ const Grafico: React.FC = () => {
           },
           legend: {
             fontSize: '8px',
+          },
+          toolbar: {
+            tools: {
+              zoomin: true,
+              zoomout: true,
+              pan: true,
+              reset: true
+            },
+            autoSelected: 'pan'
           },
         }
       }
