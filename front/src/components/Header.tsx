@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Logo from '@/assets/logo_vermelha.png';
 import Link from 'next/link';
@@ -13,6 +13,8 @@ export function Header() {
     const [fontSize, setFontSize] = useState('');
     const [accessibilityMenuOpen, setAccessibilityMenuOpen] = useState(false);
     const [keepMenuOpen, setKeepMenuOpen] = useState(false);
+
+    const accessibilityMenuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const savedDarkMode = localStorage.getItem('darkMode') === 'true';
@@ -34,6 +36,24 @@ export function Header() {
         localStorage.setItem('highContrast', highContrast.toString());
         localStorage.setItem('fontSize', fontSize);
     }, [darkMode, highContrast, fontSize]);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (accessibilityMenuRef.current && !accessibilityMenuRef.current.contains(event.target as Node)) {
+                setAccessibilityMenuOpen(false);
+            }
+        };
+
+        if (accessibilityMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [accessibilityMenuOpen]);
 
     const toggleNavbar = () => setIsOpen(!isOpen);
 
@@ -93,43 +113,43 @@ export function Header() {
                     </button>
 
                     {accessibilityMenuOpen && (
-                    <div
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={closeMenu}
-                        className="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-700 shadow-lg rounded-lg z-20"
-                        style={{ top: '100%', transform: 'translateY(0)' }}
-                    >
-                        <button
-                            onClick={() => { setDarkMode(!darkMode); closeMenu(); }}
-                            className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
+                        <div
+                            ref={accessibilityMenuRef}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={closeMenu}
+                            className="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-700 shadow-lg rounded-lg z-20"
+                            style={{ top: '100%', transform: 'translateY(0)' }}
                         >
-                            {darkMode ? <Sun className="w-5 h-5 mr-2" /> : <Moon className="w-5 h-5 mr-2" />}
-                            {darkMode ? 'Modo Claro' : 'Modo Escuro'}
-                        </button>
-                        <button
-                            onClick={() => { setHighContrast(!highContrast); closeMenu(); }}
-                            className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
-                        >
-                            <Contrast className="w-5 h-5 mr-2" />
-                            {highContrast ? 'Contraste Normal' : 'Alto Contraste'}
-                        </button>
-                        <button
-                            onClick={() => { increaseFontSize(); closeMenu(); }}
-                            className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
-                        >
-                            <AArrowUp className="w-5 h-5 mr-2" />
-                            Aumentar Fonte
-                        </button>
-                        <button
-                            onClick={() => { resetFontSize(); closeMenu(); }}
-                            className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
-                        >
-                            <Text className="w-5 h-5 mr-2" />
-                            Fonte Original
-                        </button>
-                    </div>
-                )}
-
+                            <button
+                                onClick={() => { setDarkMode(!darkMode); closeMenu(); }}
+                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
+                            >
+                                {darkMode ? <Sun className="w-5 h-5 mr-2" /> : <Moon className="w-5 h-5 mr-2" />}
+                                {darkMode ? 'Modo Claro' : 'Modo Escuro'}
+                            </button>
+                            <button
+                                onClick={() => { setHighContrast(!highContrast); closeMenu(); }}
+                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
+                            >
+                                <Contrast className="w-5 h-5 mr-2" />
+                                {highContrast ? 'Contraste Normal' : 'Alto Contraste'}
+                            </button>
+                            <button
+                                onClick={() => { increaseFontSize(); closeMenu(); }}
+                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
+                            >
+                                <AArrowUp className="w-5 h-5 mr-2" />
+                                Aumentar Fonte
+                            </button>
+                            <button
+                                onClick={() => { resetFontSize(); closeMenu(); }}
+                                className={`w-full flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 ${darkMode || highContrast ? 'text-black' : 'text-neutral-700 dark:text-neutral-300'}`}
+                            >
+                                <Text className="w-5 h-5 mr-2" />
+                                Fonte Original
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
 
