@@ -1,8 +1,13 @@
 [
     {
-        "link": "/noticias-artigos/8333-biblioteca-publica-estadual-de-minas-gerais-abre-inscricoes-para-o-meu-negocio-e-literatura",
-        "image_url": "/images/2024/Biblioteca_Pública_Estadual_de_Minas_Gerais_Divulgacao_Secult_2.jpg",
-        "title": "Biblioteca Pública Estadual de Minas Gerais abre inscrições para o “Meu Negócio é Literatura”"
+        "link": "/noticias-artigos/8335-governo-do-estado-mostra-cultura-e-cozinha-mineira-nas-paralimpiadas-de-paris",
+        "image_url": "/images/2024/Minas_Bar_Paralimpíadas-1.jpeg",
+        "title": "Governo do Estado mostra cultura e cozinha mineira nas Paralimpíadas de Paris"
+    },
+    {
+        "link": "/noticias-artigos/8334-museu-mineiro-apresenta-o-concerto-as-quatro-estacoes-de-vivaldi-interpretado-pela-orquestra-barroca-musica-figurata",
+        "image_url": "/images/2024/Orquestra_Barroca_Musica_Figurata_-_Foto_Orquestra_Barroca_Musica_Figurata-Divulgação.jpg",
+        "title": "Museu Mineiro apresenta o concerto “As Quatro Estações”, de Vivaldi, interpretado pela Orquestra Barroca Musica Figurata"
     },
     {
         "link": "/noticias-artigos/8332-secult-abre-inscricoes-para-o-curso-gratuito-plano-municipal-de-turismo",
@@ -23,10 +28,5 @@
         "link": "/noticias-artigos/8329-centro-de-arte-popular-inaugura-nesta-quinta-feira-22-exposicao-que-destaca-a-cultura-do-sul-de-minas",
         "image_url": "/images/2024/Exposição_Conexão_FAOP_Guaxupé_em_Ouro_Preto_-_Foto_FAOP-Divulgação.jpg",
         "title": "Centro de Arte Popular inaugura, nesta quinta-feira (22), exposição que destaca a cultura do Sul de Minas"
-    },
-    {
-        "link": "/noticias-artigos/8328-com-premio-de-destino-inovador-minas-gerais-fecha-travel-next-com-mais-de-5-mil-visitantes-e-estimativa-de-r-104-milhoes-em-negocios",
-        "image_url": "/images/2024/Secretário_Leônidas_de_Oliveira_na_Travel_Next_Minas_2024_-_Foto_Leo_Bicalho_-_Secult-MG.jpg",
-        "title": "Com prêmio de destino inovador, Minas Gerais fecha Travel Next com mais de 5 mil visitantes e estimativa de R$ 104 milhões em negócios"
     }
 ]
